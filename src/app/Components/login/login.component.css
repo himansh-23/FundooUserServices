@@ -1,0 +1,19 @@
+.example-card { 
+    background-image: url('../../../../home/administrator/Downloads/img3.jpeg'); 
+    background-size: cover;
+  }
+
+  /*@media (max-width:600px)
+  {
+    .z{
+      display:none;
+      min-height: 100%;
+    }
+  }*/
+
+
+
+
+
+
+

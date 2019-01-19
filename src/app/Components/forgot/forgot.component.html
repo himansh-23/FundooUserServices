@@ -1,0 +1,16 @@
+
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title class="fontsize">
+            Find Your Fundoo Account
+        </mat-card-title>
+    </mat-card-header>
+        <mat-form-field class="example-full-width">
+          <input [value]="email" matInput placeholder="Email Or MobileNumber" type="text" [(ngModel)]="email">
+        </mat-form-field>
+          <div class="example-button-row">
+           <button mat-raised-button 
+            color="primary" type="submit" 
+(click)="onResetSubmit()"> Reset</button>
+          </div>
+</mat-card>

@@ -1,0 +1,29 @@
+<mat-card class="example-card">
+  <mat-card-header>
+      <mat-card-title>Reset PassWord</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+<form [formGroup]="resetForm" (ngSubmit)="onResetPageClick()">
+  <table class="example-continers" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field>
+        <input matInput placeholder="Password" type="password" name="name" [(ngModel)]="user.email"formControlName="email" >
+          </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Re-Type Password" [(ngModel)]="user.password" formControlName="password"
+          type="password" >
+        </mat-form-field>
+      </td>
+    </tr>
+    <div class ="example-button-row">
+      <button mat-raised-button color="primary" type="submit" >Submit</button>
+    </div>
+  </table>
+</form>  
+</mat-card-content>
+</mat-card>

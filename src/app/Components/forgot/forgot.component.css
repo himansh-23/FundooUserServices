@@ -1,0 +1,13 @@
+.example-card {
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    background-size: cover;
+   
+}
+
+.fontsize{
+    text-shadow: 2px;
+    text-align: left;
+}
