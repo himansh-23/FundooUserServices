@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input ,Output,EventEmitter,ViewChild} from '@angular/core';
+import {DashBoardComponent} from '../dash-board/dash-board.component' 
 
 @Component({
   selector: 'app-side-nav',
@@ -7,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideNavComponent implements OnInit {
 
-  constructor() { }
-
+  constructor() {}
+   
   ngOnInit() {
   }
 
