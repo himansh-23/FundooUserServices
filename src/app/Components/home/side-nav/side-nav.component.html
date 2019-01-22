@@ -1,25 +1,44 @@
-
-<mat-sidenav-container fxLayout="row" fxLayoutAlign="start stretch" >
-                <div fxLayout="column" fxflex="20%" style ="max-width: 25%;">
-        <!-- <mat-sidenav #sidenav mode="side">
-                <mat-nav-list fxLayout="row" class="example-sidenav" role="navigation">             
-                <p mat-list-item> Notes</p>
-                <p mat-list-item> Remainder</p>
-                <p mat-list-item>  Edit Labels</p>
-                <p mat-list-item>  Archive</p>
-                <p mat-list-item>  Trash</p>
-                </mat-nav-list>
-        </mat-sidenav> -->
-        
-        </div>
-        <div fxflex="80%">
-        <!-- <mat-sidenav-content>
-                        <button mat-raised-button (click)="sidenav.toggle()">toggle</button>
-                        <p>sgw</p>
-                        <p>sgw</p>
-                        <p>sgw</p>
-                        <p>sgw</p>
-                        <p>sgw</p>
-        </mat-sidenav-content> -->      
-        </div>   
+<mat-sidenav-container class="example-container" autosize >
+        <mat-sidenav #sidenav  class="example-sidenav" mode="side" disableClose >
+           <mat-action-list>
+                        <button mat-list-item> Notes </button>
+                        <button mat-list-item> Remainder </button>
+                        <mat-divider ></mat-divider>
+                        <h6 style="font-size:65%;" matSubheader >LABELS</h6>
+                        <button mat-list-item> Edit Labels </button>
+                        <mat-divider></mat-divider>
+                        <button mat-list-item> Archive </button>
+                        <button mat-list-item> Trash </button>             
+           </mat-action-list>
+        </mat-sidenav>
+                
+        <mat-sidenav-content>
+                        <mat-card class="example-card" >    
+                                        <mat-card-content >
+                                        <div contenteditable="true" aria-label="Title" role="text" > 
+                                        </div>
+                                      <div contenteditable="true" role="textbox"  placeholder="Take A Note..." > </div>
+                                        <div>
+                                        <button mat-icon-button><mat-icon aria-label="Example icon-button with a heart icon">
+                                                add_alert</mat-icon></button>
+                                        <button mat-icon-button><mat-icon aria-label="Example icon-button with a heart icon">
+                                                person_add</mat-icon></button>
+                                        <button mat-icon-button><mat-icon aria-label="Example icon-button with a heart icon">
+                                                palette</mat-icon></button>                
+                                        <button mat-icon-button><mat-icon aria-label="Example icon-button with a heart icon">
+                                                add_photo_alternate</mat-icon></button>
+                                        <button mat-icon-button><mat-icon aria-label="Example icon-button with a heart icon">
+                                                archive</mat-icon></button>
+                                        <button mat-icon-button><mat-icon aria-label="Example icon-button with a heart icon">
+                                                more_vert</mat-icon></button>
+                                        <button mat-icon-button><mat-icon aria-label="Example icon-button with a heart icon">
+                                                subdirectory_arrow_left</mat-icon></button>
+                                        <button mat-icon-button><mat-icon aria-label="Example icon-button with a heart icon">
+                                                subdirectory_arrow_right</mat-icon></button>
+                                        </div>
+                                        
+                                        </mat-card-content>
+                                      
+                                      </mat-card>
+        </mat-sidenav-content>     
 </mat-sidenav-container>

@@ -1,6 +1,35 @@
+.example-container {
+  min-width: 1300px;
+    min-height: 600px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
 .example-sidenav {
-    display: flex;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  }
+  padding: 20px;
+}
+
+.example-card{
+  margin-top: 50px;
+   margin-left: 300px;
+  max-width: 500px; 
+}
+
+.clear{
+  outline: none;
+}
+
+.mat-input-element {
+  /* caret-color: #673ab7; */
+  width: 471px;
+  height: 59px;
+  outline: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+textarea { 
+  resize: none; 
+}
+.xyz{
+  resize: none
+}

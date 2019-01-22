@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NavcontrolService } from './navcontrol.service';
+import { NavtoggleService } from './navtoggle.service';
 
-describe('NavcontrolService', () => {
+describe('NavtoggleService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: NavcontrolService = TestBed.get(NavcontrolService);
+    const service: NavtoggleService = TestBed.get(NavtoggleService);
     expect(service).toBeTruthy();
   });
 });

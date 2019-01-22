@@ -1,5 +1,5 @@
-import { Component, OnInit, Input ,Output,EventEmitter,ViewChild} from '@angular/core';
-import {DashBoardComponent} from '../dash-board/dash-board.component' 
+import { Component, OnInit, Input,ViewChild } from '@angular/core';
+import {MatSidenav} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-side-nav',
@@ -8,9 +8,22 @@ import {DashBoardComponent} from '../dash-board/dash-board.component'
 })
 export class SideNavComponent implements OnInit {
 
-  constructor() {}
+  @Input() value:boolean;
+  @ViewChild('sidenav') public myNav: MatSidenav;
+ constructor() { }
    
   ngOnInit() {
+    
+  }
+
+  ngOnChanges(){
+    this.myNav.toggle();
+  }
+
+  x()
+  {
+    console.log(this.value);
+    
   }
 
 }

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule,NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/login/login.component';
 import {MatCardModule} from '@angular/material/card';
@@ -27,6 +27,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
 
 const  routes:Routes = [
   {path : '' , redirectTo : '/login',pathMatch:'full' },
@@ -58,7 +59,8 @@ const  routes:Routes = [
     ResetpageComponent,
     HomeComponent,
     SideNavComponent,
-    DashBoardComponent
+    DashBoardComponent,
+    
     
   ],
   imports: [
@@ -68,6 +70,7 @@ const  routes:Routes = [
     MatCardModule,
     MatProgressSpinnerModule,
     MatInputModule,
+    NoopAnimationsModule,
     MatButtonModule,
     RouterModule.forRoot(routes),
     FormsModule,
@@ -79,7 +82,10 @@ const  routes:Routes = [
     FlexLayoutModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatDividerModule,MatListModule
+    MatDividerModule,
+    MatListModule,
+    MatMenuModule
+    
     
   ],
   providers: [UserserviceService],

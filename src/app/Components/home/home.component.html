@@ -1,9 +1,9 @@
-<div fxLayout="column" fxLayoutAlign="start stretch" fxFlex="1 1 100%" >
+<div fxLayout="column" fxLayoutAlign="start stretch"  >
 
-<app-dash-board  >
+<app-dash-board (eventClicked)="childEventClicked($event)" >
   </app-dash-board>
-
-<app-side-nav fxFlex="1 1 80%">
+<mat-divider></mat-divider>
+<app-side-nav  [value]="clickedEvent"   fxLayoutAlign="start stretch" fxFlex="1 1 82%">
 
 </app-side-nav>
   
