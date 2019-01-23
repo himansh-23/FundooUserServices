@@ -28,6 +28,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { NotesComponent } from './notes/notes.component';
+import { NotebarComponent } from './notebar/notebar.component';
 
 const  routes:Routes = [
   {path : '' , redirectTo : '/login',pathMatch:'full' },
@@ -60,6 +63,8 @@ const  routes:Routes = [
     HomeComponent,
     SideNavComponent,
     DashBoardComponent,
+    NotesComponent,
+    NotebarComponent,
     
     
   ],
@@ -84,7 +89,8 @@ const  routes:Routes = [
     MatToolbarModule,
     MatDividerModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTooltipModule
     
     
   ],

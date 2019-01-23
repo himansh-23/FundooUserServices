@@ -17,7 +17,6 @@ export class NavtoggleService {
       return this.sidenav.open();
   }
 
-
   public close() {
       return this.sidenav.close();
   }

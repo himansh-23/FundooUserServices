@@ -1,18 +1,18 @@
 .example-container {
   min-width: 1300px;
     min-height: 600px;
-  border: 1px solid rgba(0, 0, 0, 0.5);
+  border: 0px solid rgba(255, 255, 255);
 }
 
 .example-sidenav {
   padding: 20px;
 }
 
-.example-card{
+/*.example-card{
   margin-top: 50px;
    margin-left: 300px;
   max-width: 500px; 
-}
+}*/
 
 .clear{
   outline: none;
@@ -32,4 +32,14 @@ textarea {
 }
 .xyz{
   resize: none
+}
+
+.mat-input-underline {
+  display: none;
+}
+
+.noteclass{
+  max-height: 400px;
+  overflow-y: auto; 
+  
 }

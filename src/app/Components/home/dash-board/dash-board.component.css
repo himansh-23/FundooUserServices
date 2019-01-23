@@ -1,5 +1,6 @@
 .backgcolor{
-    background-color: olivedrab;
+    background-color: rgb(255, 255, 255);
+    /* box-shadow: 2px; */
 }
 
 .mat-icon {
@@ -8,4 +9,8 @@
 
 mat-button{
     margin: 1px;
+}
+
+.oo{
+    background-color: #4CAF50;
 }
