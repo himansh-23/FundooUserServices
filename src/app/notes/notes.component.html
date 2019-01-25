@@ -1,17 +1,16 @@
- <div style="margin:5px;" fxLayoutGap="15px" fxLayoutAlign="center start">
+ <div flexLayout="column" fxLayoutGap="15px" fxLayoutAlign="center center">
+ <div >
     <app-notebar>
           
       </app-notebar>
 </div>
 
-<div style="margin:20px;"  >
-  </div>
-
-    <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="5px" >
+    <div fxLayoutAlign="center center" fxLayoutGap="5px" >
        
          <div *ngFor="let note of allnotes" fxLayout="row wrap" fxLayoutGap="10px" > 
            <app-singlecard [notedetails]= note>
 
            </app-singlecard>
          </div> 
-</div> 
+  </div> 
+</div>
