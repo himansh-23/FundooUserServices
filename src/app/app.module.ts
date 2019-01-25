@@ -29,8 +29,10 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import { NotesComponent } from './notes/notes.component';
-import { NotebarComponent } from './notebar/notebar.component';
+import { NotebarComponent } from './Components/notebar/notebar.component'
+import {NotesComponent} from './notes/notes.component';
+import { SinglecardComponent } from './Components/singlecard/singlecard.component';
+import { NotecrudService } from './service/notecrud.service';
 
 const  routes:Routes = [
   {path : '' , redirectTo : '/login',pathMatch:'full' },
@@ -41,13 +43,14 @@ const  routes:Routes = [
   {path :'resetpassword/:token',component:ResetComponent},
   {path : 'resetpage/:token',component:ResetpageComponent},
   {path : 'home',component:HomeComponent,
-/*children:[
-    {path:'',redirectTo:'overview',pathMatch:'full'},
-    {path:'Notes',component:notes},
-    {path:'Remainders',component:remainders},
-    {path:'EditLabels',component:editLabels},
-    {path:'Overview',component:archive},
-    {path:'Trash',component:trash}]*/
+children:[
+    {path:'',redirectTo:'notebar',pathMatch:'full'},
+    {path:'notebar',component:NotesComponent}
+    // {path:'Remainders',component:remainders},
+    // {path:'EditLabels',component:editLabels},
+    // {path:'Overview',component:archive},
+    // {path:'Trash',component:trash}
+  ]
 }
 ]; 
 
@@ -65,6 +68,7 @@ const  routes:Routes = [
     DashBoardComponent,
     NotesComponent,
     NotebarComponent,
+    SinglecardComponent,
     
     
   ],
@@ -90,11 +94,12 @@ const  routes:Routes = [
     MatDividerModule,
     MatListModule,
     MatMenuModule,
-    MatTooltipModule
+    MatTooltipModule,
+    
     
     
   ],
-  providers: [UserserviceService],
+  providers: [UserserviceService,NotecrudService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

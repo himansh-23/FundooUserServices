@@ -1,10 +1,60 @@
-<div fxLayout="column" fxLayoutAlign="start stretch"  >
+<!-- <div fxLayout="column" fxLayoutAlign="start stretch"  > -->
 
-<app-dash-board (eventClicked)="childEventClicked($event)" >
-  </app-dash-board>
+<!-- <app-dash-board (eventClicked)="childEventClicked($event)" >
+  </app-dash-board> -->
+
+  <mat-toolbar class="toolbar">
+    <mat-toolbar-row>
+        <div fxLayoutAlign="start center" fxFlex="1 1 20%">
+             <button mat-button (click)=sidenav.toggle() > <!-- (click)="onClick()" -->
+                <mat-icon>menu</mat-icon>
+              </button>
+            <span> Fundoo Notes</span>
+          </div>
+            <div fxFlex="1 1 80%" fxLayoutAlign="end stretch" fxLayoutGap.xs="1px"> 
+              <button mat-icon-button><mat-icon>refresh</mat-icon></button>
+              <button mat-icon-button ><mat-icon>view_agenda </mat-icon></button>
+              <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>settings</mat-icon></button>
+              <mat-menu #menu="matMenu">
+                  <button mat-menu-item>Setting</button>
+                  <button mat-menu-item>SendFeedBack</button>
+                  <button mat-menu-item>Help</button>
+                  </mat-menu> 
+              <button mat-icon-button [matMenuTriggerFor]="menu2"><mat-icon>arrow_drop_down</mat-icon></button>
+              <mat-menu #menu2="matMenu">
+                   <button mat-menu-item>SignOut</button>
+             </mat-menu>
+             <button class ="oo" mat-icon-button >P</button>
+           </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
   <mat-divider></mat-divider>
-<app-side-nav  [value]="clickedEvent"   fxLayoutAlign="start stretch" fxFlex="1 1 82%">
 
-</app-side-nav>
+  <mat-sidenav-container style="margin-top:60px;"class="example-container" autosize >
+    <mat-sidenav #sidenav  class="example-sidenav" mode="side"  disableClose >
+       <mat-action-list>
+          <button mat-list-item> Notes </button>
+          <button mat-list-item> Remainder </button>
+          <mat-divider ></mat-divider>
+          <h6 style="font-size:65%;" matSubheader >LABELS</h6>
+          <button mat-list-item> Edit Labels </button>
+          <mat-divider></mat-divider>
+          <button mat-list-item> Archive </button>
+          <button mat-list-item> Trash </button>             
+       </mat-action-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+       <div fxLayout="row">
+          <div fxLayoutAlign="center center" fxLayoutAlign.xs="start center" fxFlexFill>     
+                    <router-outlet ></router-outlet>  <!-- [allnotes]="allnotesdata" -->
+          </div>
+        </div>
+      </mat-sidenav-content>
+   </mat-sidenav-container>
+<!-- <app-side-nav  [value]="clickedEvent"   fxLayoutAlign="start stretch" fxFlex="1 1 82%"> -->
+
+<!-- </app-side-nav> -->
   
-</div>
+<!-- </div> -->

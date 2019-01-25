@@ -1,3 +1,15 @@
-<p>
-  notes works!
-</p>
+ <div fxLayoutGap="10px" fxLayoutAlign="center start">
+
+</div>
+
+<div style="margin:20px;"  >
+  
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+         <div *ngFor="let note of allnotes"> 
+           <app-singlecard [notedetails]= note>
+
+           </app-singlecard>
+         </div> 
+    </div>
+
+</div> 

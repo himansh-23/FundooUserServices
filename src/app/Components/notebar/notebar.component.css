@@ -1,0 +1,19 @@
+.inputclass{
+
+  outline: none;
+  outline-style: none;
+  box-shadow: none;
+  border-color: transparent;
+  border: solid 0px transparent;
+}
+
+.takeanote{
+    outline: none;
+    outline-style: none;
+    box-shadow: none;
+    border-color: transparent;
+    border: solid 0px transparent;
+    max-height: 400px;
+    overflow-y: auto; 
+}
+
