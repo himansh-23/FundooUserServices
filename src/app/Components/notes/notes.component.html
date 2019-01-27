@@ -1,0 +1,17 @@
+ <div flexLayout="column wrap" fxLayoutGap="15px" fxLayoutAlign="center center" >
+    <div>
+        <app-notebar>
+          
+        </app-notebar>
+    </div>
+
+    <div flexLayout="row wrap" fxLayoutGap="10px" >
+       
+         <div *ngFor="let note of allnotes" fxLayout="row wrap" fxLayoutGap="10px" > 
+           <app-singlecard [notedetails]= note > 
+            
+           </app-singlecard>
+         </div> 
+   
+    </div> 
+</div>

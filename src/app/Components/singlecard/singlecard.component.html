@@ -1,4 +1,4 @@
-<mat-card class ="cardresize" >
+<mat-card class ="cardresize" (click)="dostuff()" >
     <mat-card-title>	
         <p >{{notedetails.title}}</p>
     </mat-card-title>
@@ -36,11 +36,15 @@
                           archive
                        </mat-icon>
                     </button>
-                    <button mat-icon-button>
+                    <button mat-icon-button [matMenuTriggerFor]="menu1">
                        <mat-icon aria-label="Example icon-button with a heart icon">
                           more_vert
                        </mat-icon>
                     </button>
+                    <mat-menu #menu1="matMenu">
+                     <button mat-menu-item (click)="noteDelete()">Delete Note</button>
+                     <button mat-menu-item>Add Label</button>
+                     </mat-menu> 
                     
                  </div>
 

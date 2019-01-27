@@ -30,9 +30,10 @@ import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { NotebarComponent } from './Components/notebar/notebar.component'
-import {NotesComponent} from './notes/notes.component';
+import {NotesComponent} from './Components/notes/notes.component';
 import { SinglecardComponent } from './Components/singlecard/singlecard.component';
 import { NotecrudService } from './service/notecrud.service';
+import { EditdialogComponent } from './Components/editdialog/editdialog.component';
 
 const  routes:Routes = [
   {path : '' , redirectTo : '/login',pathMatch:'full' },
@@ -69,6 +70,7 @@ children:[
     NotesComponent,
     NotebarComponent,
     SinglecardComponent,
+    EditdialogComponent,
     
     
   ],

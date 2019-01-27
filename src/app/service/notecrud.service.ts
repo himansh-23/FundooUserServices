@@ -27,14 +27,16 @@ export class NotecrudService {
 
   public createNote(newNote:CreateNoteModel):any
   {
-   // console.log(localStorage.getItem('jwtToken'));
     return this.http.post<CreateNoteModel>(this.noteUrl+'createnote',newNote,httpOptions);
   }
 
-  public getNotes():Observable<CreateNoteModel[]>
+  public getNotes():Observable<CreateNoteModel[]> | any
   {
-  //  console.log(localStorage.getItem('jwtToken'));
     return this.http.get<CreateNoteModel[]>(this.noteUrl+'allnotes',httpOptions2);
+  }
+
+  public deleteNote(newNote:CreateNoteModel):any{
+    return this.http.post(this.noteUrl+'deletenote',newNote,httpOptions);
   }
 }
 

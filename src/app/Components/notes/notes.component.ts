@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CreateNoteModel } from '../Models/createnote.model';
+import {CreateNoteModel} from '../../Models//createnote.model'
 import { Router, ActivatedRoute } from '@angular/router';
-import {NotecrudService} from '../service/notecrud.service'
+import {NotecrudService} from '../../service/notecrud.service'
 
 @Component({
   selector: 'app-notes',
@@ -12,17 +12,18 @@ export class NotesComponent implements OnInit {
 
   //@Input() 
   private  allnotes:CreateNoteModel[];
-  
+ 
   showtoolbar=false;
   constructor(private notecrudservice:NotecrudService ) { }
 
     ngOnInit() {
       this.notecrudservice.getNotes().subscribe(
         response=>{
-         console.log(response);
+          
          this.allnotes=response;
         },
         error =>{
+         
           console.log("Error",error);
         } 
       )

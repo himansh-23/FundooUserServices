@@ -46,11 +46,13 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-       <!-- <div fxLayout="row">
-          <div fxLayoutAlign="center center" fxLayoutAlign.xs="start center" fxFlexFill>      -->
-                    <router-outlet ></router-outlet>  <!-- [allnotes]="allnotesdata" -->
-          <!-- </div>
-        </div> -->
+        <div fxLayout="column wrap" fxLayoutAlign="center center" fxFlexFill>
+            
+                    <router-outlet >
+
+                    </router-outlet>  
+         
+        </div> 
       </mat-sidenav-content>
    </mat-sidenav-container>
 <!-- <app-side-nav  [value]="clickedEvent"   fxLayoutAlign="start stretch" fxFlex="1 1 82%"> -->
