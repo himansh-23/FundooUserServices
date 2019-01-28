@@ -1,3 +1,47 @@
-<p>
-  editdialog works!
-</p>
+<mat-card >
+  <mat-card-title >   
+    <input class="inputclass" matInput style="margin-left:20px;" [(ngModel)]="data.notedetails.title"  ><!-- ng-init={{data.content}} --> 
+    </mat-card-title>   
+    <mat-card-subtitle>
+        <input class="inputclass" matInput style="margin-left:20px;" [(ngModel)]="data.notedetails.content" >
+  <!-- <div class ="takeanote" contenteditable="true"  aria-placeholder='Enter some text' style="margin-left:20px;" 
+  [textContent]="createnote.content" (input)="createnote.content=$event.target.textContent" >
+  </div> -->
+  </mat-card-subtitle>
+
+  <div fxLayout="row"  mat-dialog-actions>
+     <button mat-icon-button>
+        <mat-icon aria-label="Example icon-button with a heart icon">
+           add_alert
+        </mat-icon>
+     </button>
+     <button mat-icon-button>
+        <mat-icon aria-label="Example icon-button with a heart icon">
+           person_add
+        </mat-icon>
+     </button>
+     <button mat-icon-button>
+        <mat-icon aria-label="Example icon-button with a heart icon">
+           palette
+        </mat-icon>
+     </button>
+     <button mat-icon-button>
+        <mat-icon aria-label="Example icon-button with a heart icon">
+           add_photo_alternate
+        </mat-icon>
+     </button>
+     <button mat-icon-button>
+        <mat-icon aria-label="Example icon-button with a heart icon">
+           archive
+        </mat-icon>
+     </button>
+     <button mat-icon-button >
+        <mat-icon aria-label="Example icon-button with a heart icon">
+           more_vert
+        </mat-icon>
+     </button>
+        <button mat-icon-button  [mat-dialog-close]="data.notedetails">Close
+        </button>
+     
+  </div>
+  </mat-card>

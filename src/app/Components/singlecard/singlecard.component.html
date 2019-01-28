@@ -1,15 +1,16 @@
-<mat-card class ="cardresize" (click)="dostuff()" >
-    <mat-card-title>	
+<mat-card class ="cardresize"  ><!-- -->
+  
+    <mat-card-title (click)="dostuff()">	
         <p >{{notedetails.title}}</p>
     </mat-card-title>
-    <mat-card-subtitle>
+
+    <mat-card-subtitle (click)="dostuff()">
        <p>
          {{notedetails.content}}
-         </p>
+         </p>   
     </mat-card-subtitle>
 
     <mat-card-footer >	                         
-        
             <div fxLayout="row" >
                     <button mat-icon-button>
                        <mat-icon aria-label="Example icon-button with a heart icon">
@@ -21,11 +22,21 @@
                           person_add
                        </mat-icon>
                     </button>
-                    <button mat-icon-button>
+                    <button mat-icon-button [matMenuTriggerFor]="menucolor"> <!--*ngFor="let note of allnotes" -->
                        <mat-icon aria-label="Example icon-button with a heart icon">
                           palette
                        </mat-icon>
                     </button>
+                      <mat-menu #menucolor="matMenu">
+                        <mat-list>
+                           <div *ngFor= "let colorx of colors">
+                              <span *ngFor="let singlecolor of colorx">
+                                 <mat-icon>fiber_manual_record</mat-icon>
+                                    <!-- <i style="color:${{singlecolor}}">{{singlecolor}} </i> -->
+                              </span>
+                        </div>
+                        </mat-list>
+                     </mat-menu>  
                     <button mat-icon-button>
                        <mat-icon aria-label="Example icon-button with a heart icon">
                           add_photo_alternate

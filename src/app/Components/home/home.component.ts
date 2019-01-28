@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChild ,AfterViewInit} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {NotecrudService} from '../../service/notecrud.service'
 import { CreateNoteModel } from '../../Models/createnote.model';
-import { NotesComponent } from '../../notes/notes.component';
 
 @Component({
   selector: 'app-home',

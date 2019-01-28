@@ -38,5 +38,9 @@ export class NotecrudService {
   public deleteNote(newNote:CreateNoteModel):any{
     return this.http.post(this.noteUrl+'deletenote',newNote,httpOptions);
   }
+
+  public updateNote(updateNode:CreateNoteModel):any{
+    return this.http.put(this.noteUrl+'updatenote',updateNode,httpOptions);
+  }
 }
 

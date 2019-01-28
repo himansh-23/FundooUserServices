@@ -2,7 +2,7 @@ import { Component, OnInit,Input } from '@angular/core';
 import { CreateNoteModel } from '../../Models/createnote.model';
 import { NotecrudService } from '../../service/notecrud.service';
 import {MatSnackBar} from '@angular/material';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {MatDialog} from '@angular/material';
 import { EditdialogComponent } from '../editdialog/editdialog.component';
 
 @Component({
@@ -12,13 +12,21 @@ import { EditdialogComponent } from '../editdialog/editdialog.component';
 })
 export class SinglecardComponent implements OnInit {
 
-  constructor(private notecrudservice:NotecrudService,private snackBar: MatSnackBar,public dialog: MatDialog) { }
+  private colors:string[][]=[['white',"red","orange","yellow"],["green","teal","blue","dark"],[ "gray",
+            "purple","pink","brown"]];
+
+  
+  constructor(private notecrudservice:NotecrudService,private snackBar: MatSnackBar,private dialog: MatDialog) {
+    var arr_names:string[] = new Array();
+    
+   }
 
   @Input() notedetails:CreateNoteModel;
 
   ngOnInit() {
   }
-
+ 
+ 
   noteDelete()
   {
     console.log(this.notedetails);
@@ -36,15 +44,37 @@ export class SinglecardComponent implements OnInit {
       } 
     );
 
-
   }
 
   dostuff()
   {
-    // const dialogRef = this.dialog.open(EditdialogComponent, {
-    //   width: '400px',
-   //   data: {name: this.name, animal: this.animal}
-    // });
+    const dialogRef = this.dialog.open(EditdialogComponent, {
+      width: '600px',
+      data: {notedetails:this.notedetails}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.notedetails = result;
+      console.log(this.notedetails);
+      this.notecrudservice.updateNote(this.notedetails).subscribe(
+        response => {
+          if(response.statusCode==166)
+          {
+            this.snackBar.open(response.statusMessage,"",{
+              duration:2000,
+            })
+          }
+        },
+        error => {
+           console.log("Error",error);
+        } 
+        )
+    });
+  }
+
+  colorsshow(){
+    
   }
 
 }

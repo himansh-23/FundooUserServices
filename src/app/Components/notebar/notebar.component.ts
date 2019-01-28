@@ -28,6 +28,8 @@ export class NotebarComponent implements OnInit {
   {
     this.barshow=!this.barshow;
     this.createnote.pinned=true;
+    if(this.createnote.content!=null && this.createnote.content!=null)
+    {
    // this.createnote.userid=20;
     this.notecrudservice.createNote(this.createnote).subscribe(
         response =>{
@@ -46,5 +48,6 @@ export class NotebarComponent implements OnInit {
     console.log(this.createnote.title);
     console.log(this.createnote.content);
     }
+  }
 
 }

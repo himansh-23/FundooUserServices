@@ -32,8 +32,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { NotebarComponent } from './Components/notebar/notebar.component'
 import {NotesComponent} from './Components/notes/notes.component';
 import { SinglecardComponent } from './Components/singlecard/singlecard.component';
-import { NotecrudService } from './service/notecrud.service';
 import { EditdialogComponent } from './Components/editdialog/editdialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 const  routes:Routes = [
   {path : '' , redirectTo : '/login',pathMatch:'full' },
@@ -45,8 +45,8 @@ const  routes:Routes = [
   {path : 'resetpage/:token',component:ResetpageComponent},
   {path : 'home',component:HomeComponent,
 children:[
-    {path:'',redirectTo:'notebar',pathMatch:'full'},
-    {path:'notebar',component:NotesComponent}
+    {path:'',redirectTo:'notes',pathMatch:'full'},
+    {path:'notes',component:NotesComponent}
     // {path:'Remainders',component:remainders},
     // {path:'EditLabels',component:editLabels},
     // {path:'Overview',component:archive},
@@ -70,10 +70,11 @@ children:[
     NotesComponent,
     NotebarComponent,
     SinglecardComponent,
-    EditdialogComponent,
-    
-    
+    EditdialogComponent
   ],
+
+  entryComponents: [SinglecardComponent, EditdialogComponent],
+
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -97,11 +98,10 @@ children:[
     MatListModule,
     MatMenuModule,
     MatTooltipModule,
-    
-    
+    MatDialogModule
     
   ],
-  providers: [UserserviceService,NotecrudService],
+  providers: [UserserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
