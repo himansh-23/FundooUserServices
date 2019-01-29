@@ -34,6 +34,7 @@ import {NotesComponent} from './Components/notes/notes.component';
 import { SinglecardComponent } from './Components/singlecard/singlecard.component';
 import { EditdialogComponent } from './Components/editdialog/editdialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { NotecrudService } from './service/notecrud.service';
 
 const  routes:Routes = [
   {path : '' , redirectTo : '/login',pathMatch:'full' },
@@ -101,7 +102,7 @@ children:[
     MatDialogModule
     
   ],
-  providers: [UserserviceService],
+  providers: [UserserviceService,NotecrudService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

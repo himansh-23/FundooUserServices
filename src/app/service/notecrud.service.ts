@@ -30,7 +30,7 @@ export class NotecrudService {
     return this.http.post<CreateNoteModel>(this.noteUrl+'createnote',newNote,httpOptions);
   }
 
-  public getNotes():Observable<CreateNoteModel[]> | any
+  public getNotes():Observable<CreateNoteModel[]>
   {
     return this.http.get<CreateNoteModel[]>(this.noteUrl+'allnotes',httpOptions2);
   }
@@ -40,6 +40,7 @@ export class NotecrudService {
   }
 
   public updateNote(updateNode:CreateNoteModel):any{
+    console.log(updateNode.color);
     return this.http.put(this.noteUrl+'updatenote',updateNode,httpOptions);
   }
 }

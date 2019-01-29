@@ -3,6 +3,7 @@ import {NotecrudService} from '../../service/notecrud.service'
 import { from } from 'rxjs';
 import { CreateNoteModel } from '../../Models/createnote.model';
 import {MatSnackBar} from '@angular/material';
+import { CardsupdateService } from '../../service/cardsupdate.service';
 
 @Component({
   selector: 'app-notebar',
@@ -14,7 +15,7 @@ export class NotebarComponent implements OnInit {
   barshow:boolean=false;
   createnote:CreateNoteModel=new CreateNoteModel;
   //loginmodel:LoginModel=new LoginModel();
-  constructor(private notecrudservice:NotecrudService,private snackBar: MatSnackBar) { }
+  constructor(private cardupdate:CardsupdateService,private notecrudservice:NotecrudService,private snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -39,14 +40,23 @@ export class NotebarComponent implements OnInit {
               duration:2000,
             })
           }
-
+          this.cardupdate.changemessage();
         },
         error =>{
           console.log("Error",error);
         } 
     );
-    console.log(this.createnote.title);
-    console.log(this.createnote.content);
+    this.createnote.archive=false;
+    this.createnote.title=null;
+    this.createnote.content=null;
+    this.createnote.color="";
+    this.createnote.image="";
+    this.createnote.pinned=false;
+    this.createnote.trash=false;
+    this.createnote.remainder="";
+    // console.log(this.createnote.title);
+    // console.log(this.createnote.content);
+    
     }
   }
 

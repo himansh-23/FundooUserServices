@@ -4,6 +4,7 @@ import { NotecrudService } from '../../service/notecrud.service';
 import {MatSnackBar} from '@angular/material';
 import {MatDialog} from '@angular/material';
 import { EditdialogComponent } from '../editdialog/editdialog.component';
+import { CardsupdateService } from '../../service/cardsupdate.service';
 
 @Component({
   selector: 'app-singlecard',
@@ -12,24 +13,20 @@ import { EditdialogComponent } from '../editdialog/editdialog.component';
 })
 export class SinglecardComponent implements OnInit {
 
-  private colors:string[][]=[['white',"red","orange","yellow"],["green","teal","blue","dark"],[ "gray",
-            "purple","pink","brown"]];
-
+  private colors:string[][]=[['white',"FireBrick","orange","LightSkyBlue"],["Lavender","HoneyDew","blue","CadetBlue"],[ "gray",
+            "Peru","pink","brown"]];
   
-  constructor(private notecrudservice:NotecrudService,private snackBar: MatSnackBar,private dialog: MatDialog) {
-    var arr_names:string[] = new Array();
-    
+  constructor(private cardupdate:CardsupdateService,private notecrudservice:NotecrudService,private snackBar: MatSnackBar,private dialog: MatDialog) {
    }
 
   @Input() notedetails:CreateNoteModel;
 
   ngOnInit() {
-  }
- 
+  } 
  
   noteDelete()
   {
-    console.log(this.notedetails);
+    console.log('notedeletecall');
     this.notecrudservice.deleteNote(this.notedetails).subscribe(
       response => {
         if(response.statusCode==166)
@@ -38,18 +35,19 @@ export class SinglecardComponent implements OnInit {
             duration:2000,
           })
         }
+        this.cardupdate.changemessage();
       },
       error =>{
         console.log("Error",error);
-      } 
+      }       
     );
-
+  
   }
 
   dostuff()
   {
     const dialogRef = this.dialog.open(EditdialogComponent, {
-      width: '600px',
+      width: '500px',
       data: {notedetails:this.notedetails}
     });
 
@@ -65,16 +63,52 @@ export class SinglecardComponent implements OnInit {
               duration:2000,
             })
           }
+          this.cardupdate.changemessage();
         },
         error => {
            console.log("Error",error);
         } 
         )
     });
-  }
-
-  colorsshow(){
     
+
   }
 
+  colorchange(singlecolor:string){
+    this.notedetails.color=singlecolor;
+    this.notecrudservice.updateNote(this.notedetails).subscribe(
+      response => {
+        if(response.statusCode==166)
+        {
+          this.snackBar.open(response.statusMessage,"",{
+            duration:2000,
+          })
+        }
+        this.cardupdate.changemessage();
+      },
+      error => {
+         console.log("Error",error);
+      } 
+      );
+      
+
+  }
+
+  archivenote(){
+    this.notedetails.archive=!this.notedetails.archive;
+    this.notecrudservice.updateNote(this.notedetails).subscribe(
+      response => {
+        if(response.statusCode==166)
+        {
+          this.snackBar.open(response.statusMessage,"",{
+            duration:2000,
+          })
+        }
+      },
+      error => {
+         console.log("Error",error);
+      } 
+      );
+      this.cardupdate.changemessage();
+  }
 }

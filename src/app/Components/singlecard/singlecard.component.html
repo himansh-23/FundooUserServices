@@ -1,13 +1,10 @@
-<mat-card class ="cardresize"  ><!-- -->
-  
+<mat-card class ="cardresize" [style.backgroundColor]="notedetails.color" ><!-- -->
     <mat-card-title (click)="dostuff()">	
-        <p >{{notedetails.title}}</p>
+        <p>{{notedetails.title}}</p> 
     </mat-card-title>
 
     <mat-card-subtitle (click)="dostuff()">
-       <p>
-         {{notedetails.content}}
-         </p>   
+       <pre>{{notedetails.content}}</pre>   
     </mat-card-subtitle>
 
     <mat-card-footer >	                         
@@ -31,8 +28,10 @@
                         <mat-list>
                            <div *ngFor= "let colorx of colors">
                               <span *ngFor="let singlecolor of colorx">
-                                 <mat-icon>fiber_manual_record</mat-icon>
+                                 <button mat-icon-button (click)="colorchange(singlecolor)">
+                                 <mat-icon  [style.color]="singlecolor">fiber_manual_record</mat-icon>
                                     <!-- <i style="color:${{singlecolor}}">{{singlecolor}} </i> -->
+                                 </button>
                               </span>
                         </div>
                         </mat-list>
@@ -42,7 +41,7 @@
                           add_photo_alternate
                        </mat-icon>
                     </button>
-                    <button mat-icon-button>
+                    <button mat-icon-button (click)="archivenote()">
                        <mat-icon aria-label="Example icon-button with a heart icon">
                           archive
                        </mat-icon>

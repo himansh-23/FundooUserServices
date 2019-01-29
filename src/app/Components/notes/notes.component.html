@@ -11,11 +11,12 @@
         <div>
 
 
-            <div  >
+            <div >
             <!-- flexLayout="row wrap" fxLayoutGap="10px"> -->
 
-                <div fxLayout="row" fxLayoutAlign="center space-between">
-                    <app-singlecard *ngFor="let note of allnotes" [notedetails]=note class="single-card">
+                <div fxLayout="row" fxLayoutAlign="center start" class="gapfrom">
+                    
+                    <app-singlecard *ngFor="let note of allnotes" [notedetails]=note class="single-card" >
 
                     </app-singlecard>
                 </div>
