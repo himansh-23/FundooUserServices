@@ -1,13 +1,15 @@
 <mat-card class ="cardresize" [style.backgroundColor]="notedetails.color" ><!-- -->
+   <mat-card-header>
     <mat-card-title (click)="dostuff()">	
         <p>{{notedetails.title}}</p> 
     </mat-card-title>
-
-    <mat-card-subtitle (click)="dostuff()">
-       <pre>{{notedetails.content}}</pre>   
-    </mat-card-subtitle>
-
-    <mat-card-footer >	                         
+    <button mat-icon-button fxLayoutAlign="right center"><mat-icon>home</mat-icon></button>
+   </mat-card-header>
+ 
+   <mat-card-subtitle (click)="dostuff()">
+         <pre>{{notedetails.content}}</pre>   
+      </mat-card-subtitle>
+    <mat-card-footer>	                         
             <div fxLayout="row" >
                     <button mat-icon-button>
                        <mat-icon aria-label="Example icon-button with a heart icon">
@@ -57,7 +59,5 @@
                      </mat-menu> 
                     
                  </div>
-
-
                 </mat-card-footer>	                    
 </mat-card>

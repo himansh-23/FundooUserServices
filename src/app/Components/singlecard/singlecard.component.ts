@@ -52,7 +52,7 @@ export class SinglecardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+    //  console.log('The dialog was closed');
       this.notedetails = result;
       console.log(this.notedetails);
       this.notecrudservice.updateNote(this.notedetails).subscribe(

@@ -25,7 +25,7 @@ export class NotebarComponent implements OnInit {
     this.barshow=!this.barshow;
   }
 
-  noteSave()
+   noteSave()
   {
     this.barshow=!this.barshow;
     this.createnote.pinned=true;

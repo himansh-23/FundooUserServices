@@ -1,27 +1,27 @@
-<div fxFlex>
-    <div flexLayout="column"
-     fxLayoutGap="15px" >
-     <!-- fxLayoutAlign="center"> -->
-        <div class="note-bar">
-            <app-notebar>
+<div fxLayout="row" fxLayoutGap="10px">
+    <div   fxFlex="20">
+
+    </div>
+
+<div  fxLayout="column"  fxLayoutGap="20px">
+
+    <div fxLayoutAlign="center start">
+            <app-notebar >
 
             </app-notebar>
-        </div>
 
-        <div>
-
-
-            <div >
+    </div>
+            <div  fxLayout="row wrap" fxLayoutAlign="center center"  fxLayoutGap="15px grid">
             <!-- flexLayout="row wrap" fxLayoutGap="10px"> -->
 
-                <div fxLayout="row" fxLayoutAlign="center start" class="gapfrom">
+                <div *ngFor="let note of allnotes" >
                     
-                    <app-singlecard *ngFor="let note of allnotes" [notedetails]=note class="single-card" >
+                    <app-singlecard  [notedetails]=note >
 
                     </app-singlecard>
                 </div>
 
             </div>
-        </div>
-    </div>
+</div>
+
 </div>

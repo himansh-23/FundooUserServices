@@ -1,14 +1,19 @@
 
 <!-- <div fxLayout="column" fxLayoutGap="10px">  -->
-<mat-card *ngIf=!barshow (click)="fullCardShow()" style="min-width: 300px; margin:20px">
+<mat-card *ngIf=!barshow (click)="fullCardShow()" fxFlex="1 1 calc(15em + 250px)" fxLayoutAlign="center start">
   Take A Note ...
 
 </mat-card>
 
-<mat-card *ngIf=barshow >
+<mat-card *ngIf=barshow fxFlex="1 2 calc(15em + 350px)">
+<mat-card-header>
 <mat-card-title >   
   <input class="inputclass" matInput placeholder="Title" style="margin-left:20px;" [(ngModel)]="createnote.title" > 
-  </mat-card-title>   
+  </mat-card-title>
+  <!-- <button mat-icon-button fxLayoutAlign="right">
+   <mat-icon aria-label="Example icon-button with a heart icon">Edit</mat-icon>
+ </button>  -->
+</mat-card-header>  
   <mat-card-subtitle>
 <div class ="takeanote" contenteditable="true"  aria-placeholder='Enter some text' style="margin-left:20px;" 
 [textContent]="createnote.content" (input)="createnote.content=$event.target.textContent" >
