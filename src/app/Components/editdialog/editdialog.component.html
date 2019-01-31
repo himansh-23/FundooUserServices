@@ -20,11 +20,23 @@
            person_add
         </mat-icon>
      </button>
-     <button mat-icon-button>
+     <button mat-icon-button [matMenuTriggerFor]="menucolor">
         <mat-icon aria-label="Example icon-button with a heart icon">
            palette
         </mat-icon>
      </button>
+     <mat-menu #menucolor="matMenu">
+      <mat-list>
+         <div *ngFor= "let colorx of colors">
+            <span *ngFor="let singlecolor of colorx">
+               <button mat-icon-button (click)="colorchange(singlecolor)" >
+               <mat-icon  [style.color]="singlecolor">fiber_manual_record</mat-icon>
+                  <!-- <i style="color:${{singlecolor}}">{{singlecolor}} </i> -->
+               </button>
+            </span>
+      </div>
+      </mat-list>
+   </mat-menu>  
      <button mat-icon-button>
         <mat-icon aria-label="Example icon-button with a heart icon">
            add_photo_alternate
@@ -40,7 +52,7 @@
            more_vert
         </mat-icon>
      </button>
-        <button mat-icon-button  [mat-dialog-close]="data.notedetails">Close
+        <button mat-icon-button  [mat-dialog-close]="data.notedetails" >Close
         </button>
      
   </div>

@@ -40,7 +40,8 @@ export class NotecrudService {
   }
 
   public updateNote(updateNode:CreateNoteModel):any{
-    console.log(updateNode.color);
+   // console.log(updateNode.color);
+   console.log(updateNode);
     return this.http.put(this.noteUrl+'updatenote',updateNode,httpOptions);
   }
 }
