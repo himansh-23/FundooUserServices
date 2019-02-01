@@ -1,0 +1,12 @@
+<mat-card >
+  <mat-card-title class="size">Edit Labels</mat-card-title>
+ 
+  <mat-card-subtitle>
+    <input matInput style="margin-left:20px;" [(ngModel)]="Label">
+    
+  </mat-card-subtitle>
+  <div mat-dialog-actions>
+      <button mat-icon-button  [mat-dialog-close]="Label" (click)="LabelCreted()">Create</button>
+  </div>
+ 
+</mat-card>

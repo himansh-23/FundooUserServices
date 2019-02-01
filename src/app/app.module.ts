@@ -21,20 +21,20 @@ import { VerifyComponent } from './Components/verify/verify.component';
 import { ResetpageComponent } from './Components/resetpage/resetpage.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { HomeComponent } from './Components/home/home.component';
-import { SideNavComponent } from './Components/home/side-nav/side-nav.component';
-import { DashBoardComponent } from './Components/home/dash-board/dash-board.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import { NotebarComponent } from './Components/notebar/notebar.component'
+import { NotebarComponent } from './Components/notebar/notebar.component';
 import {NotesComponent} from './Components/notes/notes.component';
 import { SinglecardComponent } from './Components/singlecard/singlecard.component';
 import { EditdialogComponent } from './Components/editdialog/editdialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NotecrudService } from './service/notecrud.service';
+import { LabelsComponent } from './Components/labels/labels.component';
+import { EditlabeldialogComponent } from './Components/editlabeldialog/editlabeldialog.component';
 
 const  routes:Routes = [
   {path : '' , redirectTo : '/login',pathMatch:'full' },
@@ -47,7 +47,8 @@ const  routes:Routes = [
   {path : 'home',component:HomeComponent,
 children:[
     {path:'',redirectTo:'notes',pathMatch:'full'},
-    {path:'notes',component:NotesComponent}
+    {path:'notes',component:NotesComponent},
+    {path:'labels/:labelvalue',component:LabelsComponent}
     // {path:'Remainders',component:remainders},
     // {path:'EditLabels',component:editLabels},
     // {path:'Overview',component:archive},
@@ -66,15 +67,15 @@ children:[
     VerifyComponent,
     ResetpageComponent,
     HomeComponent,
-    SideNavComponent,
-    DashBoardComponent,
     NotesComponent,
     NotebarComponent,
     SinglecardComponent,
-    EditdialogComponent
+    EditdialogComponent,
+    LabelsComponent,
+    EditlabeldialogComponent
   ],
 
-  entryComponents: [SinglecardComponent, EditdialogComponent],
+  entryComponents: [SinglecardComponent, EditdialogComponent,EditlabeldialogComponent],
 
   imports: [
     BrowserModule,
@@ -86,6 +87,7 @@ children:[
     NoopAnimationsModule,
     MatButtonModule,
     RouterModule.forRoot(routes),
+    RouterModule.forChild(routes),
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,

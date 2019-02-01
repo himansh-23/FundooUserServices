@@ -9,4 +9,24 @@
     position: fixed;
     z-index: 100;
     width: 100%  !important;
+    color:black;
+}
+
+.f{
+  color:blue;
+}
+.u{
+  color:red;
+}
+.n{
+  color:purple;
+}
+.d{
+  color:blue;
+}
+.o1{
+  color:green;
+}
+.o2{
+  color:red;
 }

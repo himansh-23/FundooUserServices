@@ -1,0 +1,30 @@
+<div fxLayout="row" fxLayoutGap="10px">
+    <div >
+
+    </div>
+
+<div  fxLayout="column"  fxLayoutGap="20px">
+
+    <div fxLayoutAlign="center start">
+            <app-notebar >
+
+            </app-notebar>
+
+    </div>
+            <div  fxLayout="row wrap" fxLayoutAlign="center center"  fxLayoutGap="15px grid">
+            <!-- flexLayout="row wrap" fxLayoutGap="10px"> -->
+            
+                <div *ngFor="let note of allnotes" >
+                    <span *ngFor="let lb of note.labels">
+                      <span *ngIf="labelcheck(lb)">
+                    <app-singlecard  [notedetails]=note>
+
+                    </app-singlecard>
+                  </span>
+                    </span>
+                </div>
+
+            </div>
+</div>
+
+</div>
