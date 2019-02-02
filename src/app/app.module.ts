@@ -48,7 +48,7 @@ const  routes:Routes = [
 children:[
     {path:'',redirectTo:'notes',pathMatch:'full'},
     {path:'notes',component:NotesComponent},
-    {path:'labels/:labelvalue',component:LabelsComponent}
+    {path:'labels/:labelvalue',component:LabelsComponent , runGuardsAndResolvers: 'paramsChange',}
     // {path:'Remainders',component:remainders},
     // {path:'EditLabels',component:editLabels},
     // {path:'Overview',component:archive},
@@ -87,7 +87,7 @@ children:[
     NoopAnimationsModule,
     MatButtonModule,
     RouterModule.forRoot(routes),
-    RouterModule.forChild(routes),
+    
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,

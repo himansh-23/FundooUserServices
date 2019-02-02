@@ -9,6 +9,10 @@
    <mat-card-subtitle (click)="dostuff()">
          <pre>{{notedetails.content}}</pre>   
       </mat-card-subtitle>
+      <mat-card-content>
+         <!-- <span *ngFor="let item of notedetails.labels" class="seprate"> {{item.labelName}}</span> -->
+         <span *ngFor="let item of notedetails.labels" class="seprate">{{item.labelName}}</span>
+      </mat-card-content>
     <mat-card-footer>	                         
             <div fxLayout="row" >
                     <button mat-icon-button>
@@ -55,7 +59,7 @@
                     </button>
                     <mat-menu #menu1="matMenu">
                      <button mat-menu-item (click)="noteDelete()">Delete Note</button>
-                     <button mat-menu-item>Add Label</button>
+                     <button mat-menu-item >Add Label</button>
                      </mat-menu> 
                     
                  </div>

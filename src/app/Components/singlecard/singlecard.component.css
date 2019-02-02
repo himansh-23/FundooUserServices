@@ -28,3 +28,11 @@
    color:yellow;
 }
 
+.seprate{
+    background-color: rgba(217, 217, 217,.5);
+    border-radius: 8px;
+    padding: 2px 5px 2px;
+    margin-left: 2px;
+
+}
+
