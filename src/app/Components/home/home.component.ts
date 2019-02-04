@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit  {
         response=>
         {
           this.labelsall=response;
-          console.log(this.labelsall.length);
+          //console.log(this.labelsall.length);
         }
     )
   }
@@ -42,13 +42,14 @@ export class HomeComponent implements OnInit  {
   {
     const dialogRef = this.dialog.open(EditlabeldialogComponent, {
       width: '300px',
-      height:'400px'
+      height:'350px',
+      data: {labelsall:this.labelsall}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       //  console.log('The dialog was closed');
         //console.log(result);
-        if(result!=null)
+        if(result!=null || result!="")
         {
           this.label.labelName=result;
           this.notecrudservice.createLabel(this.label).subscribe(

@@ -15,17 +15,15 @@ export class LabelsComponent implements OnInit,OnDestroy {
   private  allnotes:CreateNoteModel[];
   labelvalue:string; 
   
-  constructor(private cardupdate:CardsupdateService,private router:Router,private activeRoute: ActivatedRoute) { 
-    
+  constructor(private cardupdate:CardsupdateService,private router:Router,private activeRoute: ActivatedRoute) {   
   }
 
   ngOnInit() {
-
+    
     this.labelvalue=this.activeRoute.snapshot.params['labelvalue'];
-
     this.cardupdate.currentnotes.subscribe(udnotes=>{
       this.allnotes=udnotes});
-
+      
       //This Is will Update filter (labelvalue ) over child route
       this.router.events.subscribe((e: any) => {
         //this.cardupdate.changemessage();

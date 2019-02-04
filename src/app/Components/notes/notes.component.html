@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayoutGap="10px">
+<div fxLayout="row" fxFlexOffset="200px"  fxLayoutGap="10px">
     <div >
 
     </div>
@@ -11,14 +11,15 @@
             </app-notebar>
 
     </div>
-            <div  fxLayout="row wrap" fxLayoutAlign="center center"  fxLayoutGap="15px grid">
+            <div  fxLayout="row wrap" fxLayoutAlign="start center"  fxLayoutGap="15px grid">
             <!-- flexLayout="row wrap" fxLayoutGap="10px"> -->
 
                 <div *ngFor="let note of allnotes" >
-                    
-                    <app-singlecard  [notedetails]=note >
+                    <span *ngIf = !note.archive>
+                        <app-singlecard  [notedetails]=note >
 
-                    </app-singlecard>
+                        </app-singlecard>
+                    </span>
                 </div>
 
             </div>

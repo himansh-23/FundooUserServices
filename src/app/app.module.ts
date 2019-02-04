@@ -35,6 +35,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { NotecrudService } from './service/notecrud.service';
 import { LabelsComponent } from './Components/labels/labels.component';
 import { EditlabeldialogComponent } from './Components/editlabeldialog/editlabeldialog.component';
+import { ArchiveComponent } from './Components/archive/archive.component';
+import { TrashComponent } from './Components/trash/trash.component';
 
 const  routes:Routes = [
   {path : '' , redirectTo : '/login',pathMatch:'full' },
@@ -45,10 +47,12 @@ const  routes:Routes = [
   {path :'resetpassword/:token',component:ResetComponent},
   {path : 'resetpage/:token',component:ResetpageComponent},
   {path : 'home',component:HomeComponent,
-children:[
+  children:[
     {path:'',redirectTo:'notes',pathMatch:'full'},
+    {path:'archive',component:ArchiveComponent},
     {path:'notes',component:NotesComponent},
-    {path:'labels/:labelvalue',component:LabelsComponent , runGuardsAndResolvers: 'paramsChange',}
+    {path:'labels/:labelvalue',component:LabelsComponent , runGuardsAndResolvers: 'paramsChange',},
+    
     // {path:'Remainders',component:remainders},
     // {path:'EditLabels',component:editLabels},
     // {path:'Overview',component:archive},
@@ -72,7 +76,9 @@ children:[
     SinglecardComponent,
     EditdialogComponent,
     LabelsComponent,
-    EditlabeldialogComponent
+    EditlabeldialogComponent,
+    ArchiveComponent,
+    TrashComponent
   ],
 
   entryComponents: [SinglecardComponent, EditdialogComponent,EditlabeldialogComponent],
@@ -87,7 +93,7 @@ children:[
     NoopAnimationsModule,
     MatButtonModule,
     RouterModule.forRoot(routes),
-    
+
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,

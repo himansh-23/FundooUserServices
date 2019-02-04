@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient,HttpHeaders, HttpParams } from '@angular/common/http';
 import {CreateNoteModel} from '../../app/Models/createnote.model';
 import { Observable } from 'rxjs';
 import { Label } from '../Models/label.model';
+
 const httpOptions = {
 
   headers: new HttpHeaders({ 'Content-Type': 'application/json' ,
@@ -14,6 +15,9 @@ const httpOptions = {
       'token':localStorage.getItem('jwtToken')
     })
   };
+
+  const httpParams=new HttpParams();
+  
 
 @Injectable({
   providedIn: 'root'
@@ -48,12 +52,20 @@ export class NotecrudService {
 
   public createLabel(newLabel:Label){
 
-    return this.http.post(this.labelUrl+'create',newLabel,httpOptions);
+    return this.http.post(this.labelUrl,newLabel,httpOptions);
   }
 
   public getAllLabels():Observable<Label[]>
   {
-    return this.http.get<Label[]>(this.labelUrl+'alllabels',httpOptions2);
+    return this.http.get<Label[]>(this.labelUrl,httpOptions2);
+  }
+
+  public updateLabel(updateLabel:Label):any{
+    return this.http.put(this.labelUrl,updateLabel,httpOptions);
+  }
+
+  public addLabelToNote(noteid: Number,labelid: Number):any{
+    return this.http.post(this.labelUrl+'addnotetolabel',httpParams.set('noteid',noteid+'').set('labelid',labelid+''),httpOptions2);
   }
 }
 

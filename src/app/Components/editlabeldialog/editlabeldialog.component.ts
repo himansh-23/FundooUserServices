@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { Label } from '../../Models/label.model';
+import { NotecrudService } from '../../service/notecrud.service';
 
 @Component({
   selector: 'app-editlabeldialog',
@@ -8,20 +10,29 @@ import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 })
 export class EditlabeldialogComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<EditlabeldialogComponent>) { }
+  constructor(public dialogRef: MatDialogRef<EditlabeldialogComponent>,
+    @Inject(MAT_DIALOG_DATA) private data: Label[],private noteCurdService:NotecrudService) { 
+  }
 
   Label:string;
-
+  
   ngOnInit() {
+    console.log(this.data);
   }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
-  LabelCreted()
+  labelnameupdate(updateLabel:Label)
   {
-    //console.log(this.Label);
+    console.log(updateLabel);
+    this.noteCurdService.updateLabel(updateLabel).subscribe(
+      response=>
+      {
+       console.log(response); 
+      }
+    );
   }
 
 }

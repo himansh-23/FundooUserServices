@@ -2,11 +2,23 @@
   <mat-card-title class="size">Edit Labels</mat-card-title>
  
   <mat-card-subtitle>
-    <input matInput style="margin-left:20px;" [(ngModel)]="Label">
+    <br>
+    <input matInput placeholder="Enter Label Name" [(ngModel)]="Label">
     
   </mat-card-subtitle>
-  <div mat-dialog-actions>
+
+  <mat-card-content> 
+    <div *ngFor = "let labesx of data.labelsall">
+        <mat-form-field class="widthadjust">
+      <input matInput [(ngModel)]="labesx.labelName" > 
+    </mat-form-field>
+      <button mat-icon-button (click)="labelnameupdate(labesx)"><mat-icon>
+          check_circle
+      </mat-icon></button>
+    
+    </div>
+  </mat-card-content>
+  <mat-card-footer mat-dialog-actions>
       <button mat-icon-button  [mat-dialog-close]="Label" (click)="LabelCreted()">Create</button>
-  </div>
- 
+      </mat-card-footer>
 </mat-card>

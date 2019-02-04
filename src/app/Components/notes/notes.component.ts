@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CreateNoteModel} from '../../Models//createnote.model'
 import { Router, ActivatedRoute } from '@angular/router';
-import {NotecrudService} from '../../service/notecrud.service'
 import { CardsupdateService } from '../../service/cardsupdate.service';
 
 @Component({
@@ -16,7 +15,7 @@ export class NotesComponent implements OnInit {
   private  allnotes:CreateNoteModel[];
  
   showtoolbar=false;
-  constructor(private cardupdate:CardsupdateService,private notecrudservice:NotecrudService) {}
+  constructor(private cardupdate:CardsupdateService) {}
 
     ngOnInit() {
     

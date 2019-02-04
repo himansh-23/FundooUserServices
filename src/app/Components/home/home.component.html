@@ -10,6 +10,11 @@
                 <mat-icon>menu</mat-icon>
               </button>
             <span class="f"> F<span class="u">u<span class="n">n<span class="d">d<span class="o1">o<span class="o2">o</span></span></span></span></span></span>
+            <!-- <div>
+                <mat-form-field >
+              <input>
+              </mat-form-field>
+            </div> -->
           </div>
             <div fxFlex="1 1 80%" fxLayoutAlign="end stretch" fxLayoutGap.xs="1px"> 
               <button mat-icon-button><mat-icon>refresh</mat-icon></button>
@@ -34,7 +39,7 @@
   <mat-sidenav-container style="margin-top:70px;"class="example-container"  >
     <mat-sidenav #sidenav  class="example-sidenav" mode="side"  disableClose >
        <mat-action-list>
-          <button mat-list-item routerLink="/home/notes" routerLinkActive="active"> Notes </button>
+          <button mat-list-item routerLink="notes" routerLinkActive="active"> Notes </button>
           <button mat-list-item> Remainder </button>
           <mat-divider ></mat-divider>
           <h6 style="font-size:65%;" matSubheader >LABELS</h6>
@@ -48,7 +53,7 @@
           </mat-list>
           <button mat-list-item (click)="EditLabelDialog()"> Edit Labels </button>
           <mat-divider></mat-divider>
-          <button mat-list-item> Archive </button>
+          <button mat-list-item routerLink="archive" routerLinkActive="active"> Archive </button>
           <button mat-list-item> Trash </button>             
        </mat-action-list>
     </mat-sidenav>

@@ -91,24 +91,30 @@ export class SinglecardComponent implements OnInit {
       } 
       );
       
-
   }
 
   archivenote(){
     this.notedetails.archive=!this.notedetails.archive;
+    if(this.notedetails.archive)
+    {
+      this.notedetails.pinned=false;
+    }
+   // console.log(this.notedetails.archive);
     this.notecrudservice.updateNote(this.notedetails).subscribe(
       response => {
         if(response.statusCode==166)
         {
           this.snackBar.open(response.statusMessage,"",{
             duration:2000,
+            
           })
+          this.cardupdate.changemessage();
         }
       },
       error => {
          console.log("Error",error);
       } 
       );
-      this.cardupdate.changemessage();
+      
   }
 }

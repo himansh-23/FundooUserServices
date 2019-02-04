@@ -1,0 +1,12 @@
+
+
+<div fxLayout="row wrap" fxLayoutAlign="start center" fxFlexOffset="200px" fxLayoutGap=" 20px grid">
+  
+  <div *ngFor ="let note of allnotes">
+     <div *ngIf ="note.archive">       
+        <app-singlecard [notedetails]=note>
+
+        </app-singlecard>
+      </div>
+  </div>
+</div>
