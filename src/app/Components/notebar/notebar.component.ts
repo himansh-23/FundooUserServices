@@ -40,7 +40,7 @@ export class NotebarComponent implements OnInit {
               duration:2000,
             })
           }
-          this.cardupdate.changemessage();
+     //     this.cardupdate.changemessage();
         },
         error =>{
           console.log("Error",error);

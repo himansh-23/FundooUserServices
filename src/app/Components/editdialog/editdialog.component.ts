@@ -36,17 +36,14 @@ export class EditdialogComponent implements OnInit {
         if(response.statusCode==166)
         {
           console.log('j');
-          
         }
-        this.cardupdate.changemessage();
-       
+        //this.cardupdate.changemessage();
       },
       error => {
          console.log("Error",error);
       } 
       );
-      
-
+  
   }
 
 }

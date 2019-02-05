@@ -27,15 +27,13 @@ export class HomeComponent implements OnInit  {
         }
     )
   }
-
   constructor(private notecrudservice:NotecrudService,private dialog: MatDialog){
 
   }
 
   childEventClicked(open:boolean)
   {
-    this.clickedEvent=open;
-    
+    this.clickedEvent=open; 
   }
 
   EditLabelDialog()

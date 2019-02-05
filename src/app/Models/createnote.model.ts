@@ -1,3 +1,5 @@
+import { Label } from './label.model';
+
 export class CreateNoteModel{
     title:string; //cannot be null
     content:string; //cannot be null
@@ -10,4 +12,6 @@ export class CreateNoteModel{
     image:string;
     lastModifiedStamp:string;
     remainder:string;
+    id:Number;
+    labels:Label[];
 }

@@ -12,14 +12,16 @@ export class ArchiveComponent implements OnInit {
   private  allnotes:CreateNoteModel[];
 
   constructor(private cradupdate:CardsupdateService) { 
-
+    this.cradupdate.changemessage('true','false');
   }
 
   ngOnInit() {
     
     this.cradupdate.currentnotes.subscribe(
       updatenotes=>
-      this.allnotes=updatenotes);
+      this.allnotes=updatenotes
+      //console.log(this.allnotes
+      );
   }
 
 }

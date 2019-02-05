@@ -9,11 +9,14 @@ export class CardsupdateService implements OnInit{
 
   private allNotes=new BehaviorSubject([]);
   currentnotes=this.allNotes.asObservable();
+  private archive='false';
+  private trash='false';
 
   constructor(private notecrud:NotecrudService) {
     
-    this.notecrud.getNotes().subscribe(
-      response =>{
+    this.notecrud.getNotes(this.archive,this.trash).subscribe(
+      response =>
+      {
         this.allNotes.next(response);
       },
       error=>
@@ -28,11 +31,13 @@ export class CardsupdateService implements OnInit{
     
    }
    
-  changemessage()
+  changemessage(archive:string,trash:string)
   {
-    this.notecrud.getNotes().subscribe(
+    this.archive=archive;
+    this.trash=trash;
+    this.notecrud.getNotes(archive,trash).subscribe(
       response=>{
-  
+        console.log(response);
         this.allNotes.next(response);
       },
       error =>{  
@@ -40,4 +45,21 @@ export class CardsupdateService implements OnInit{
       }
     )          
   }
+
+  changemessage2()
+  {
+    this.notecrud.getNotes(this.archive,this.trash).subscribe(
+      response=>
+      {
+        console.log(response);
+        this.allNotes.next(response);
+      },
+      error =>{  
+       console.log(error);
+      }
+    )          
+
+  }
+
+
 }

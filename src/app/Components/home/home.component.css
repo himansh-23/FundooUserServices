@@ -4,6 +4,9 @@
     border: 0px solid rgba(255, 255, 255);
   }
 
+  .example-sidenav{
+    width:200px;
+  }
   mat-toolbar {
     height: 64px;
     position: fixed;

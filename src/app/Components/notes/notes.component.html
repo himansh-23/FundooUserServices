@@ -11,11 +11,27 @@
             </app-notebar>
 
     </div>
-            <div  fxLayout="row wrap" fxLayoutAlign="start center"  fxLayoutGap="15px grid">
-            <!-- flexLayout="row wrap" fxLayoutGap="10px"> -->
+    <h1>Pinned</h1>
+    <div  fxLayout="row wrap" fxLayoutAlign="start center"  fxLayoutGap="15px grid">
 
                 <div *ngFor="let note of allnotes" >
-                    <span *ngIf = !note.archive>
+                    <span *ngIf=note.pinned>
+                    <app-singlecard  [notedetails]=note >
+
+                    </app-singlecard>
+                </span>
+                
+            </div>
+        </div>
+
+        <h1>
+            Others
+        </h1>
+            <div  fxLayout="row wrap" fxLayoutAlign="start center"  fxLayoutGap="15px grid">
+            <!-- flexLayout="row wrap" fxLayoutGap="10px"> -->
+            
+                <div *ngFor="let note of allnotes" >
+                    <span *ngIf=!note.pinned>
                         <app-singlecard  [notedetails]=note >
 
                         </app-singlecard>

@@ -37,6 +37,8 @@ import { LabelsComponent } from './Components/labels/labels.component';
 import { EditlabeldialogComponent } from './Components/editlabeldialog/editlabeldialog.component';
 import { ArchiveComponent } from './Components/archive/archive.component';
 import { TrashComponent } from './Components/trash/trash.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatChipsModule} from '@angular/material/chips';
 
 const  routes:Routes = [
   {path : '' , redirectTo : '/login',pathMatch:'full' },
@@ -50,6 +52,7 @@ const  routes:Routes = [
   children:[
     {path:'',redirectTo:'notes',pathMatch:'full'},
     {path:'archive',component:ArchiveComponent},
+    {path:'trash',component:TrashComponent},
     {path:'notes',component:NotesComponent},
     {path:'labels/:labelvalue',component:LabelsComponent , runGuardsAndResolvers: 'paramsChange',},
     
@@ -93,7 +96,7 @@ const  routes:Routes = [
     NoopAnimationsModule,
     MatButtonModule,
     RouterModule.forRoot(routes),
-
+    MatCheckboxModule,
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,
@@ -107,7 +110,8 @@ const  routes:Routes = [
     MatListModule,
     MatMenuModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    MatChipsModule
     
   ],
   providers: [UserserviceService,NotecrudService],

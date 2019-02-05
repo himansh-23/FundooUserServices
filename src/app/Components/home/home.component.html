@@ -54,17 +54,15 @@
           <button mat-list-item (click)="EditLabelDialog()"> Edit Labels </button>
           <mat-divider></mat-divider>
           <button mat-list-item routerLink="archive" routerLinkActive="active"> Archive </button>
-          <button mat-list-item> Trash </button>             
+          <button mat-list-item routerLink="trash" routerLinkActive="active"> Trash </button>             
        </mat-action-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
         <!-- <div fxLayout="column wrap" fxLayoutAlign="center center" fxFlexFill> -->
-            
                     <router-outlet >
 
                     </router-outlet>  
-         
         <!-- </div>  -->
       </mat-sidenav-content>
    </mat-sidenav-container>

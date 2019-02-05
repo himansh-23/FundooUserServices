@@ -11,7 +11,10 @@
       </mat-card-subtitle>
       <mat-card-content>
          <!-- <span *ngFor="let item of notedetails.labels" class="seprate"> {{item.labelName}}</span> -->
-         <span *ngFor="let item of notedetails.labels" class="seprate">{{item.labelName}}</span>
+         <mat-chip-list *ngFor="let item of notedetails.labels">
+               <mat-chip> {{item.labelName}}</mat-chip>
+         </mat-chip-list>
+         <!-- <span *ngFor="let item of notedetails.labels" class="seprate">{{item.labelName}}</span> -->
       </mat-card-content>
     <mat-card-footer>	                         
             <div fxLayout="row" >
@@ -59,7 +62,19 @@
                     </button>
                     <mat-menu #menu1="matMenu">
                      <button mat-menu-item (click)="noteDelete()">Delete Note</button>
-                     <button mat-menu-item >Add Label</button>
+                     <button mat-menu-item [matMenuTriggerFor]="menulabel">Add Label</button>
+                     <mat-menu #menulabel="matMenu">
+                        <mat-list>
+                           <div *ngFor= "let label of labelsall">
+                                 {{label.labelName}}  <button (click)="haveThisLabel(label,notedetails)" >Add</button>
+                                 <button (click)="removeThisLabel(label,notedetails)">Remove</button>
+                                 <!-- <mat-checkboxb >Check me!</mat-checkbox> -->
+                               <!-- {{label.labelName}} <button mat-icon-button (click)="lncheck(label,notedetails)"></button> -->
+                        </div>
+                        </mat-list>
+                     </mat-menu>  
+                     <button mat-menu-item (click)="trashnote()">Move To trash</button>
+                     <button mat-menu-item (click)="restore()">Restore</button>
                      </mat-menu> 
                     
                  </div>

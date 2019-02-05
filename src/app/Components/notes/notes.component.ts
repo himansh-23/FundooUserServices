@@ -10,18 +10,22 @@ import { CardsupdateService } from '../../service/cardsupdate.service';
 })
 
 export class NotesComponent implements OnInit {
-
-  //@Input() 
+   
   private  allnotes:CreateNoteModel[];
  
   showtoolbar=false;
-  constructor(private cardupdate:CardsupdateService) {}
+  constructor(private cardupdate:CardsupdateService) {
+    this.cardupdate.changemessage('false','false');
+  }
 
     ngOnInit() {
-    
+
       this.cardupdate.currentnotes.subscribe(udnotes=>
-        this.allnotes=udnotes);
+        
+        this.allnotes=udnotes
+        );
      
+        
   }
 
  

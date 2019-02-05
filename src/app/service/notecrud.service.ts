@@ -16,8 +16,6 @@ const httpOptions = {
     })
   };
 
-  const httpParams=new HttpParams();
-  
 
 @Injectable({
   providedIn: 'root'
@@ -27,27 +25,28 @@ export class NotecrudService {
 
   constructor(private http:HttpClient) { }
 
-  private noteUrl='http://localhost:8082/api/notes/';
-  private labelUrl='http://localhost:8082/api/label/';
+  private noteUrl='http://localhost:8082/api/notes';
+  private labelUrl='http://localhost:8082/api/label';
 
   public createNote(newNote:CreateNoteModel):any
   {
-    return this.http.post<CreateNoteModel>(this.noteUrl+'createnote',newNote,httpOptions);
+    return this.http.post<CreateNoteModel>(this.noteUrl,newNote,httpOptions);
   }
 
-  public getNotes():Observable<CreateNoteModel[]>
+  public getNotes(archive,trash):Observable<CreateNoteModel[]>
   {
-    return this.http.get<CreateNoteModel[]>(this.noteUrl+'allnotes',httpOptions2);
+    return this.http.get<CreateNoteModel[]>(this.noteUrl+'?archive='+archive+'&trash='+trash,httpOptions2);
   }
 
   public deleteNote(newNote:CreateNoteModel):any{
-    return this.http.post(this.noteUrl+'deletenote',newNote,httpOptions);
+    
+    return this.http.delete(this.noteUrl+'?id='+newNote.id,httpOptions);
   }
 
   public updateNote(updateNode:CreateNoteModel):any{
-   // console.log(updateNode.color);
+      
    console.log(updateNode);
-    return this.http.put(this.noteUrl+'updatenote',updateNode,httpOptions);
+    return this.http.put(this.noteUrl,updateNode,httpOptions);
   }
 
   public createLabel(newLabel:Label){
@@ -64,8 +63,13 @@ export class NotecrudService {
     return this.http.put(this.labelUrl,updateLabel,httpOptions);
   }
 
-  public addLabelToNote(noteid: Number,labelid: Number):any{
-    return this.http.post(this.labelUrl+'addnotetolabel',httpParams.set('noteid',noteid+'').set('labelid',labelid+''),httpOptions2);
+  public addLabelToNote(noteid:Number,labelid:Number):any{
+    
+    return this.http.post(this.labelUrl+'/addnotetolabel?noteid='+noteid+'&labelid='+labelid,httpOptions2);
   }
+
+  public deletenotetolabel(noteid:Number,labelid:Number):any{
+    return this.http.delete(this.labelUrl+'/deletenotetolabel?noteid='+noteid+'&labelid='+labelid,httpOptions2);
 }
 
+}
