@@ -2,21 +2,21 @@
 
 <!-- <app-dash-board (eventClicked)="childEventClicked($event)" >
   </app-dash-board> -->
-
   <mat-toolbar class="toolbar">
     <mat-toolbar-row>
-        <div fxLayoutAlign="start center" fxFlex="1 1 20%">
+        <div fxLayoutAlign="start center" fxFlex="1 1 10%">
              <button mat-button (click)=sidenav.toggle() > <!-- (click)="onClick()" -->
                 <mat-icon>menu</mat-icon>
               </button>
             <span class="f"> F<span class="u">u<span class="n">n<span class="d">d<span class="o1">o<span class="o2">o</span></span></span></span></span></span>
-            <!-- <div>
-                <mat-form-field >
-              <input>
-              </mat-form-field>
-            </div> -->
           </div>
-            <div fxFlex="1 1 80%" fxLayoutAlign="end stretch" fxLayoutGap.xs="1px"> 
+          <div  fxLayoutAlign="start center" fxFlex="1 1 70%">
+            <pre>     </pre>
+               <mat-form-field class="full_length">
+                  <input matInput placeholder="search" >
+                </mat-form-field> 
+          </div>
+            <div fxFlex="1 1 20%" fxLayoutAlign="end stretch" fxLayoutGap.xs="1px"> 
               <button mat-icon-button><mat-icon>refresh</mat-icon></button>
               <button mat-icon-button ><mat-icon>view_agenda </mat-icon></button>
               <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>settings</mat-icon></button>
@@ -44,7 +44,7 @@
           <mat-divider ></mat-divider>
           <h6 style="font-size:65%;" matSubheader >LABELS</h6>
           
-          <mat-list>
+          <mat-list>  
            <mat-list-item *ngFor = "let lb of labelsall"> <!--  routerLink="/forgot" -->
             <button routerLink="/home/labels/{{lb.labelName}}" routerLinkActive="active">
             {{lb.labelName}}
@@ -60,7 +60,7 @@
 
     <mat-sidenav-content>
         <!-- <div fxLayout="column wrap" fxLayoutAlign="center center" fxFlexFill> -->
-                    <router-outlet >
+                    <router-outlet>
 
                     </router-outlet>  
         <!-- </div>  -->

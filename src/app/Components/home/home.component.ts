@@ -4,6 +4,7 @@ import { CreateNoteModel } from '../../Models/createnote.model';
 import { EditlabeldialogComponent } from '../editlabeldialog/editlabeldialog.component';
 import {MatDialog} from '@angular/material';
 import { Label } from '../../Models/label.model';
+import { CardsupdateService } from '../../service/cardsupdate.service';
 
 @Component({
   selector: 'app-home',
@@ -27,7 +28,7 @@ export class HomeComponent implements OnInit  {
         }
     )
   }
-  constructor(private notecrudservice:NotecrudService,private dialog: MatDialog){
+  constructor(private notecrudservice:NotecrudService,private dialog: MatDialog,private cardUpdateService:CardsupdateService){
 
   }
 
@@ -45,8 +46,8 @@ export class HomeComponent implements OnInit  {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      //  console.log('The dialog was closed');
-        //console.log(result);
+      
+        this.cardUpdateService.changemessage2();
         if(result!=null || result!="")
         {
           this.label.labelName=result;
@@ -54,15 +55,11 @@ export class HomeComponent implements OnInit  {
               response =>
               {
                console.log(response);
+              
               }
             )
         }
     });
-  }
-
-  ss(l:string)
-  {
-    
   }
   
 }

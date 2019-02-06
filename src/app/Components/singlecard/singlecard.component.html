@@ -3,11 +3,11 @@
     <mat-card-title (click)="dostuff()">	
         <p>{{notedetails.title}}</p> 
     </mat-card-title>
-    <button mat-icon-button fxLayoutAlign="right center"><mat-icon>home</mat-icon></button>
+    <button mat-icon-button  (click)="unpinned()"><mat-icon> pin_drop</mat-icon></button>
    </mat-card-header>
- 
+   
    <mat-card-subtitle (click)="dostuff()">
-         <pre>{{notedetails.content}}</pre>   
+         <p class="wrap_word">{{notedetails.content}}</p>   
       </mat-card-subtitle>
       <mat-card-content>
          <!-- <span *ngFor="let item of notedetails.labels" class="seprate"> {{item.labelName}}</span> -->

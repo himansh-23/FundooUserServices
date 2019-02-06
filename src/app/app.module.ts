@@ -40,6 +40,7 @@ import { TrashComponent } from './Components/trash/trash.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatChipsModule} from '@angular/material/chips';
 
+
 const  routes:Routes = [
   {path : '' , redirectTo : '/login',pathMatch:'full' },
   {path : 'login' ,component:LoginComponent},

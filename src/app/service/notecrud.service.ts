@@ -60,6 +60,7 @@ export class NotecrudService {
   }
 
   public updateLabel(updateLabel:Label):any{
+    console.log(updateLabel);
     return this.http.put(this.labelUrl,updateLabel,httpOptions);
   }
 

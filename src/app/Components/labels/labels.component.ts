@@ -9,7 +9,7 @@ import { Router ,ActivatedRoute} from '@angular/router';
   templateUrl: './labels.component.html',
   styleUrls: ['./labels.component.css']
 })
-export class LabelsComponent implements OnInit,OnDestroy {
+export class LabelsComponent implements OnInit {
 
 
   private  allnotes:CreateNoteModel[];
@@ -28,7 +28,7 @@ export class LabelsComponent implements OnInit,OnDestroy {
       this.router.events.subscribe((e: any) => {
         //this.cardupdate.changemessage();
         this.labelvalue=this.activeRoute.snapshot.params['labelvalue'];
-
+        
       });
   }
 
@@ -41,14 +41,6 @@ export class LabelsComponent implements OnInit,OnDestroy {
     else{
       return false;
     }
-  }
-
-  ngOnDestroy(){
-    console.log('destrou');
-  }
-
-  paramsChange(){
-
   }
 
 }

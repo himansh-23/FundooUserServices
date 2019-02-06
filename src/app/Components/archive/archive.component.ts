@@ -10,7 +10,8 @@ import { CardsupdateService } from '../../service/cardsupdate.service';
 export class ArchiveComponent implements OnInit {
 
   private  allnotes:CreateNoteModel[];
-
+  haspinned;
+  hasunpinned;
   constructor(private cradupdate:CardsupdateService) { 
     this.cradupdate.changemessage('true','false');
   }
@@ -22,6 +23,6 @@ export class ArchiveComponent implements OnInit {
       this.allnotes=updatenotes
       //console.log(this.allnotes
       );
-  }
+    }
 
 }

@@ -20,8 +20,10 @@ export class SinglecardComponent implements OnInit {
             "Peru","pink","brown"]];
   
   private labelsall:Label[];
-  constructor(private cardupdate:CardsupdateService,private notecrudservice:NotecrudService,private snackBar: MatSnackBar,private dialog: MatDialog) {
-   }
+  constructor(private cardupdate:CardsupdateService,private notecrudservice:NotecrudService,private snackBar: MatSnackBar,private dialog: MatDialog) 
+  {
+   
+  }
 
   @Input() notedetails:CreateNoteModel;
 
@@ -120,8 +122,8 @@ export class SinglecardComponent implements OnInit {
             duration:2000,
             
           })
-          this.cardupdate.changemessage2();
         }
+        this.cardupdate.changemessage2();
       },
       error => {
          console.log("Error",error);
@@ -200,5 +202,31 @@ export class SinglecardComponent implements OnInit {
       this.cardupdate.changemessage2();
     }
   )
+  }
+
+  unpinned()
+  {
+    this.notedetails.pinned=!this.notedetails.pinned;
+    if(this.notedetails.pinned)
+    {
+      this.notedetails.archive=false;
+    }
+
+    this.notecrudservice.updateNote(this.notedetails).subscribe(
+      response => {
+        if(response.statusCode==166)
+        {
+          this.snackBar.open(response.statusMessage,"",{
+            duration:2000,
+            
+          })
+        }
+        this.cardupdate.changemessage2();
+      },
+      error => {
+         console.log("Error",error);
+      } 
+      );
+
   }
 }

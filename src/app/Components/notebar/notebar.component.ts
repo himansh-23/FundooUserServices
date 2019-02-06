@@ -25,13 +25,12 @@ export class NotebarComponent implements OnInit {
     this.barshow=!this.barshow;
   }
 
-   noteSave()
+  noteSave()
   {
     this.barshow=!this.barshow;
     this.createnote.pinned=true;
     if(this.createnote.content!=null && this.createnote.content!=null)
     {
-   // this.createnote.userid=20;
     this.notecrudservice.createNote(this.createnote).subscribe(
         response =>{
           if(response.statusCode==166)
@@ -39,8 +38,8 @@ export class NotebarComponent implements OnInit {
             this.snackBar.open(response.statusMessage,"",{
               duration:2000,
             })
-          }
-     //     this.cardupdate.changemessage();
+          }  
+          this.cardupdate.changemessage2();
         },
         error =>{
           console.log("Error",error);

@@ -21,6 +21,7 @@
 .cardresize{
 
     min-width: 150px;
+    max-width: 300px;
     /* min-height:100px; */
 }
 
@@ -33,6 +34,12 @@
     border-radius: 8px;
     padding: 2px 5px 2px;
     margin-left: 2px;
+
+}
+
+.wrap_word{
+
+    overflow:inherit;
 
 }
 
