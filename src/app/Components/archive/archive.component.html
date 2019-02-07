@@ -1,10 +1,10 @@
 
-<div fxLayoutAlign="center center" fxFlexOffset="10%">
-<div *ngIf="(allnotes).length == 0">
-  <P class="textsize">No archived notes 
-  </P> 
+
+<div *ngIf="(allnotes).length == 0" fxLayout="row" fxLayoutAlign="center center" fxFlexOffset="40%">
+
+  <p class="textsize">No archived notes 
+  </p> 
   <i class="material-icons " style="font-size: 90px;" >archive</i>
-  </div>
 </div>
 
 <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlexOffset="10%" fxLayoutGap=" 20px grid">

@@ -71,6 +71,11 @@ export class NotecrudService {
 
   public deletenotetolabel(noteid:Number,labelid:Number):any{
     return this.http.delete(this.labelUrl+'/deletenotetolabel?noteid='+noteid+'&labelid='+labelid,httpOptions2);
-}
+  }
+
+  public deleteLabel(labelId:Number):any{
+    return this.http.delete(this.labelUrl+'?labelId='+labelId,httpOptions2);
+  }
+
 
 }

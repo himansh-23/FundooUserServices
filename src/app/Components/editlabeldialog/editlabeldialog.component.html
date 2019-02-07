@@ -9,8 +9,12 @@
 
   <mat-card-content> 
     <div *ngFor = "let labesx of data.labelsall">
+      <button mat-icon-button (click)="deleteLabel(labesx)"><mat-icon>
+        delete
+      </mat-icon>
+      </button>
         <mat-form-field class="widthadjust">
-      <input matInput [(ngModel)]="labesx.labelName" > 
+      <input matInput [(ngModel)]="labesx.labelName"> 
     </mat-form-field>
       <button mat-icon-button (click)="labelnameupdate(labesx)"><mat-icon>
           check_circle
@@ -19,6 +23,6 @@
     </div>
   </mat-card-content>
   <mat-card-footer mat-dialog-actions>
-      <button mat-icon-button  [mat-dialog-close]="Label" (click)="LabelCreted()">Create</button>
+      <button mat-icon-button  [mat-dialog-close]="Label">Create</button>
       </mat-card-footer>
 </mat-card>

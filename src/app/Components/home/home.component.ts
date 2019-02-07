@@ -5,6 +5,7 @@ import { EditlabeldialogComponent } from '../editlabeldialog/editlabeldialog.com
 import {MatDialog} from '@angular/material';
 import { Label } from '../../Models/label.model';
 import { CardsupdateService } from '../../service/cardsupdate.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +29,7 @@ export class HomeComponent implements OnInit  {
         }
     )
   }
-  constructor(private notecrudservice:NotecrudService,private dialog: MatDialog,private cardUpdateService:CardsupdateService){
+  constructor(private notecrudservice:NotecrudService,private dialog: MatDialog,private cardUpdateService:CardsupdateService,private router:Router){
 
   }
 
@@ -48,7 +49,13 @@ export class HomeComponent implements OnInit  {
     dialogRef.afterClosed().subscribe(result => {
       
         this.cardUpdateService.changemessage2();
-        if(result!=null || result!="")
+        this.notecrudservice.getAllLabels().subscribe(
+          response =>
+            {
+              this.labelsall=response;
+            }
+        )
+        if(result!=null && result!="")
         {
           this.label.labelName=result;
           this.notecrudservice.createLabel(this.label).subscribe(
@@ -60,6 +67,14 @@ export class HomeComponent implements OnInit  {
             )
         }
     });
+  }
+
+  signout()
+  {
+    localStorage.removeItem('jwtToken');
+    this.router.navigate(['/login'])
+
+    
   }
   
 }

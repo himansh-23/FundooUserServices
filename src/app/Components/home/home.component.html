@@ -16,7 +16,7 @@
                   <input matInput placeholder="search" >
                 </mat-form-field> 
           </div>
-            <div fxFlex="1 1 20%" fxLayoutAlign="end stretch" fxLayoutGap.xs="1px"> 
+            <div fxFlex="1 1 20%" fxLayoutAlign="flex-end stretch" > 
               <button mat-icon-button><mat-icon>refresh</mat-icon></button>
               <button mat-icon-button ><mat-icon>view_agenda </mat-icon></button>
               <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>settings</mat-icon></button>
@@ -25,9 +25,9 @@
                   <button mat-menu-item>SendFeedBack</button>
                   <button mat-menu-item>Help</button>
                   </mat-menu> 
-              <button mat-icon-button [matMenuTriggerFor]="menu2"><mat-icon>arrow_drop_down</mat-icon></button>
+              <button mat-icon-button [matMenuTriggerFor]="menu2"><mat-icon>home</mat-icon></button>
               <mat-menu #menu2="matMenu">
-                   <button mat-menu-item>SignOut</button>
+                   <button mat-menu-item (click)="signout()">SignOut</button>
              </mat-menu>
              <button class ="oo" mat-icon-button >P</button>
            </div>
@@ -59,15 +59,8 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-        <!-- <div fxLayout="column wrap" fxLayoutAlign="center center" fxFlexFill> -->
                     <router-outlet>
 
                     </router-outlet>  
-        <!-- </div>  -->
       </mat-sidenav-content>
    </mat-sidenav-container>
-<!-- <app-side-nav  [value]="clickedEvent"   fxLayoutAlign="start stretch" fxFlex="1 1 82%"> -->
-
-<!-- </app-side-nav> -->
-  
-<!-- </div> -->
