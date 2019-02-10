@@ -11,7 +11,10 @@
             </app-notebar>
 
     </div>
-    <h1>Pinned</h1>
+    <div fxLayoutGap="15px grid">
+        <i>Pinned</i>
+    </div>
+    
     <div  fxLayout="row wrap" fxLayoutAlign="start center"  fxLayoutGap="15px grid">
         
                 <div *ngFor="let note of allnotes" >
@@ -24,9 +27,11 @@
             </div>
         </div>
 
-        <h1>
-            Others
-        </h1>
+        <div fxLayoutGap="15px grid">
+            <i>Others
+            </i>
+        </div>
+                
             <div  fxLayout="row wrap" fxLayoutAlign="start center"  fxLayoutGap="15px grid">
             <!-- flexLayout="row wrap" fxLayoutGap="10px"> -->
             

@@ -42,3 +42,10 @@
 .search_design{
   
 }
+
+.example-header-image {
+    background-image: url('../../../assets/profilepic.jpg');
+    background-size: cover;
+    background-size: 100%
+}
+

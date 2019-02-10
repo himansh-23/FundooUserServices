@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {NotecrudService} from '../../service/notecrud.service';
-import { CreateNoteModel } from '../../Models/createnote.model';
 import { EditlabeldialogComponent } from '../editlabeldialog/editlabeldialog.component';
 import {MatDialog} from '@angular/material';
 import { Label } from '../../Models/label.model';
 import { CardsupdateService } from '../../service/cardsupdate.service';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit  {
 
   private clickedEvent:boolean;
 //  private  allnotesdata:CreateNoteModel[];
-
+  private show:boolean=true;
   label:Label=new Label();
   labelsall:Label[];
   ngOnInit() {
@@ -75,6 +75,11 @@ export class HomeComponent implements OnInit  {
     this.router.navigate(['/login'])
 
     
+  }
+
+  changeView(){
+    this.show=!this.show;
+    console.log(this.show);
   }
   
 }
