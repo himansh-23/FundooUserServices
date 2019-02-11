@@ -15,24 +15,28 @@
         <i>Pinned</i>
     </div>
     
-    <div  fxLayout="row wrap" fxLayoutAlign="start center"  fxLayoutGap="15px grid">
-        
+        <div *ngIf="currentView" fxLayout="row wrap" fxLayoutAlign="start center"  fxLayoutGap="15px grid">
                 <div *ngFor="let note of allnotes" >
                     <span *ngIf=note.pinned>
-                    <app-singlecard  [notedetails]=note >
-
-                    </app-singlecard>
-                </span>
-                
-            </div>
+                        <app-singlecard  [notedetails]=note ></app-singlecard>
+                    </span>
+                </div>
         </div>
+
+        <div *ngIf="!currentView" fxLayout="column wrap" fxLayoutAlign="start center"  fxLayoutGap="15px grid">
+                <div *ngFor="let note of allnotes" >
+                    <span *ngIf=note.pinned>
+                        <app-singlecard  [notedetails]=note ></app-singlecard>
+                    </span>
+        </div>
+    </div>    
 
         <div fxLayoutGap="15px grid">
             <i>Others
             </i>
         </div>
                 
-            <div  fxLayout="row wrap" fxLayoutAlign="start center"  fxLayoutGap="15px grid">
+            <div *ngIf="currentView"  fxLayout="row wrap" fxLayoutAlign="start center"  fxLayoutGap="15px grid">
             <!-- flexLayout="row wrap" fxLayoutGap="10px"> -->
             
                 <div *ngFor="let note of allnotes" >
@@ -44,6 +48,19 @@
                 </div>
 
             </div>
+
+            <div *ngIf="!currentView"  fxLayout="column wrap" fxLayoutAlign="start center"  fxLayoutGap="15px grid">
+                <!-- flexLayout="row wrap" fxLayoutGap="10px"> -->
+                
+                    <div *ngFor="let note of allnotes" >
+                        <span *ngIf=!note.pinned>
+                            <app-singlecard  [notedetails]=note >
+    
+                            </app-singlecard>
+                        </span>
+                    </div>
+    
+                </div>
 </div>
 
 </div>

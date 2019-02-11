@@ -5,6 +5,7 @@ import {MatDialog} from '@angular/material';
 import { Label } from '../../Models/label.model';
 import { CardsupdateService } from '../../service/cardsupdate.service';
 import { Router } from '@angular/router';
+import { ViewchangeService } from '../../service/viewchange.service';
 
 
 @Component({
@@ -15,9 +16,9 @@ import { Router } from '@angular/router';
 
 export class HomeComponent implements OnInit  {
 
-  private clickedEvent:boolean;
+  private clickedEvent;
 //  private  allnotesdata:CreateNoteModel[];
-  private show:boolean=true;
+  private show:boolean;
   label:Label=new Label();
   labelsall:Label[];
   ngOnInit() {
@@ -27,9 +28,20 @@ export class HomeComponent implements OnInit  {
           this.labelsall=response;
           //console.log(this.labelsall.length);
         }
-    )
+    );
+      this.viewChange.currentView.subscribe(
+        response =>{
+       this.show=response;
+        }
+      );
+        /*response =>
+        {
+          this.changeView=response;
+        }
+      );-*/
+
   }
-  constructor(private notecrudservice:NotecrudService,private dialog: MatDialog,private cardUpdateService:CardsupdateService,private router:Router){
+  constructor(private notecrudservice:NotecrudService,private dialog: MatDialog,private cardUpdateService:CardsupdateService,private router:Router,private viewChange:ViewchangeService){
 
   }
 
@@ -74,12 +86,16 @@ export class HomeComponent implements OnInit  {
     localStorage.removeItem('jwtToken');
     this.router.navigate(['/login'])
 
-    
   }
 
   changeView(){
-    this.show=!this.show;
-    console.log(this.show);
+    this.viewChange.onViewChange();
+   console.log(this.show);
+  }
+
+  searchHandler(event)
+  {
+    console.log(event);
   }
   
 }

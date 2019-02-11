@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CreateNoteModel} from '../../Models//createnote.model'
 import { Router, ActivatedRoute } from '@angular/router';
 import { CardsupdateService } from '../../service/cardsupdate.service';
+import { ViewchangeService } from '../../service/viewchange.service';
 
 @Component({
   selector: 'app-notes',
@@ -12,9 +13,9 @@ import { CardsupdateService } from '../../service/cardsupdate.service';
 export class NotesComponent implements OnInit {
    
   private  allnotes:CreateNoteModel[];
- 
+ private currentView:boolean;
   showtoolbar=false;
-  constructor(private cardupdate:CardsupdateService) {
+  constructor(private cardupdate:CardsupdateService,private viewChange:ViewchangeService) {
     this.cardupdate.changemessage('false','false');
   }
 
@@ -24,8 +25,12 @@ export class NotesComponent implements OnInit {
         
         this.allnotes=udnotes
         );
-     
-        
+
+        this.viewChange.currentView.subscribe(view=>
+          {
+             this.currentView=view;
+          }
+          );
   }
 
  

@@ -49,3 +49,9 @@
     background-size: 100%
 }
 
+.hoverhighlight:hover{
+  background-color:lightgoldenrodyellow;
+  border-top-right-radius: 15%;
+  border-bottom-right-radius: 15%;
+}
+
