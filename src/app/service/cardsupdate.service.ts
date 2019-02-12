@@ -58,7 +58,21 @@ export class CardsupdateService implements OnInit{
        console.log(error);
       }
     )          
+  }
 
+  searchNotes(searchWord)
+  {
+    var isArchive:boolean;
+    var isTrash:boolean;
+    
+    isArchive=JSON.parse(this.archive);
+    isTrash=JSON.parse(this.trash);
+    console.log(isTrash+"   "+isArchive);
+    this.notecrud.searchNotes(searchWord,isArchive,isTrash).subscribe(
+      response =>{
+      this.allNotes.next(response);
+      }
+    )
   }
 
 

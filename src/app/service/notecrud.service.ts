@@ -77,5 +77,10 @@ export class NotecrudService {
     return this.http.delete(this.labelUrl+'?labelId='+labelId,httpOptions2);
   }
 
+  public searchNotes(searchWords:string,isArchive:boolean,isTrash:boolean):Observable<CreateNoteModel[]>{
+    console.log(searchWords);
+    return this.http.get<CreateNoteModel[]>(this.noteUrl+'/search/'+searchWords+'?isArchive='+isArchive+'&isTrash='+isTrash,httpOptions2)
+  }
+
 
 }

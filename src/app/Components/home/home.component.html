@@ -14,22 +14,18 @@
           <div  fxLayoutAlign="start center" fxFlex="1 1 65%">
                <mat-form-field class="full_length">
                  <mat-icon>search</mat-icon>
-                  <input style="margin-left: 5%" class ="search_design" matInput  (keypressed)=searchHandler($event)>
+                  <input style="margin-left: 5%" class ="search_design" matInput [ngModel]="mySearch"  (ngModelChange)=searchHandler($event)>
                 </mat-form-field> 
           </div>
             <div fxFlex="1 1 20%" fxLayoutAlign="flex-end stretch" > 
               <button mat-icon-button matTooltip="Refresh"><mat-icon>refresh</mat-icon></button>
               <button mat-icon-button matTooltip="View" (click)="changeView()"><mat-icon *ngIf="show">view_stream</mat-icon><mat-icon *ngIf="!show">view_column</mat-icon></button>
               <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Setting"><mat-icon>settings</mat-icon></button>
-              <mat-menu #menu="matMenu">
-                  <button mat-menu-item  >Setting</button>
-                  <button mat-menu-item>SendFeedBack</button>
-                  <button mat-menu-item>Help</button>
-                  </mat-menu> 
-              <!-- <button mat-icon-button [matMenuTriggerFor]="menu2"><mat-icon>arrow_drop_down</mat-icon></button>
-              <mat-menu #menu2="matMenu">
-                   <button mat-menu-item (click)="signout()">SignOut</button>
-             </mat-menu> -->
+                      <mat-menu #menu="matMenu">
+                          <button mat-menu-item  >Setting</button>
+                          <button mat-menu-item>SendFeedBack</button>
+                          <button mat-menu-item>Help</button>
+                      </mat-menu> 
              <button class ="oo" mat-icon-button [matMenuTriggerFor]="menu3"><img style="width:20px;height:20px;" src="../../../assets/IMG_2030.JPG"> </button>
              <mat-menu #menu3="matMenu">
                 <mat-card class="example-card">
@@ -46,30 +42,30 @@
            </div>
       </mat-toolbar-row>
     </mat-toolbar>
-
   <mat-divider></mat-divider>
 
-  <mat-sidenav-container style="margin-top:70px;"class="example-container"  >
+  <mat-sidenav-container style="margin-top:5%;"class="example-container"  >
     <mat-sidenav #sidenav  class="example-sidenav" mode="side"  disableClose >
        <mat-action-list >
-          <button class= "hoverhighlight" mat-list-item routerLink="notes" routerLinkActive="active"> <mat-icon>lightbulb_outline</mat-icon> <i style="margin: 3px;"></i> Notes </button>
-          <button class= "hoverhighlight" mat-list-item> <mat-icon>notifications_none</mat-icon><i style="margin: 3px;"></i> Remainder </button>
+          <button class= "hoverhighlight" mat-list-item routerLink="notes" routerLinkActive="active"> <mat-icon>lightbulb_outline</mat-icon> <i style="margin: 5%;"></i> Notes </button>
+          <button class= "hoverhighlight" mat-list-item> <mat-icon>notifications_none</mat-icon><i style="margin: 5%;"></i> Remainder </button>
           <mat-divider ></mat-divider>
           <h6 style="font-size:65%;" matSubheader >LABELS</h6>
           <mat-list>  
-           <mat-list-item *ngFor = "let lb of labelsall"> <!--  routerLink="/forgot" -->
-            <button class= "hoverhighlight" routerLink="/home/labels/{{lb.labelName}}" routerLinkActive="active">
-              <img style="width:20px;height:20px;" src="../../../assets/tag.svg">
-              <i style="margin: 3px;">  
-            {{lb.labelName}}
+           <mat-list-item class= "hoverhighlight" *ngFor = "let lb of labelsall"> <!--  routerLink="/forgot" -->
+            <button  routerLink="/home/labels/{{lb.labelName}}" routerLinkActive="active">
+              <mat-icon>label_outline</mat-icon>
+              <i >  
+                  {{lb.labelName}}
               </i>
             </button>
+            
             </mat-list-item>  
           </mat-list>
-          <button class= "hoverhighlight" mat-list-item (click)="EditLabelDialog()"><img style="width:20px;height:20px;" src="../../../assets/icons8-edit.svg"><i style="margin: 3px;"></i> Edit Labels </button>
+          <button class= "hoverhighlight" mat-list-item (click)="EditLabelDialog()"><img style="width:20px;height:20px;" src="../../../assets/icons8-edit.svg"><i style="margin: 5%;"></i> Edit Labels </button>
           <mat-divider></mat-divider>
-          <button class= "hoverhighlight" mat-list-item routerLink="archive" routerLinkActive="active"><mat-icon>archive</mat-icon><i style="margin: 3px;"></i> Archive </button>
-          <button class= "hoverhighlight" mat-list-item routerLink="trash" routerLinkActive="active"><mat-icon>delete</mat-icon> <i style="margin: 3px;"></i>Trash </button>             
+          <button class= "hoverhighlight" mat-list-item routerLink="archive" routerLinkActive="active"><mat-icon>archive</mat-icon><i style="margin: 5%;"></i> Archive </button>
+          <button class= "hoverhighlight" mat-list-item routerLink="trash" routerLinkActive="active"><mat-icon>delete</mat-icon> <i style="margin: 5%;"></i>Trash </button>             
        </mat-action-list>
     </mat-sidenav>
 

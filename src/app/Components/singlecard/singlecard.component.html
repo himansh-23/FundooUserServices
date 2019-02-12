@@ -11,8 +11,11 @@
       </mat-card-subtitle>
       <mat-card-content>
          <!-- <span *ngFor="let item of notedetails.labels" class="seprate"> {{item.labelName}}</span> -->
+         
          <mat-chip-list *ngFor="let item of notedetails.labels">
+            <span  fxLayout="row wrap">
                <mat-chip> {{item.labelName}}</mat-chip>
+            </span>
          </mat-chip-list>
          <!-- <span *ngFor="let item of notedetails.labels" class="seprate">{{item.labelName}}</span> -->
       </mat-card-content>

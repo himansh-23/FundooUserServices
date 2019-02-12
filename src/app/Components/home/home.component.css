@@ -8,7 +8,7 @@
     width:200px;
   }
   mat-toolbar {
-    height: 64px;
+    height: 10px;
     position: fixed;
     z-index: 100;
     width: 100%  !important;
@@ -53,5 +53,9 @@
   background-color:lightgoldenrodyellow;
   border-top-right-radius: 15%;
   border-bottom-right-radius: 15%;
+}
+
+.labelicon{
+  background-image: url('../../../assets/tag.svg');
 }
 

@@ -32,10 +32,9 @@ export class SinglecardComponent implements OnInit {
     this.notecrudservice.getAllLabels().subscribe(
       response=>
       {
-        this.labelsall=response;
-        //console.log(this.labelsall.length);
+        this.labelsall=response;       
       }
-  )
+     )
   } 
  
   noteDelete()
@@ -109,6 +108,7 @@ export class SinglecardComponent implements OnInit {
 
   archivenote(){
     this.notedetails.archive=!this.notedetails.archive;
+    this.notedetails.trash=false;
     if(this.notedetails.archive)
     {
       this.notedetails.pinned=false;
@@ -136,7 +136,7 @@ export class SinglecardComponent implements OnInit {
   {
     this.notedetails.trash=true;
     this.notedetails.pinned=false;
-
+    this.notedetails.archive=false;
     this.notecrudservice.updateNote(this.notedetails).subscribe(
       response => {
         if(response.statusCode==166)

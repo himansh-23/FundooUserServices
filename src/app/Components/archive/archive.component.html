@@ -7,9 +7,9 @@
   <i class="material-icons " style="font-size: 90px;" >archive</i>
 </div>
 
-<div fxLayout="row wrap" fxLayoutAlign="start center" fxFlexOffset="10%" fxLayoutGap=" 20px grid">
-
 <div *ngIf="(allnotes).length > 0">
+
+    <div *ngIf="currentView" fxLayout="row wrap" fxLayoutAlign="start center" fxFlexOffset="10%" fxLayoutGap=" 20px grid">
   <div *ngFor ="let note of allnotes">
             
         <app-singlecard [notedetails]=note>
@@ -17,4 +17,13 @@
         </app-singlecard>
   </div>
 </div>
+
+<div *ngIf="!currentView" fxLayout="column wrap" fxLayoutAlign="start center" fxFlexOffset="10%" fxLayoutGap=" 20px grid">
+    <div *ngFor ="let note of allnotes">
+              
+          <app-singlecard [notedetails]=note>
+  
+          </app-singlecard>
+    </div>
+  </div>
 </div>

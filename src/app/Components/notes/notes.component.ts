@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {CreateNoteModel} from '../../Models//createnote.model'
-import { Router, ActivatedRoute } from '@angular/router';
 import { CardsupdateService } from '../../service/cardsupdate.service';
 import { ViewchangeService } from '../../service/viewchange.service';
 
@@ -21,8 +20,7 @@ export class NotesComponent implements OnInit {
 
     ngOnInit() {
 
-      this.cardupdate.currentnotes.subscribe(udnotes=>
-        
+      this.cardupdate.currentnotes.subscribe(udnotes=>   
         this.allnotes=udnotes
         );
 

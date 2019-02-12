@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit  {
 
   private clickedEvent;
 //  private  allnotesdata:CreateNoteModel[];
+private mySearch;
   private show:boolean;
   label:Label=new Label();
   labelsall:Label[];
@@ -85,7 +86,6 @@ export class HomeComponent implements OnInit  {
   {
     localStorage.removeItem('jwtToken');
     this.router.navigate(['/login'])
-
   }
 
   changeView(){
@@ -93,9 +93,16 @@ export class HomeComponent implements OnInit  {
    console.log(this.show);
   }
 
-  searchHandler(event)
+  searchHandler(event:string)
   {
     console.log(event);
+    if(event.length>=2)
+    {
+      this.cardUpdateService.searchNotes(event);
+    }
+    else{
+      this.cardUpdateService.changemessage2();
+    }
+
   }
-  
 }
