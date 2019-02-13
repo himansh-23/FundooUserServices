@@ -8,6 +8,12 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
+const httpOptions2 ={
+  headers: new HttpHeaders({
+    'token':localStorage.getItem('jwtToken')
+  })
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -45,6 +51,12 @@ export class UserserviceService {
   public resetLink(loginmodel :LoginModel,token:string):any
   {
     return this.http.post<LoginModel>(this.userUrl+'resetpage/'+token,loginmodel);
+  }
+  
+  public getCollabUserId(email:string):Observable<Number>
+  {
+    console.log(email);
+    return this.http.get<Number>(this.userUrl+"/personid"+"?email="+email,httpOptions2);
   }
 
 }

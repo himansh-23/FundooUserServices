@@ -6,8 +6,7 @@ import {MatDialog} from '@angular/material';
 import { EditdialogComponent } from '../editdialog/editdialog.component';
 import { CardsupdateService } from '../../service/cardsupdate.service';
 import { Label } from '../../Models/label.model';
-import { hasLifecycleHook } from '@angular/compiler/src/lifecycle_reflector';
-import { Note } from 'src/app/Models/note.model';
+import { CollaboratordialogComponent } from '../collaboratordialog/collaboratordialog.component';
 
 @Component({
   selector: 'app-singlecard',
@@ -83,7 +82,18 @@ export class SinglecardComponent implements OnInit {
         } 
         )
     });
-    
+  }
+
+  addPerson()
+  {
+    const dialogRef2 = this.dialog.open(CollaboratordialogComponent, {
+      width: '400px',
+      height:'200px',
+    });
+
+    dialogRef2.afterClosed().subscribe(result => {
+    }
+    );
 
   }
 

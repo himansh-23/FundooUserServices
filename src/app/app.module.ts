@@ -39,6 +39,7 @@ import { ArchiveComponent } from './Components/archive/archive.component';
 import { TrashComponent } from './Components/trash/trash.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatChipsModule} from '@angular/material/chips';
+import { CollaboratordialogComponent } from './Components/collaboratordialog/collaboratordialog.component';
 
 
 const  routes:Routes = [
@@ -82,10 +83,11 @@ const  routes:Routes = [
     LabelsComponent,
     EditlabeldialogComponent,
     ArchiveComponent,
-    TrashComponent
+    TrashComponent,
+    CollaboratordialogComponent
   ],
 
-  entryComponents: [SinglecardComponent, EditdialogComponent,EditlabeldialogComponent],
+  entryComponents: [SinglecardComponent, EditdialogComponent,EditlabeldialogComponent,CollaboratordialogComponent],
 
   imports: [
     BrowserModule,
