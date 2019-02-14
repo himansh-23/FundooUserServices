@@ -12,6 +12,7 @@ import { ViewchangeService } from '../../service/viewchange.service';
 export class NotesComponent implements OnInit {
    
   private  allnotes:CreateNoteModel[];
+
  private currentView:boolean;
   showtoolbar=false;
   constructor(private cardupdate:CardsupdateService,private viewChange:ViewchangeService) {

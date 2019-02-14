@@ -16,7 +16,6 @@ const httpOptions = {
     })
   };
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -27,6 +26,7 @@ export class NotecrudService {
 
   private noteUrl='http://localhost:8082/api/notes';
   private labelUrl='http://localhost:8082/api/label';
+  private collabUrl='http://localhost:8082/api/collab';
 
   public createNote(newNote:CreateNoteModel):any
   {
@@ -82,5 +82,9 @@ export class NotecrudService {
     return this.http.get<CreateNoteModel[]>(this.noteUrl+'/search/'+searchWords+'?isArchive='+isArchive+'&isTrash='+isTrash,httpOptions2)
   }
 
+  public addCollaboratorNote(sharedUserId:Number,sharedNoteId:Number):any
+  {
+    return this.http.post(this.collabUrl+"?sharedUserId="+sharedUserId+"&sharedNoteId="+sharedNoteId,httpOptions2);
+  }
 
 }

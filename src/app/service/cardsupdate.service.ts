@@ -9,8 +9,10 @@ export class CardsupdateService implements OnInit{
 
   private allNotes=new BehaviorSubject([]);
   currentnotes=this.allNotes.asObservable();
+  
   private archive='false';
   private trash='false';
+
 
   constructor(private notecrud:NotecrudService) {
     
@@ -24,11 +26,11 @@ export class CardsupdateService implements OnInit{
         console.log(error);
       }
     );
-  
+
    }
 
    ngOnInit():void {
-    
+
    }
    
   changemessage(archive:string,trash:string)
@@ -74,6 +76,5 @@ export class CardsupdateService implements OnInit{
       }
     )
   }
-
 
 }

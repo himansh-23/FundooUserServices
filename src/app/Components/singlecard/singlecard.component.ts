@@ -89,9 +89,11 @@ export class SinglecardComponent implements OnInit {
     const dialogRef2 = this.dialog.open(CollaboratordialogComponent, {
       width: '400px',
       height:'200px',
+       data: {notedetails:this.notedetails}
     });
 
     dialogRef2.afterClosed().subscribe(result => {
+
     }
     );
 
