@@ -7,6 +7,7 @@ import { EditdialogComponent } from '../editdialog/editdialog.component';
 import { CardsupdateService } from '../../service/cardsupdate.service';
 import { Label } from '../../Models/label.model';
 import { CollaboratordialogComponent } from '../collaboratordialog/collaboratordialog.component';
+import { ReceiveNote } from '../../Models/receivingnote.model';
 
 @Component({
   selector: 'app-singlecard',
@@ -24,7 +25,7 @@ export class SinglecardComponent implements OnInit {
    
   }
 
-  @Input() notedetails:CreateNoteModel;
+  @Input() notedetails:ReceiveNote;
 
   ngOnInit() {
 
@@ -39,7 +40,7 @@ export class SinglecardComponent implements OnInit {
   noteDelete()
   {
     console.log('notedeletecall');
-    this.notecrudservice.deleteNote(this.notedetails).subscribe(
+    this.notecrudservice.deleteNote(this.notedetails.note).subscribe(
       response => {
         if(response.statusCode==166)
         {
@@ -67,7 +68,7 @@ export class SinglecardComponent implements OnInit {
     //  console.log('The dialog was closed');
       this.notedetails = result;
    //   console.log(this.notedetails);
-      this.notecrudservice.updateNote(this.notedetails).subscribe(
+      this.notecrudservice.updateNote(this.notedetails.note).subscribe(
         response => {
           if(response.statusCode==166)
           {
@@ -100,8 +101,8 @@ export class SinglecardComponent implements OnInit {
   }
 
   colorchange(singlecolor:string){
-    this.notedetails.color=singlecolor;
-    this.notecrudservice.updateNote(this.notedetails).subscribe(
+    this.notedetails.note.color=singlecolor;
+    this.notecrudservice.updateNote(this.notedetails.note).subscribe(
       response => {
         if(response.statusCode==166)
         {
@@ -119,14 +120,14 @@ export class SinglecardComponent implements OnInit {
   }
 
   archivenote(){
-    this.notedetails.archive=!this.notedetails.archive;
-    this.notedetails.trash=false;
-    if(this.notedetails.archive)
+    this.notedetails.note.archive=!this.notedetails.note.archive;
+    this.notedetails.note.trash=false;
+    if(this.notedetails.note.archive)
     {
-      this.notedetails.pinned=false;
+      this.notedetails.note.pinned=false;
     }
    // console.log(this.notedetails.archive);
-    this.notecrudservice.updateNote(this.notedetails).subscribe(
+    this.notecrudservice.updateNote(this.notedetails.note).subscribe(
       response => {
         if(response.statusCode==166)
         {
@@ -146,10 +147,10 @@ export class SinglecardComponent implements OnInit {
 
   trashnote()
   {
-    this.notedetails.trash=true;
-    this.notedetails.pinned=false;
-    this.notedetails.archive=false;
-    this.notecrudservice.updateNote(this.notedetails).subscribe(
+    this.notedetails.note.trash=true;
+    this.notedetails.note.trash=false;
+    this.notedetails.note.trash=false;
+    this.notecrudservice.updateNote(this.notedetails.note).subscribe(
       response => {
         if(response.statusCode==166)
         {
@@ -169,8 +170,8 @@ export class SinglecardComponent implements OnInit {
 
   restore()
   {
-    this.notedetails.trash=false;
-    this.notecrudservice.updateNote(this.notedetails).subscribe(
+    this.notedetails.note.trash=false;
+    this.notecrudservice.updateNote(this.notedetails.note).subscribe(
       response => {
         if(response.statusCode==166)
         {
@@ -218,19 +219,18 @@ export class SinglecardComponent implements OnInit {
 
   unpinned()
   {
-    this.notedetails.pinned=!this.notedetails.pinned;
-    if(this.notedetails.pinned)
+    this.notedetails.note.pinned=!this.notedetails.note.pinned;
+    if(this.notedetails.note.pinned)
     {
-      this.notedetails.archive=false;
+      this.notedetails.note.archive=false;
     }
 
-    this.notecrudservice.updateNote(this.notedetails).subscribe(
+    this.notecrudservice.updateNote(this.notedetails.note).subscribe(
       response => {
         if(response.statusCode==166)
         {
           this.snackBar.open(response.statusMessage,"",{
-            duration:2000,
-            
+            duration:2000,  
           })
         }
         this.cardupdate.changemessage2();

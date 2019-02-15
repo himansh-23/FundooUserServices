@@ -10,6 +10,9 @@ export class CardsupdateService implements OnInit{
   private allNotes=new BehaviorSubject([]);
   currentnotes=this.allNotes.asObservable();
   
+  private allNotes2=new BehaviorSubject([]);
+  currentnotes2=this.allNotes2.asObservable();
+
   private archive='false';
   private trash='false';
 
@@ -19,7 +22,7 @@ export class CardsupdateService implements OnInit{
     this.notecrud.getNotes(this.archive,this.trash).subscribe(
       response =>
       {
-        this.allNotes.next(response);
+        this.allNotes2.next(response);
       },
       error=>
       {
@@ -39,8 +42,9 @@ export class CardsupdateService implements OnInit{
     this.trash=trash;
     this.notecrud.getNotes(archive,trash).subscribe(
       response=>{
+
         console.log(response);
-        this.allNotes.next(response);
+        this.allNotes2.next(response);
       },
       error =>{  
        console.log(error);
@@ -54,7 +58,7 @@ export class CardsupdateService implements OnInit{
       response=>
       {
         console.log(response);
-        this.allNotes.next(response);
+        this.allNotes2.next(response);
       },
       error =>{  
        console.log(error);

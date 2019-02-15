@@ -1,22 +1,27 @@
-<mat-card class ="cardresize" [style.backgroundColor]="notedetails.color" ><!-- -->
+<mat-card class ="cardresize" [style.backgroundColor]="notedetails.note.color" ><!-- -->
    <mat-card-header>
     <mat-card-title (click)="dostuff()">	
-        <p>{{notedetails.title}}</p> 
+        <p>{{notedetails.note.title}}</p> 
     </mat-card-title>
     <button mat-icon-button  (click)="unpinned()"><mat-icon> pin_drop</mat-icon></button>
    </mat-card-header>
    
    <mat-card-subtitle (click)="dostuff()">
-         <p class="wrap_word">{{notedetails.content}}</p>   
+         <p class="wrap_word">{{notedetails.note.content}}</p>   
       </mat-card-subtitle>
       <mat-card-content>
          <!-- <span *ngFor="let item of notedetails.labels" class="seprate"> {{item.labelName}}</span> -->
          
-         <mat-chip-list *ngFor="let item of notedetails.labels">
+         <mat-chip-list *ngFor="let item of notedetails.note.labels">
             <span  fxLayout="row wrap">
                <mat-chip> {{item.labelName}}</mat-chip>
             </span>
          </mat-chip-list>
+         <div fxLayout="row wrap"  fxLayoutGap="4px grid">
+          <mat-chip-list  *ngFor ="let users of notedetails.collabList">
+               <mat-icon [style.color]=blue>fiber_manual_record</mat-icon>
+             </mat-chip-list>
+            </div>
          <!-- <span *ngFor="let item of notedetails.labels" class="seprate">{{item.labelName}}</span> -->
       </mat-card-content>
     <mat-card-footer>	                         
