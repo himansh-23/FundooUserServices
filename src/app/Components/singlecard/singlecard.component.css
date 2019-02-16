@@ -43,3 +43,9 @@
 
 }
 
+.sharedperson{
+    background-image: url('../../../assets/profilepic.jpg');
+    background-size: cover;
+    background-size: 100%
+}
+

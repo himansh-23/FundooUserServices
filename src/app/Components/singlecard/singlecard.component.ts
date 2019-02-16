@@ -32,7 +32,8 @@ export class SinglecardComponent implements OnInit {
     this.notecrudservice.getAllLabels().subscribe(
       response=>
       {
-        this.labelsall=response;       
+        this.labelsall=response;     
+          
       }
      )
   } 

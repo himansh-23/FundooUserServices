@@ -6,7 +6,7 @@ import { Label } from '../../Models/label.model';
 import { CardsupdateService } from '../../service/cardsupdate.service';
 import { Router } from '@angular/router';
 import { ViewchangeService } from '../../service/viewchange.service';
-
+import { ProfilepicComponent } from '../profilepic/profilepic.component';
 
 @Component({
   selector: 'app-home',
@@ -17,10 +17,10 @@ import { ViewchangeService } from '../../service/viewchange.service';
 export class HomeComponent implements OnInit  {
 
   private clickedEvent;
-//  private  allnotesdata:CreateNoteModel[];
-private mySearch;
+  private mySearch;
   private show:boolean;
   label:Label=new Label();
+  private profilePic:any;
   labelsall:Label[];
   ngOnInit() {
     this.notecrudservice.getAllLabels().subscribe(
@@ -29,26 +29,37 @@ private mySearch;
           this.labelsall=response;
           //console.log(this.labelsall.length);
         }
+
+        
     );
       this.viewChange.currentView.subscribe(
         response =>{
        this.show=response;
         }
       );
-        /*response =>
-        {
-          this.changeView=response;
-        }
-      );-*/
-
+      
   }
   constructor(private notecrudservice:NotecrudService,private dialog: MatDialog,private cardUpdateService:CardsupdateService,private router:Router,private viewChange:ViewchangeService){
 
   }
 
+
+
   childEventClicked(open:boolean)
   {
     this.clickedEvent=open; 
+  }
+
+  ProfileSelect()
+  {
+    const dialogRef3 = this.dialog.open(ProfilepicComponent, {
+      width: '300px',
+      height:'350px'});
+
+      dialogRef3.afterClosed().subscribe(x =>
+        {
+          this.profilePic=x;
+        })
   }
 
   EditLabelDialog()

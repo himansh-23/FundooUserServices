@@ -40,7 +40,8 @@ import { TrashComponent } from './Components/trash/trash.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatChipsModule} from '@angular/material/chips';
 import { CollaboratordialogComponent } from './Components/collaboratordialog/collaboratordialog.component';
-
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { ProfilepicComponent } from './Components/profilepic/profilepic.component';
 
 const  routes:Routes = [
   {path : '' , redirectTo : '/login',pathMatch:'full' },
@@ -84,10 +85,11 @@ const  routes:Routes = [
     EditlabeldialogComponent,
     ArchiveComponent,
     TrashComponent,
-    CollaboratordialogComponent
+    CollaboratordialogComponent,
+    ProfilepicComponent
   ],
 
-  entryComponents: [SinglecardComponent, EditdialogComponent,EditlabeldialogComponent,CollaboratordialogComponent],
+  entryComponents: [SinglecardComponent, EditdialogComponent,EditlabeldialogComponent,CollaboratordialogComponent,ProfilepicComponent],
 
   imports: [
     BrowserModule,
@@ -114,7 +116,8 @@ const  routes:Routes = [
     MatMenuModule,
     MatTooltipModule,
     MatDialogModule,
-    MatChipsModule
+    MatChipsModule,
+    ImageCropperModule,
     
   ],
   providers: [UserserviceService,NotecrudService],

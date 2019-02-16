@@ -2,6 +2,8 @@
 
 <!-- <app-dash-board (eventClicked)="childEventClicked($event)" >
   </app-dash-board> -->
+  <div fxLayout="column">
+    <div > 
   <mat-toolbar class="toolbar">
     <mat-toolbar-row>
         <div fxLayoutAlign="start center" fxFlex="1 1 15%">
@@ -26,26 +28,48 @@
                           <button mat-menu-item>SendFeedBack</button>
                           <button mat-menu-item>Help</button>
                       </mat-menu> 
-             <button class ="oo" mat-icon-button [matMenuTriggerFor]="menu3"><img style="width:20px;height:20px;" src="../../../assets/IMG_2030.JPG"> </button>
+             <button  mat-icon-button  [matMenuTriggerFor]="menu3"><mat-icon>account_circle</mat-icon></button>
              <mat-menu #menu3="matMenu">
                 <mat-card class="example-card">
-                  <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>Himanshu Prajapati</mat-card-title>
-                  </mat-card-header>
-                  <img mat-card-image src="../../../assets/card_background.jpg">
+                    <mat-card-header >
+                        <div mat-card-avatar class="profile" (click)="ProfileSelect()" >
+                          <img mat-card-avatar class="profile" src="{{profilePic}}" />  
+                        </div>
+                        <mat-card-title>Himanshu Prajapati</mat-card-title>
+                        <mat-card-subtitle>himanshu00096@gmail.com</mat-card-subtitle>
+                    </mat-card-header>
                   <mat-card-content>
-                      <button mat-menu-item (click)="signout()">SignOut</button>
-                  </mat-card-content>
+                    <button mat-raised-button>SignOut</button>
+                    <!-- <button mat-raised-button >Cancel</button> -->
+                  <!-- <div fxLayout="column" > 
+                      <div  fxFlex=80%>
+                            <div id="left">
+                              <button mat-mini-fab class="profile" (click)="ProfileSelect()">
+                                <img src={{profilePic}} width="60px" height="60px" style="border-bottom-left-radius: 
+                                50%;border-bottom-right-radius: 50%;border-top-right-radius: 50%;border-top-left-radius: 50%">
+                              </button>
+                            </div>
+                            
+                            <div id="right" >
+                              <p> Himanshu Prajapati</p>
+                              <p> himanshu00096@gmail.com</p>
+                            </div>
+                      </div>
+                      <div fxFlex=20%>
+                        <button mat-icon-button>SignOut</button>
+                        
+                      </div>
+                  </div> -->
+                </mat-card-content>
                 </mat-card>
              </mat-menu>
            </div>
       </mat-toolbar-row>
     </mat-toolbar>
-  <mat-divider></mat-divider>
-
-  <mat-sidenav-container style="margin-top:5%;"class="example-container"  >
-    <mat-sidenav #sidenav  class="example-sidenav" mode="side"  disableClose >
+</div>
+<div fxFlex="90%">
+  <mat-sidenav-container style="margin-top: 5%;" class="example-container" >
+    <mat-sidenav #sidenav  class="example-sidenav" mode="side"  disableClose>
        <mat-action-list >
           <button class= "hoverhighlight" mat-list-item routerLink="notes" routerLinkActive="active"> <mat-icon>lightbulb_outline</mat-icon> <i style="margin: 5%;"></i> Notes </button>
           <button class= "hoverhighlight" mat-list-item> <mat-icon>notifications_none</mat-icon><i style="margin: 5%;"></i> Remainder </button>
@@ -75,3 +99,5 @@
                     </router-outlet>  
       </mat-sidenav-content>
    </mat-sidenav-container>
+   </div>
+   </div>

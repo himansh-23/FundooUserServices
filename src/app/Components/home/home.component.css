@@ -6,13 +6,11 @@
 
   .example-sidenav{
     width:200px;
+    /* position:fixed; */
   }
   mat-toolbar {
-    height: 10px;
     position: fixed;
     z-index: 100;
-    width: 100%  !important;
-    color:black;
 }
 
 .f{
@@ -45,7 +43,6 @@
 
 .example-header-image {
     background-image: url('../../../assets/profilepic.jpg');
-    background-size: cover;
     background-size: 100%
 }
 
@@ -57,5 +54,28 @@
 
 .labelicon{
   background-image: url('../../../assets/tag.svg');
+
 }
 
+#left{
+  float:left;
+  width: 35%;
+  height: 100%;
+}
+
+#right{
+  float:right;
+  width: 65%;
+  height: 100%;
+}
+.example-card
+{
+  width:250px;
+  height: 100px;
+  
+}
+
+.profile{
+  width: 70px;
+  height: 70px;
+}

@@ -19,7 +19,8 @@
          </mat-chip-list>
          <div fxLayout="row wrap"  fxLayoutGap="4px grid">
           <mat-chip-list  *ngFor ="let users of notedetails.collabList">
-               <mat-icon [style.color]=blue>fiber_manual_record</mat-icon>
+               <button mat-icon-button *ngIf="notedetails.collabList.image!=null" class="sharedperson"></button>
+               <button mat-icon-button *ngIf="notedetails.collabList.image==null">{{users.email[0]}} </button>
              </mat-chip-list>
             </div>
          <!-- <span *ngFor="let item of notedetails.labels" class="seprate">{{item.labelName}}</span> -->
