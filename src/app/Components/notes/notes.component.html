@@ -25,7 +25,7 @@
 
         <div *ngIf="!currentView" fxLayout="column wrap" fxLayoutAlign="start center"  fxLayoutGap="15px grid">
                 <div *ngFor="let singlenote of allnotes" >
-                    <p>{{singlenote.note.pinned}}</p>
+                    
                     <span *ngIf=singlenote.note.pinned>
                         <app-singlecard  [notedetails]=singlenote ></app-singlecard>
                     </span>

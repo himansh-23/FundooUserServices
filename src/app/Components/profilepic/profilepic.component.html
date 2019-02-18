@@ -6,7 +6,7 @@
         </div>
 
       <div fxFlex="70%" fxFlexFill>
-          <div>
+         
               <input type="file" (change)="fileChangeEvent($event)" />
                 <image-cropper
                 [imageChangedEvent]="imageChangedEvent"
@@ -16,10 +16,7 @@
                 format="png"
                 (imageCropped)="imageCropped($event)"
                 >
-               </image-cropper>
-               
-          </div>
-        
+               </image-cropper>   
       </div>
 
     <div fxFlex="20%">

@@ -23,6 +23,7 @@ export class NotesComponent implements OnInit {
 
       this.cardupdate.currentnotes2.subscribe(udnotes=>   
         this.allnotes=udnotes
+        
         );
 
         this.viewChange.currentView.subscribe(view=>

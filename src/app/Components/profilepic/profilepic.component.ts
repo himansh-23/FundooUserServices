@@ -14,13 +14,14 @@ export class ProfilepicComponent implements OnInit {
      }
 
      imageChangedEvent: any = '';
-croppedImage: any = '';
+  croppedImage;
 
 fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
 }
-imageCropped(event: ImageCroppedEvent) {
-    this.croppedImage = event.base64;
+imageCropped(event:any) {
+  console.log(event);
+  this.croppedImage = event;
 }
 // imageLoaded() {
 //     // show cropper
@@ -35,7 +36,7 @@ imageCropped(event: ImageCroppedEvent) {
   
   setProfile()
   {
-    if(this.croppedImage!='')
+    if(this.croppedImage!=null)
     {
       this.dialogRef.close(this.croppedImage);
     }

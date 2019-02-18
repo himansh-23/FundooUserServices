@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient,HttpHeaders}  from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest, HttpParams } from '@angular/common/http';
 import { UserDTO } from '../../app/Models/register.model';
 import { Observable } from 'rxjs';
 import { LoginModel } from '../../app/Models/login.model';
@@ -13,6 +13,12 @@ const httpOptions2 ={
     'token':localStorage.getItem('jwtToken')
   })
 };
+
+// const httpOptions3 = {
+
+//   headers: new HttpParams({ 'Content-Type': 'multipart/form-data'}) 
+//   };
+
 
 @Injectable({
   providedIn: 'root'
@@ -40,11 +46,11 @@ export class UserserviceService {
     return this.http.get(this.userUrl+'verifyemail/'+token);
   }
 
-  public forgotPassword(email:string):any{
+  public forgotPassword(email:string):any {
     return this.http.get(this.userUrl+'forgotpassword/?email='+email);
   }
 
-  public resetPassword(token:string):any{
+  public resetPassword(token:string):any {
     return this.http.get(this.userUrl+'resetpassword/'+token);
   }
 
@@ -57,6 +63,14 @@ export class UserserviceService {
   {
     console.log(email);
     return this.http.get<Number>(this.userUrl+"/personid"+"?email="+email,httpOptions2);
+  }
+
+  public uploadProfileImage(file: File):any
+  {
+    let formdata: FormData = new FormData();
+    formdata.append('file',file);
+
+    return this.http.post(this.userUrl+"imageupload",formdata);
   }
 
 }

@@ -7,6 +7,7 @@ import { CardsupdateService } from '../../service/cardsupdate.service';
 import { Router } from '@angular/router';
 import { ViewchangeService } from '../../service/viewchange.service';
 import { ProfilepicComponent } from '../profilepic/profilepic.component';
+import { UserserviceService } from '../../service/userservice.service';
 
 @Component({
   selector: 'app-home',
@@ -29,8 +30,6 @@ export class HomeComponent implements OnInit  {
           this.labelsall=response;
           //console.log(this.labelsall.length);
         }
-
-        
     );
       this.viewChange.currentView.subscribe(
         response =>{
@@ -39,7 +38,7 @@ export class HomeComponent implements OnInit  {
       );
       
   }
-  constructor(private notecrudservice:NotecrudService,private dialog: MatDialog,private cardUpdateService:CardsupdateService,private router:Router,private viewChange:ViewchangeService){
+  constructor(private userService:UserserviceService,private notecrudservice:NotecrudService,private dialog: MatDialog,private cardUpdateService:CardsupdateService,private router:Router,private viewChange:ViewchangeService){
 
   }
 
@@ -56,9 +55,16 @@ export class HomeComponent implements OnInit  {
       width: '300px',
       height:'350px'});
 
-      dialogRef3.afterClosed().subscribe(x =>
+      dialogRef3.afterClosed().subscribe(
+        (x) =>
         {
-          this.profilePic=x;
+        this.profilePic=x.file;
+          this.userService.uploadProfileImage(this.profilePic).subscribe(
+            value =>
+            {
+              console.log(value);
+            }
+          );
         })
   }
 

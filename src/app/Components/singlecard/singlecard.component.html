@@ -3,7 +3,14 @@
     <mat-card-title (click)="dostuff()">	
         <p>{{notedetails.note.title}}</p> 
     </mat-card-title>
-    <button mat-icon-button  (click)="unpinned()"><mat-icon> pin_drop</mat-icon></button>
+    <button style="position: absolute; right:0;" mat-icon-button (click)="unpinned()">
+      <span *ngIf=notedetails.note.pinned> 
+               <img src="../../../assets/pin.svg">
+      </span>
+      <span *ngIf=!notedetails.note.pinned> 
+            <img src="../../../assets/unpin.svg">
+      </span>
+   </button>
    </mat-card-header>
    
    <mat-card-subtitle (click)="dostuff()">
@@ -20,7 +27,7 @@
          <div fxLayout="row wrap"  fxLayoutGap="4px grid">
           <mat-chip-list  *ngFor ="let users of notedetails.collabList">
                <button mat-icon-button *ngIf="notedetails.collabList.image!=null" class="sharedperson"></button>
-               <button mat-icon-button *ngIf="notedetails.collabList.image==null">{{users.email[0]}} </button>
+               <button mat-mini-fab *ngIf="notedetails.collabList.image==null" color="primary" style="margin-left: 5px;margin-top: 5px;">{{users.email[0]}} </button>
              </mat-chip-list>
             </div>
          <!-- <span *ngFor="let item of notedetails.labels" class="seprate">{{item.labelName}}</span> -->
