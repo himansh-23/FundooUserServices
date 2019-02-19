@@ -10,20 +10,15 @@
 <div *ngIf="(allnotes).length > 0">
 
     <div *ngIf="currentView" fxLayout="row wrap" fxLayoutAlign="start center" fxFlexOffset="10%" fxLayoutGap=" 20px grid">
-  <div *ngFor ="let note of allnotes">
-            
-        <app-singlecard [notedetails]=note>
-
-        </app-singlecard>
+      <div *ngFor="let singlenote of allnotes">
+              <app-singlecard  [notedetails]=singlenote ></app-singlecard>
+      </div>
   </div>
 </div>
 
 <div *ngIf="!currentView" fxLayout="column wrap" fxLayoutAlign="start center" fxFlexOffset="10%" fxLayoutGap=" 20px grid">
     <div *ngFor ="let note of allnotes">
-              
           <app-singlecard [notedetails]=note>
-  
           </app-singlecard>
     </div>
   </div>
-</div>

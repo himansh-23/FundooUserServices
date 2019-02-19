@@ -20,6 +20,7 @@ export class EditdialogComponent implements OnInit {
     private notecrudservice:NotecrudService) { }
 
   ngOnInit() {
+    console.log(this.data);
   }
 
   onNoClick(): void {
@@ -27,10 +28,9 @@ export class EditdialogComponent implements OnInit {
   }
 
   colorchange(singlecolor:string){
- //  console.log(this.data);
- console.log('cc');
- console.log(singlecolor);
-     this.notecrudservice.updateNote(this.data).subscribe(
+
+      console.log(singlecolor);
+      this.notecrudservice.updateNote(this.data).subscribe(
        
       response => {
         if(response.statusCode==166)

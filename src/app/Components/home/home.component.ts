@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit  {
   private mySearch;
   private show:boolean;
   label:Label=new Label();
-  private profilePic:any;
+  private profilePic:string=localStorage.getItem('jwtToken');
   labelsall:Label[];
   ngOnInit() {
     this.notecrudservice.getAllLabels().subscribe(
@@ -36,6 +36,13 @@ export class HomeComponent implements OnInit  {
        this.show=response;
         }
       );
+
+      // this.userService.getProfileImage().subscribe(
+      //   pic=>
+      //   {
+      //     this.profilePic=pic;
+      //   }
+      // )
       
   }
   constructor(private userService:UserserviceService,private notecrudservice:NotecrudService,private dialog: MatDialog,private cardUpdateService:CardsupdateService,private router:Router,private viewChange:ViewchangeService){
@@ -56,15 +63,17 @@ export class HomeComponent implements OnInit  {
       height:'350px'});
 
       dialogRef3.afterClosed().subscribe(
-        (x) =>
+        (x:any) =>
         {
-        this.profilePic=x.file;
-          this.userService.uploadProfileImage(this.profilePic).subscribe(
+          if(x!=null)
+          { 
+            this.userService.uploadProfileImage(x.file).subscribe(
             value =>
             {
               console.log(value);
             }
           );
+          }
         })
   }
 

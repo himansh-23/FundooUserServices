@@ -69,8 +69,12 @@ export class UserserviceService {
   {
     let formdata: FormData = new FormData();
     formdata.append('file',file);
+    return this.http.post(this.userUrl+"imageupload",formdata,httpOptions2);
+  }
 
-    return this.http.post(this.userUrl+"imageupload",formdata);
+  public getProfileImage():any
+  {
+    return this.http.get(this.userUrl+"imageget",httpOptions2);
   }
 
 }

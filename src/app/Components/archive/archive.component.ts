@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CreateNoteModel} from '../../Models//createnote.model'
 import { CardsupdateService } from '../../service/cardsupdate.service';
 import { ViewchangeService } from '../../service/viewchange.service';
+import { ReceiveNote } from '../../Models/receivingnote.model';
 
 @Component({
   selector: 'app-archive',
@@ -10,7 +11,7 @@ import { ViewchangeService } from '../../service/viewchange.service';
 })
 export class ArchiveComponent implements OnInit {
 
-  private  allnotes:CreateNoteModel[];
+  private  allnotes:ReceiveNote[];
   private currentView:boolean;
 
   constructor(private cradupdate:CardsupdateService,private viewChange:ViewchangeService) { 
@@ -18,7 +19,8 @@ export class ArchiveComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.cradupdate.currentnotes.subscribe(
+
+    this.cradupdate.currentnotes2.subscribe(
       updatenotes=>
       this.allnotes=updatenotes 
       );

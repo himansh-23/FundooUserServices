@@ -30,10 +30,10 @@
                       </mat-menu> 
              <button  mat-icon-button  [matMenuTriggerFor]="menu3"><mat-icon>account_circle</mat-icon></button>
              <mat-menu #menu3="matMenu">
-                <mat-card class="example-card"  [style.backgroundColor]="HoneyDew">
+                <mat-card class="example-card" [style.backgroundColor]="HoneyDew">
                     <mat-card-header >
                         <div mat-card-avatar class="profile" (click)="ProfileSelect()" >
-                          <img mat-card-avatar class="profile" src="{{profilePic}}" />  
+                          <img mat-card-avatar class="profile" src="http://localhost:8080/api/user/imageget/{{profilePic}}"/>  
                         </div>
                         <mat-card-title>Himanshu Prajapati</mat-card-title>
                         <mat-card-subtitle>himanshu00096@gmail.com</mat-card-subtitle>

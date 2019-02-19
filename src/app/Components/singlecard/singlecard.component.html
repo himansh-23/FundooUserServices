@@ -1,19 +1,19 @@
-<mat-card class ="cardresize" [style.backgroundColor]="notedetails.note.color" ><!-- -->
-   <mat-card-header>
-    <mat-card-title (click)="dostuff()">	
-        <p>{{notedetails.note.title}}</p> 
-    </mat-card-title>
-    <button style="position: absolute; right:0;" mat-icon-button (click)="unpinned()">
-      <span *ngIf=notedetails.note.pinned> 
-               <img src="../../../assets/pin.svg">
-      </span>
-      <span *ngIf=!notedetails.note.pinned> 
-            <img src="../../../assets/unpin.svg">
-      </span>
-   </button>
+<mat-card class ="cardresize" [style.backgroundColor]="notedetails.note.color" >
+   <mat-card-header class="hah">
+         <button style="position: absolute; right:0;" mat-icon-button (click)="unpinned()">
+               <span *ngIf=notedetails.note.pinned> 
+                        <img src="../../../assets/pin.svg">
+               </span>
+               <span *ngIf=!notedetails.note.pinned> 
+                     <img src="../../../assets/unpin.svg">
+               </span>
+            </button>
    </mat-card-header>
-   
-   <mat-card-subtitle (click)="dostuff()">
+
+<mat-card-title (click)="dostuff()">	
+      <p>{{notedetails.note.title}}</p> 
+  </mat-card-title>
+   <mat-card-subtitle class="subtitlemargin" (click)="dostuff()">
          <p class="wrap_word">{{notedetails.note.content}}</p>   
       </mat-card-subtitle>
       <mat-card-content>
@@ -55,24 +55,24 @@
                               <span *ngFor="let singlecolor of colorx">
                                  <button mat-icon-button (click)="colorchange(singlecolor)">
                                  <mat-icon  [style.color]="singlecolor">fiber_manual_record</mat-icon>
-                                    
                                  </button>
                               </span>
                         </div>
                         </mat-list>
                      </mat-menu>  
-                    <button mat-icon-button>
-                       <mat-icon aria-label="Example icon-button with a heart icon">
+                    <button mat-icon-button type="menu" (click)="addCardPhoto()">
+                        <!-- <input type="file"/> -->
+                       <mat-icon >
                           add_photo_alternate
                        </mat-icon>
                     </button>
                     <button mat-icon-button (click)="archivenote()">
-                       <mat-icon aria-label="Example icon-button with a heart icon">
+                       <mat-icon >
                           archive
                        </mat-icon>
                     </button>
                     <button mat-icon-button [matMenuTriggerFor]="menu1">
-                       <mat-icon aria-label="Example icon-button with a heart icon">
+                       <mat-icon >
                           more_vert
                        </mat-icon>
                     </button>

@@ -62,12 +62,12 @@ export class SinglecardComponent implements OnInit {
   {
     const dialogRef = this.dialog.open(EditdialogComponent, {
       width: '500px',
-      data: {notedetails:this.notedetails}
+      data: {notedetails:this.notedetails.note}
     });
 
     dialogRef.afterClosed().subscribe(result => {
     //  console.log('The dialog was closed');
-      this.notedetails = result;
+      this.notedetails.note = result;
    //   console.log(this.notedetails);
       this.notecrudservice.updateNote(this.notedetails.note).subscribe(
         response => {
@@ -241,5 +241,10 @@ export class SinglecardComponent implements OnInit {
       } 
       );
 
+  }
+
+  addCardPhoto()
+  {
+    
   }
 }

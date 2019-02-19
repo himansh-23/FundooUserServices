@@ -7,9 +7,6 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CardsupdateService implements OnInit{
 
-  private allNotes=new BehaviorSubject([]);
-  currentnotes=this.allNotes.asObservable();
-  
   private allNotes2=new BehaviorSubject([]);
   currentnotes2=this.allNotes2.asObservable();
 
@@ -70,13 +67,13 @@ export class CardsupdateService implements OnInit{
   {
     var isArchive:boolean;
     var isTrash:boolean;
-    
     isArchive=JSON.parse(this.archive);
     isTrash=JSON.parse(this.trash);
     console.log(isTrash+"   "+isArchive);
     this.notecrud.searchNotes(searchWord,isArchive,isTrash).subscribe(
-      response =>{
-      this.allNotes.next(response);
+      response =>
+      {
+      this.allNotes2.next(response);
       }
     )
   }

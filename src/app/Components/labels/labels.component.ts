@@ -3,6 +3,7 @@ import {CreateNoteModel} from '../../Models//createnote.model'
 import { CardsupdateService } from '../../service/cardsupdate.service';
 import { Label } from '../../Models/label.model';
 import { Router ,ActivatedRoute} from '@angular/router';
+import { ReceiveNote } from '../../Models/receivingnote.model';
 
 @Component({
   selector: 'app-labels',
@@ -12,7 +13,7 @@ import { Router ,ActivatedRoute} from '@angular/router';
 export class LabelsComponent implements OnInit {
 
 
-  private  allnotes:CreateNoteModel[];
+  private  allnotes:ReceiveNote[];
   labelvalue:string; 
   
   constructor(private cardupdate:CardsupdateService,private router:Router,private activeRoute: ActivatedRoute) {   
@@ -21,8 +22,9 @@ export class LabelsComponent implements OnInit {
   ngOnInit() {
     
     this.labelvalue=this.activeRoute.snapshot.params['labelvalue'];
-    this.cardupdate.currentnotes.subscribe(udnotes=>{
-      this.allnotes=udnotes});
+    this.cardupdate.currentnotes2.subscribe(udnotes=>{
+      this.allnotes=udnotes
+    });
       
       //This Is will Update filter (labelvalue ) over child route
       this.router.events.subscribe((e: any) => {
