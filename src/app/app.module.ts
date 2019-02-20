@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule,NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/login/login.component';
 import {MatCardModule} from '@angular/material/card';
@@ -98,7 +98,6 @@ const  routes:Routes = [
     MatCardModule,
     MatProgressSpinnerModule,
     MatInputModule,
-    NoopAnimationsModule,
     MatButtonModule,
     RouterModule.forRoot(routes),
     MatCheckboxModule,

@@ -21,8 +21,10 @@ export class NotesComponent implements OnInit {
 
     ngOnInit() {
 
-      this.cardupdate.currentnotes2.subscribe(udnotes=>   
-        this.allnotes=udnotes
+      this.cardupdate.currentnotes2.subscribe(udnotes=> {
+        this.allnotes=udnotes;
+        console.log(udnotes);
+      }
         
         );
 

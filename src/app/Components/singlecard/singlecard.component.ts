@@ -18,7 +18,7 @@ export class SinglecardComponent implements OnInit {
 
   private colors:string[][]=[['white',"FireBrick","orange","LightSkyBlue"],["Lavender","HoneyDew","blue","CadetBlue"],[ "gray",
             "Peru","pink","brown"]];
-  
+  private imageget:boolean=true;
   private labelsall:Label[];
   constructor(private cardupdate:CardsupdateService,private notecrudservice:NotecrudService,private snackBar: MatSnackBar,private dialog: MatDialog) 
   {
@@ -33,9 +33,13 @@ export class SinglecardComponent implements OnInit {
       response=>
       {
         this.labelsall=response;     
-          
+        this.imageget=false;
       }
      )
+     if(this.notedetails.note.image==null)
+     {
+
+     }
   } 
  
   noteDelete()
@@ -149,8 +153,8 @@ export class SinglecardComponent implements OnInit {
   trashnote()
   {
     this.notedetails.note.trash=true;
-    this.notedetails.note.trash=false;
-    this.notedetails.note.trash=false;
+    this.notedetails.note.archive=false;
+    this.notedetails.note.pinned=false;
     this.notecrudservice.updateNote(this.notedetails.note).subscribe(
       response => {
         if(response.statusCode==166)
@@ -240,11 +244,17 @@ export class SinglecardComponent implements OnInit {
          console.log("Error",error);
       } 
       );
-
   }
 
-  addCardPhoto()
+  addCardPhoto(file)
   {
-    
+    console.log(file);
+    console.log("print");
+   this.notecrudservice.noteImageAdd(String(this.notedetails.note.id),file).subscribe(
+   response =>
+   {
+     console.log(response);
+   }
+   );
   }
 }

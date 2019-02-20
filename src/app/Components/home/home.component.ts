@@ -37,13 +37,6 @@ export class HomeComponent implements OnInit  {
         }
       );
 
-      // this.userService.getProfileImage().subscribe(
-      //   pic=>
-      //   {
-      //     this.profilePic=pic;
-      //   }
-      // )
-      
   }
   constructor(private userService:UserserviceService,private notecrudservice:NotecrudService,private dialog: MatDialog,private cardUpdateService:CardsupdateService,private router:Router,private viewChange:ViewchangeService){
 
@@ -86,14 +79,6 @@ export class HomeComponent implements OnInit  {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      
-        this.cardUpdateService.changemessage2();
-        this.notecrudservice.getAllLabels().subscribe(
-          response =>
-            {
-              this.labelsall=response;
-            }
-        )
         if(result!=null && result!="")
         {
           this.label.labelName=result;
@@ -101,10 +86,17 @@ export class HomeComponent implements OnInit  {
               response =>
               {
                console.log(response);
-              
               }
             )
         }
+
+        this.cardUpdateService.changemessage2();
+        this.notecrudservice.getAllLabels().subscribe(
+          response =>
+            {
+              this.labelsall=response;
+            }
+        )
     });
   }
 

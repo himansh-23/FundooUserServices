@@ -87,5 +87,13 @@ export class NotecrudService {
   {
     return this.http.post(this.collabUrl+"?sharedUserId="+sharedUserId+"&sharedNoteId="+sharedNoteId,httpOptions2);
   }
+  public noteImageAdd(id:string,file: File)
+  { 
+  let formdata: FormData = new FormData();
+ // formdata.append('id',id);
+  formdata.append('file',file[0]);
+  console.log("send here");
+  return this.http.post(this.noteUrl+"/imageupload/"+id,formdata,httpOptions2);
+  }
 
 }

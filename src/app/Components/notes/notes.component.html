@@ -1,69 +1,67 @@
-<div fxLayout="row"  fxFlexOffset="10%"  fxLayoutGap="10px">
-    <div >
+<div fxLayout="row" fxFlexOffset="10%" fxLayoutGap="10px">
+    <div>
 
     </div>
 
-<div  fxLayout="column"  fxLayoutGap="20px">
+    <div fxLayout="column" fxLayoutGap="20px">
 
-    <div fxLayoutAlign="center start">
-            <app-notebar >
-
+        <div fxLayoutAlign="center start">
+            <app-notebar>
             </app-notebar>
-
-    </div>
-    <div fxLayoutGap="15px grid">
-        <i>Pinned</i>
-    </div>
-    
-        <div *ngIf="currentView" fxLayout="row wrap" fxLayoutAlign="start center"  fxLayoutGap="15px grid">
-                <div *ngFor="let singlenote of allnotes">
-                    <span *ngIf=singlenote.note.pinned>
-                        <app-singlecard  [notedetails]=singlenote ></app-singlecard>
-                    </span>
-                </div>
+        </div>
+        <div fxLayoutGap="15px grid">
+            <i>Pinned</i>
         </div>
 
-        <div *ngIf="!currentView" fxLayout="column wrap" fxLayoutAlign="start center"  fxLayoutGap="15px grid">
-                <div *ngFor="let singlenote of allnotes" >
-                    
-                    <span *ngIf=singlenote.note.pinned>
-                        <app-singlecard  [notedetails]=singlenote ></app-singlecard>
-                    </span>
-                 </div>
-    </div>    
+        <div *ngIf="currentView" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="15px grid">
+            <div *ngFor="let singlenote of allnotes">
+                <span *ngIf=singlenote.note.pinned>
+                    <app-singlecard [notedetails]=singlenote></app-singlecard>
+                </span>
+            </div>
+        </div>
+
+        <div *ngIf="!currentView" fxLayout="column wrap" fxLayoutAlign="start center" fxLayoutGap="15px grid">
+            <div *ngFor="let singlenote of allnotes">
+
+                <span *ngIf=singlenote.note.pinned>
+                    <app-singlecard [notedetails]=singlenote></app-singlecard>
+                </span>
+            </div>
+        </div>
 
         <div fxLayoutGap="15px grid">
             <br>
             <i>Others
             </i>
         </div>
-                
-            <div *ngIf="currentView"  fxLayout="row wrap" fxLayoutAlign="start center"  fxLayoutGap="15px grid">
-            <!-- flexLayout="row wrap" fxLayoutGap="10px"> -->
-            
-                <div *ngFor="let singlenote of allnotes">
-                    <span *ngIf=!singlenote.note.pinned>
-                        <app-singlecard  [notedetails]=singlenote >
 
-                        </app-singlecard>
-                    </span>
-                </div>
-                
+        <div *ngIf="currentView" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="15px grid">
+            <!-- flexLayout="row wrap" fxLayoutGap="10px"> -->
+
+            <div *ngFor="let singlenote of allnotes">
+                <span *ngIf=!singlenote.note.pinned>
+                    <app-singlecard [notedetails]=singlenote>
+
+                    </app-singlecard>
+                </span>
             </div>
 
-            <div *ngIf="!currentView"  fxLayout="column wrap" fxLayoutAlign="start center"  fxLayoutGap="15px grid">
-                <!-- flexLayout="row wrap" fxLayoutGap="10px"> -->
-                
-                    <div *ngFor="let singlenote of allnotes">
-                        <span *ngIf=!singlenote.note.pinned>
-                            <app-singlecard  [notedetails]=singlenote>
+        </div>
 
-                            </app-singlecard>
-                        </span>
-                    </div>
-    
-                </div>
+        <div *ngIf="!currentView" fxLayout="column wrap" fxLayoutAlign="start center" fxLayoutGap="15px grid">
+            <!-- flexLayout="row wrap" fxLayoutGap="10px"> -->
 
-</div>
+            <div *ngFor="let singlenote of allnotes">
+                <span *ngIf=!singlenote.note.pinned>
+                    <app-singlecard [notedetails]=singlenote>
+
+                    </app-singlecard>
+                </span>
+            </div>
+
+        </div>
+
+    </div>
 
 </div>

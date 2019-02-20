@@ -40,26 +40,7 @@
                     </mat-card-header>
                   <mat-card-content>
                     <button mat-raised-button>SignOut</button>
-                    <!-- <button mat-raised-button >Cancel</button> -->
-                  <!-- <div fxLayout="column" > 
-                      <div  fxFlex=80%>
-                            <div id="left">
-                              <button mat-mini-fab class="profile" (click)="ProfileSelect()">
-                                <img src={{profilePic}} width="60px" height="60px" style="border-bottom-left-radius: 
-                                50%;border-bottom-right-radius: 50%;border-top-right-radius: 50%;border-top-left-radius: 50%">
-                              </button>
-                            </div>
-                            
-                            <div id="right" >
-                              <p> Himanshu Prajapati</p>
-                              <p> himanshu00096@gmail.com</p>
-                            </div>
-                      </div>
-                      <div fxFlex=20%>
-                        <button mat-icon-button>SignOut</button>
-                        
-                      </div>
-                  </div> -->
+                   
                 </mat-card-content>
                 </mat-card>
              </mat-menu>
@@ -68,8 +49,8 @@
     </mat-toolbar>
 </div>
 <div fxFlex="90%">
-  <mat-sidenav-container style="margin-top: 5%;" class="example-container" >
-    <mat-sidenav #sidenav  class="example-sidenav" mode="side"  disableClose>
+  <mat-drawer-container style="margin-top: 5%;" class="example-container" >
+    <mat-drawer #sidenav  class="example-sidenav" mode="side"  disableClose>
        <mat-action-list >
           <button class= "hoverhighlight" mat-list-item routerLink="notes" routerLinkActive="active"> <mat-icon>lightbulb_outline</mat-icon> <i style="margin: 5%;"></i> Notes </button>
           <button class= "hoverhighlight" mat-list-item> <mat-icon>notifications_none</mat-icon><i style="margin: 5%;"></i> Remainder </button>
@@ -91,13 +72,13 @@
           <button class= "hoverhighlight" mat-list-item routerLink="archive" routerLinkActive="active"><mat-icon>archive</mat-icon><i style="margin: 5%;"></i> Archive </button>
           <button class= "hoverhighlight" mat-list-item routerLink="trash" routerLinkActive="active"><mat-icon>delete</mat-icon> <i style="margin: 5%;"></i>Trash </button>             
        </mat-action-list>
-    </mat-sidenav>
+    </mat-drawer>
 
-    <mat-sidenav-content>
+    <mat-drawer-content>
                     <router-outlet>
 
                     </router-outlet>  
-      </mat-sidenav-content>
-   </mat-sidenav-container>
+      </mat-drawer-content>
+   </mat-drawer-container>
    </div>
    </div>
