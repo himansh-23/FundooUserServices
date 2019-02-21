@@ -37,10 +37,12 @@ export class EditlabeldialogComponent implements OnInit {
 
   deleteLabel(deleteLabel)
   {
+    console.log(deleteLabel);
+    
     this.noteCurdService.deleteLabel(deleteLabel.id).subscribe(
       response =>
       {
-        console.log(response);
+        console.log(response); 
         this.noteCurdService.getAllLabels().subscribe(
           response=>
           {

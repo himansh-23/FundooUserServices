@@ -3,13 +3,14 @@
 
     </div>
 
-    <div fxLayout="column" fxLayoutGap="20px">
+    <div fxLayout="column" fxLayoutGap="20px" style="overflow: hidden;">
 
-        <div fxLayoutAlign="center start">
+        <div fxLayoutAlign="center start" style="margin-top:40px;">
             <app-notebar>
             </app-notebar>
         </div>
-        <div fxLayoutGap="15px grid">
+        
+        <div *ngIf="showPinned" fxLayoutGap="15px grid">
             <i>Pinned</i>
         </div>
 
@@ -30,9 +31,9 @@
             </div>
         </div>
 
-        <div fxLayoutGap="15px grid">
+        <div *ngIf="showUnpinned" fxLayoutGap="15px grid">
             <br>
-            <i>Others
+            <i>Unpinned
             </i>
         </div>
 

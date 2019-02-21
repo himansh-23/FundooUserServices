@@ -1,33 +1,26 @@
 <div fxLayout="column" fxLayoutGap="10px">
-          <div fxFlex="10%">
-              <h4>
-          Select Profile Picture
-              </h4>
-        </div>
+  <div fxFlex="10%">
+    <h4>
+      Select Profile Picture
+    </h4>
+  </div>
 
-      <div fxFlex="70%" fxFlexFill>
-         
-              <input type="file" (change)="fileChangeEvent($event)" />
-                <image-cropper
-                [imageChangedEvent]="imageChangedEvent"
-                [maintainAspectRatio]="true"
-                [aspectRatio]="4 / 3"
-                [resizeToWidth]="128"
-                format="png"
-                (imageCropped)="imageCropped($event)"
-                >
-               </image-cropper>   
-      </div>
+  <div fxFlex="70%" fxFlexFill>
 
-    <div fxFlex="20%">
-          
-      <button mat-raised-button color="primary" (click)="setProfile()">
-            Select-Profile
-            </button>
+    <input type="file" (change)="fileChangeEvent($event)" />
+    <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="4 / 3"
+      [resizeToWidth]="128" format="png" (imageCropped)="imageCropped($event)">
+    </image-cropper>
+  </div>
 
-            <button mat-raised-button style="margin-left: 10%;" color="primary">
-              Cancel
-            </button>
-    </div>
+  <div fxFlex="20%">
+
+    <button mat-raised-button color="primary" (click)="setProfile()">
+      Select-Profile
+    </button>
+
+    <button mat-raised-button style="margin-left: 10%;" color="primary">
+      Cancel
+    </button>
+  </div>
 </div>
-

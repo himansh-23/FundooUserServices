@@ -5,12 +5,15 @@
   }
 
   .example-sidenav{
-    width:200px;
-    /* position:fixed; */
+    width:20%;
+     position:fixed; 
+     margin-top: 4%;
   }
   mat-toolbar {
     position: fixed;
     z-index: 100;
+    background-color: lightslategray;
+    border-left-color: black;
 }
 
 .f{
@@ -78,4 +81,17 @@
 .profile{
   width: 70px;
   height: 70px;
+}
+.example-card{
+
+  border: none;
+  background-color: darkgrey;
+}
+
+.menuborder{
+  
+  overflow: hidden !important;
+  border: none;
+  max-width: none !important;
+
 }

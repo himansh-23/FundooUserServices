@@ -3,6 +3,7 @@ import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { NotecrudService } from '../../service/notecrud.service';
 import { UserserviceService } from '../../service/userservice.service';
 import { CreateNoteModel } from '../../Models/createnote.model';
+import { ReceiveNote } from 'src/app/Models/receivingnote.model';
 
 @Component({
   selector: 'app-collaboratordialog',
@@ -13,10 +14,10 @@ export class CollaboratordialogComponent implements OnInit {
 
   constructor(public dialogRef:MatDialogRef<CollaboratordialogComponent>,
     private notecrudservice:NotecrudService,private userService:UserserviceService,
-    @Inject(MAT_DIALOG_DATA) private data) { }
+    @Inject(MAT_DIALOG_DATA) private data:ReceiveNote) { }
     private email:string;
   ngOnInit() {
-    console.log(this.data.notedetails.id);
+    console.log(this.data);
   }
 
   onNoClick():void{
@@ -33,7 +34,7 @@ export class CollaboratordialogComponent implements OnInit {
           console.log(response);
           if(response >= 0)
           {
-            this.notecrudservice.addCollaboratorNote(response,this.data.notedetails.id).subscribe(
+            this.notecrudservice.addCollaboratorNote(response,this.data.note.id).subscribe(
               response =>
               {
                 console.log(response);

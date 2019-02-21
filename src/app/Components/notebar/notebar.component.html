@@ -1,63 +1,55 @@
-
-<!-- <div fxLayout="column" fxLayoutGap="10px">  -->
-<mat-card *ngIf=!barshow (click)="fullCardShow()" fxFlex="1 1 calc(15em + 250px)" fxLayoutAlign="center start">
-  Take A Note ...
-
+<mat-card *ngIf=!barshow (click)="fullCardShow()" fxFlex="1 1 calc(15em + 250px)" fxLayoutAlign="center start" class="decorate">
+   Take A Note ...
 </mat-card>
 
-<mat-card *ngIf=barshow fxFlex="1 2 calc(15em + 350px)">
-<mat-card-header>
-<mat-card-title >   
-  <input class="inputclass" matInput placeholder="Title" style="margin-left:20px;" [(ngModel)]="createnote.title" > 
-  </mat-card-title>
-  <!-- <button mat-icon-button fxLayoutAlign="right">
-   <mat-icon aria-label="Example icon-button with a heart icon">Edit</mat-icon>
- </button>  -->
-</mat-card-header>  
-  <mat-card-subtitle>
-<div class ="takeanote" contenteditable="true"  aria-placeholder='Enter some text' style="margin-left:20px;" 
-[textContent]="createnote.content" (input)="createnote.content=$event.target.textContent" >
-</div>
-</mat-card-subtitle>
-<div fxLayout="row">
-   <button mat-icon-button>
-      <mat-icon aria-label="Example icon-button with a heart icon">
-         add_alert
-      </mat-icon>
-   </button>
-   <button mat-icon-button>
-      <mat-icon aria-label="Example icon-button with a heart icon">
-         person_add
-      </mat-icon>
-   </button>
-   <button mat-icon-button>
-      <mat-icon aria-label="Example icon-button with a heart icon">
-         palette
-      </mat-icon>
-   </button>
-   <button mat-icon-button>
-      <mat-icon aria-label="Example icon-button with a heart icon">
-         add_photo_alternate
-      </mat-icon>
-   </button>
-   <button mat-icon-button>
-      <mat-icon aria-label="Example icon-button with a heart icon">
-         archive
-      </mat-icon>
-   </button>
-   <button mat-icon-button>
-      <mat-icon aria-label="Example icon-button with a heart icon">
-         more_vert
-      </mat-icon>
-   </button>
-   
-   <!-- <div style="margin-left: 200px;">  -->
-      <button mat-icon-button (click)="noteSave()" >Close
+<mat-card *ngIf=barshow fxFlex="1 2 calc(15em + 350px)" class="decorate">
+   <mat-card-header>
+      <mat-card-title>
+         <input class="inputclass" matInput placeholder="Title" [(ngModel)]="createnote.title">
+         <textarea matInput matTextareaAutosize matAutosizeMinRows=1 [style.background-color]="" style="font-size: 17px; font-family: sans-serif;overflow: hidden"
+            placeholder="content" [(ngModel)]="createnote.content">
+      </textarea>
+      </mat-card-title>
+   </mat-card-header>
+
+   <div fxLayout="row">
+      <button mat-icon-button>
+         <mat-icon aria-label="Example icon-button with a heart icon">
+            add_alert
+         </mat-icon>
       </button>
-  
-   <!-- </div> -->
-</div>
+      <button mat-icon-button>
+         <mat-icon aria-label="Example icon-button with a heart icon">
+            person_add
+         </mat-icon>
+      </button>
+      <button mat-icon-button>
+         <mat-icon aria-label="Example icon-button with a heart icon">
+            palette
+         </mat-icon>
+      </button>
+      <button mat-icon-button>
+         <mat-icon aria-label="Example icon-button with a heart icon">
+            add_photo_alternate
+         </mat-icon>
+      </button>
+      <button mat-icon-button>
+         <mat-icon aria-label="Example icon-button with a heart icon">
+            archive
+         </mat-icon>
+      </button>
+      <button mat-icon-button>
+         <mat-icon aria-label="Example icon-button with a heart icon">
+            more_vert
+         </mat-icon>
+      </button>
+
+      <!-- <div style="margin-left: 200px;">  -->
+      <button mat-icon-button (click)="noteSave()">Close
+      </button>
+
+      <!-- </div> -->
+   </div>
 </mat-card>
 
 <!-- </div> -->
-

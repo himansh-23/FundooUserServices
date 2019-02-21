@@ -1,8 +1,8 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CreateNoteModel } from '../../Models/createnote.model';
 import { NotecrudService } from '../../service/notecrud.service';
-import {MatSnackBar} from '@angular/material';
-import {MatDialog} from '@angular/material';
+import { MatSnackBar } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { EditdialogComponent } from '../editdialog/editdialog.component';
 import { CardsupdateService } from '../../service/cardsupdate.service';
 import { Label } from '../../Models/label.model';
@@ -16,86 +16,78 @@ import { ReceiveNote } from '../../Models/receivingnote.model';
 })
 export class SinglecardComponent implements OnInit {
 
-  private colors:string[][]=[['white',"FireBrick","orange","LightSkyBlue"],["Lavender","HoneyDew","blue","CadetBlue"],[ "gray",
-            "Peru","pink","brown"]];
-  private imageget:boolean=true;
-  private labelsall:Label[];
-  constructor(private cardupdate:CardsupdateService,private notecrudservice:NotecrudService,private snackBar: MatSnackBar,private dialog: MatDialog) 
-  {
-   
+  private colors: string[][] = [['white', "FireBrick", "orange", "LightSkyBlue"], ["Lavender", "HoneyDew", "blue", "CadetBlue"], ["gray",
+    "Peru", "pink", "brown"]];
+  private imageget: boolean = true;
+  private labelsall: Label[];
+  constructor(private cardupdate: CardsupdateService, private notecrudservice: NotecrudService, private snackBar: MatSnackBar, private dialog: MatDialog) {
+
   }
 
-  @Input() notedetails:ReceiveNote;
+  @Input() notedetails: ReceiveNote;
 
   ngOnInit() {
 
     this.notecrudservice.getAllLabels().subscribe(
-      response=>
-      {
-        this.labelsall=response;     
-        this.imageget=false;
+      response => {
+        this.labelsall = response;
+        this.imageget = false;
       }
-     )
-     if(this.notedetails.note.image==null)
-     {
+    )
+    if (this.notedetails.note.image == null) {
 
-     }
-  } 
- 
-  noteDelete()
-  {
+    }
+  }
+
+  noteDelete() {
     console.log('notedeletecall');
     this.notecrudservice.deleteNote(this.notedetails.note).subscribe(
       response => {
-        if(response.statusCode==166)
-        {
-          this.snackBar.open(response.statusMessage,"",{
-            duration:2000,
+        if (response.statusCode == 166) {
+          this.snackBar.open(response.statusMessage, "", {
+            duration: 2000,
           })
         }
         this.cardupdate.changemessage2();
       },
-      error =>{
-        console.log("Error",error);
-      }       
+      error => {
+        console.log("Error", error);
+      }
     );
-  
+
   }
 
-  dostuff()
-  {
+  dostuff() {
     const dialogRef = this.dialog.open(EditdialogComponent, {
       width: '500px',
-      data: {notedetails:this.notedetails.note}
+      data: { notedetails: this.notedetails.note }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-    //  console.log('The dialog was closed');
+      //  console.log('The dialog was closed');
       this.notedetails.note = result;
-   //   console.log(this.notedetails);
+      //   console.log(this.notedetails);
       this.notecrudservice.updateNote(this.notedetails.note).subscribe(
         response => {
-          if(response.statusCode==166)
-          {
-            this.snackBar.open(response.statusMessage,"",{
-              duration:2000,
+          if (response.statusCode == 166) {
+            this.snackBar.open(response.statusMessage, "", {
+              duration: 2000,
             })
           }
           this.cardupdate.changemessage2();
         },
         error => {
-           console.log("Error",error);
-        } 
-        )
+          console.log("Error", error);
+        }
+      )
     });
   }
 
-  addPerson()
-  {
+  addPerson() {
     const dialogRef2 = this.dialog.open(CollaboratordialogComponent, {
       width: '400px',
-      height:'200px',
-       data: {notedetails:this.notedetails}
+      height: '200px',
+      data: { notedetails: this.notedetails }
     });
 
     dialogRef2.afterClosed().subscribe(result => {
@@ -105,156 +97,139 @@ export class SinglecardComponent implements OnInit {
 
   }
 
-  colorchange(singlecolor:string){
-    this.notedetails.note.color=singlecolor;
+  colorchange(singlecolor: string) {
+    this.notedetails.note.color = singlecolor;
     this.notecrudservice.updateNote(this.notedetails.note).subscribe(
       response => {
-        if(response.statusCode==166)
-        {
-          this.snackBar.open(response.statusMessage,"",{
-            duration:2000,
+        if (response.statusCode == 166) {
+          this.snackBar.open(response.statusMessage, "", {
+            duration: 2000,
           })
         }
         this.cardupdate.changemessage2();
       },
       error => {
-         console.log("Error",error);
-      } 
-      );
-      
+        console.log("Error", error);
+      }
+    );
+
   }
 
-  archivenote(){
-    this.notedetails.note.archive=!this.notedetails.note.archive;
-    this.notedetails.note.trash=false;
-    if(this.notedetails.note.archive)
-    {
-      this.notedetails.note.pinned=false;
+  archivenote() {
+    this.notedetails.note.archive = !this.notedetails.note.archive;
+    this.notedetails.note.trash = false;
+    if (this.notedetails.note.archive) {
+      this.notedetails.note.pinned = false;
     }
-   // console.log(this.notedetails.archive);
+    // console.log(this.notedetails.archive);
     this.notecrudservice.updateNote(this.notedetails.note).subscribe(
       response => {
-        if(response.statusCode==166)
-        {
-          this.snackBar.open(response.statusMessage,"",{
-            duration:2000,
-            
+        if (response.statusCode == 166) {
+          this.snackBar.open(response.statusMessage, "", {
+            duration: 2000,
+
           })
         }
         this.cardupdate.changemessage2();
       },
       error => {
-         console.log("Error",error);
-      } 
-      );
-      
+        console.log("Error", error);
+      }
+    );
+
   }
 
-  trashnote()
-  {
-    this.notedetails.note.trash=true;
-    this.notedetails.note.archive=false;
-    this.notedetails.note.pinned=false;
+  trashnote() {
+    this.notedetails.note.trash = true;
+    this.notedetails.note.archive = false;
+    this.notedetails.note.pinned = false;
     this.notecrudservice.updateNote(this.notedetails.note).subscribe(
       response => {
-        if(response.statusCode==166)
-        {
-          this.snackBar.open(response.statusMessage,"",{
-            duration:2000,
-            
+        if (response.statusCode == 166) {
+          this.snackBar.open(response.statusMessage, "", {
+            duration: 2000,
+
           })
           this.cardupdate.changemessage2();
         }
       },
       error => {
-         console.log("Error",error);
-      } 
-      );
-      
+        console.log("Error", error);
+      }
+    );
+
   }
 
-  restore()
-  {
-    this.notedetails.note.trash=false;
+  restore() {
+    this.notedetails.note.trash = false;
     this.notecrudservice.updateNote(this.notedetails.note).subscribe(
       response => {
-        if(response.statusCode==166)
-        {
-          this.snackBar.open(response.statusMessage,"",{
-            duration:2000,
-            
+        if (response.statusCode == 166) {
+          this.snackBar.open(response.statusMessage, "", {
+            duration: 2000,
+
           })
           this.cardupdate.changemessage2();
         }
       },
       error => {
-         console.log("Error",error);
-      } 
-      );
+        console.log("Error", error);
+      }
+    );
   }
 
-  lncheck(x,y)
-  {
+  lncheck(x, y) {
     console.log(x);
     console.log(y);
   }
 
-  haveThisLabel(label:Label,note:CreateNoteModel)
-  {
-    this.notecrudservice.addLabelToNote(label.id,note.id).subscribe(
-      response =>
-      {
-        
+  haveThisLabel(label: Label, note: CreateNoteModel) {
+    console.log(label.labelName + "  " + note.id);
+    this.notecrudservice.addLabelToNote(label.id, note.id).subscribe(
+      response => {
+
         console.log(response);
         this.cardupdate.changemessage2();
       }
     );
   }
 
-  removeThisLabel(label:Label,note:CreateNoteModel)
-  {
+  removeThisLabel(label: Label, note: CreateNoteModel) {
     console.log('ss');
-  this.notecrudservice.deletenotetolabel(label.id,note.id).subscribe(
-    response =>
-    {
-      this.cardupdate.changemessage2();
-    }
-  )
+    this.notecrudservice.deletenotetolabel(label.id, note.id).subscribe(
+      response => {
+        this.cardupdate.changemessage2();
+      })
   }
 
-  unpinned()
-  {
-    this.notedetails.note.pinned=!this.notedetails.note.pinned;
-    if(this.notedetails.note.pinned)
-    {
-      this.notedetails.note.archive=false;
+  unpinned() {
+    this.notedetails.note.pinned = !this.notedetails.note.pinned;
+    if (this.notedetails.note.pinned) {
+      this.notedetails.note.archive = false;
     }
 
     this.notecrudservice.updateNote(this.notedetails.note).subscribe(
       response => {
-        if(response.statusCode==166)
-        {
-          this.snackBar.open(response.statusMessage,"",{
-            duration:2000,  
+        if (response.statusCode == 166) {
+          this.snackBar.open(response.statusMessage, "", {
+            duration: 2000,
           })
         }
         this.cardupdate.changemessage2();
       },
       error => {
-         console.log("Error",error);
-      } 
-      );
+        console.log("Error", error);
+      }
+    );
   }
 
-  addCardPhoto(file)
-  {
+  addCardPhoto(file) {
     console.log(file);
     console.log("print");
-   this.notecrudservice.noteImageAdd(String(this.notedetails.note.id),file).subscribe(
-   response =>
-   {
-     console.log(response);
-   }
-   );
+    this.notecrudservice.noteImageAdd(String(this.notedetails.note.id), file).subscribe(
+      response => {
+        console.log(response);
+      }
+    );
   }
 }

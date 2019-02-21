@@ -86,17 +86,24 @@ export class HomeComponent implements OnInit  {
               response =>
               {
                console.log(response);
+               this.notecrudservice.getAllLabels().subscribe(
+                response =>
+                  {
+                    this.labelsall=response;
+                  }
+              )
               }
             )
         }
-
-        this.cardUpdateService.changemessage2();
-        this.notecrudservice.getAllLabels().subscribe(
-          response =>
-            {
-              this.labelsall=response;
-            }
-        )
+        else{
+          this.notecrudservice.getAllLabels().subscribe(
+            response =>
+              {
+                this.labelsall=response;
+              }
+          )
+        }
+       
     });
   }
 

@@ -20,7 +20,7 @@
 
 .cardresize{
     max-width: 200px;
-    max-height: 250px;
+    max-height: 350px;
     border-bottom-left-radius: 5%;
     border-bottom-right-radius: 5%;
     border-top-left-radius: 5%;
@@ -41,7 +41,11 @@
 
 .wrap_word{
 
-    overflow:inherit;
+    word-wrap: break-word; 
+    white-space: pre-wrap;      
+    white-space: -moz-pre-wrap; 
+    white-space: -pre-wrap;     
+    white-space: -o-pre-wrap;
 
 }
 
@@ -63,20 +67,23 @@
     margin-top:-20px; 
 }
 
-.marginremove{
-    margin-top:-10%;
-    
-}
-
-/* .marginremove:hover{
-    margin-top:-10%;
-} */
-
 .inputnotshow{
     display: none;
 }
 
-marginremove:hover{
+.marginremove{
+    margin-top: -10%;
+}
+
+.chipsize{
+    /* size: 20%; */
+    background-color: aliceblue;
+    border-style: solid;
+    border-radius: 30%;
+    border-color: aliceblue;
+    margin-bottom: 5%;  
+}
+.marginremove:hover{
     
 }
 

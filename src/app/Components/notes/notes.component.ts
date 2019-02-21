@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {CreateNoteModel} from '../../Models//createnote.model'
+import { Component, OnInit, } from '@angular/core';
 import { CardsupdateService } from '../../service/cardsupdate.service';
 import { ViewchangeService } from '../../service/viewchange.service';
 import { ReceiveNote } from '../../Models/receivingnote.model';
@@ -11,29 +10,44 @@ import { ReceiveNote } from '../../Models/receivingnote.model';
 })
 
 export class NotesComponent implements OnInit {
-   
-  private  allnotes:ReceiveNote[];
-  private currentView:boolean;
-  showtoolbar=false;
-  constructor(private cardupdate:CardsupdateService,private viewChange:ViewchangeService) {
-    this.cardupdate.changemessage('false','false');
+
+  private allnotes: ReceiveNote[];
+  private currentView: boolean;
+  showtoolbar = false;
+  showPinned = false;
+  showUnpinned = false;
+  constructor(private cardupdate: CardsupdateService, private viewChange: ViewchangeService) {
+    this.cardupdate.changemessage('false', 'false');
   }
 
-    ngOnInit() {
+  ngOnInit() {
 
-      this.cardupdate.currentnotes2.subscribe(udnotes=> {
-        this.allnotes=udnotes;
-        console.log(udnotes);
+    this.cardupdate.currentnotes2.subscribe(udnotes => {
+      this.allnotes = udnotes;
+      this.showPinned = false;
+      this.showUnpinned = false;
+      this.content_filter();
+    });
+
+
+    this.viewChange.currentView.subscribe(view => {
+      this.currentView = view;
+    }
+    );
+
+  }
+
+  private content_filter() {
+    this.allnotes.forEach(x => {
+      if (x.note.pinned == true) {
+        this.showPinned = true;
       }
-        
-        );
 
-        this.viewChange.currentView.subscribe(view=>
-          {
-             this.currentView=view;
-          }
-          );
+      if (x.note.pinned == false) {
+        this.showUnpinned = true;
+      }
+    })
   }
 
- 
+
 }
