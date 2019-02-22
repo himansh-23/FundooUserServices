@@ -4,5 +4,5 @@ import { CollabList } from './collablist.model';
 export class ReceiveNote
 {
     note:CreateNoteModel;
-    collabList:CollabList;
+    collabList:CollabList[];
 }

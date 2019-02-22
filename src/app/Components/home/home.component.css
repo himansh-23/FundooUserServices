@@ -9,10 +9,11 @@
      position:fixed; 
      margin-top: 4%;
   }
+
   mat-toolbar {
     position: fixed;
     z-index: 100;
-    background-color: lightslategray;
+    
     border-left-color: black;
 }
 
@@ -40,9 +41,6 @@
 
 }
 
-.search_design{
-  
-}
 
 .example-header-image {
     background-image: url('../../../assets/profilepic.jpg');

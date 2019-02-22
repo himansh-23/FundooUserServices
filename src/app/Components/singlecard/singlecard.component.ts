@@ -16,7 +16,7 @@ import { ReceiveNote } from '../../Models/receivingnote.model';
 })
 export class SinglecardComponent implements OnInit {
 
-  private colors: string[][] = [['white', "FireBrick", "orange", "LightSkyBlue"], ["Lavender", "HoneyDew", "blue", "CadetBlue"], ["gray",
+  private colors: string[][] = [['white', 'FireBrick', 'orange', 'LightSkyBlue'], ['Lavender', 'HoneyDew', 'blue', 'CadetBlue'], ['gray',
     "Peru", "pink", "brown"]];
   private imageget: boolean = true;
   private labelsall: Label[];
@@ -64,9 +64,8 @@ export class SinglecardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      //  console.log('The dialog was closed');
+      
       this.notedetails.note = result;
-      //   console.log(this.notedetails);
       this.notecrudservice.updateNote(this.notedetails.note).subscribe(
         response => {
           if (response.statusCode == 166) {
@@ -85,8 +84,8 @@ export class SinglecardComponent implements OnInit {
 
   addPerson() {
     const dialogRef2 = this.dialog.open(CollaboratordialogComponent, {
-      width: '400px',
-      height: '200px',
+      width: '600px',
+      height: '250px',
       data: { notedetails: this.notedetails }
     });
 
@@ -112,7 +111,6 @@ export class SinglecardComponent implements OnInit {
         console.log("Error", error);
       }
     );
-
   }
 
   archivenote() {
@@ -121,7 +119,6 @@ export class SinglecardComponent implements OnInit {
     if (this.notedetails.note.archive) {
       this.notedetails.note.pinned = false;
     }
-    // console.log(this.notedetails.archive);
     this.notecrudservice.updateNote(this.notedetails.note).subscribe(
       response => {
         if (response.statusCode == 166) {

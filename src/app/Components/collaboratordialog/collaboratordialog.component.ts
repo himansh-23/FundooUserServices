@@ -1,9 +1,8 @@
 import { Component, OnInit,Inject } from '@angular/core';
-import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
 import { NotecrudService } from '../../service/notecrud.service';
 import { UserserviceService } from '../../service/userservice.service';
-import { CreateNoteModel } from '../../Models/createnote.model';
-import { ReceiveNote } from 'src/app/Models/receivingnote.model';
+import {CardsupdateService} from '../../service/cardsupdate.service';
 
 @Component({
   selector: 'app-collaboratordialog',
@@ -14,10 +13,10 @@ export class CollaboratordialogComponent implements OnInit {
 
   constructor(public dialogRef:MatDialogRef<CollaboratordialogComponent>,
     private notecrudservice:NotecrudService,private userService:UserserviceService,
-    @Inject(MAT_DIALOG_DATA) private data:ReceiveNote) { }
+    @Inject(MAT_DIALOG_DATA) private data,private matsnackbar:MatSnackBar,private noteupdateService:CardsupdateService) { }
     private email:string;
   ngOnInit() {
-    console.log(this.data);
+    console.log(this.data.notedetails.collabList);
   }
 
   onNoClick():void{
@@ -26,7 +25,6 @@ export class CollaboratordialogComponent implements OnInit {
 
     addCollaborator()
     {
-   //   console.log("after close"+email);
       this.dialogRef.close();
       this.userService.getCollabUserId(this.email).subscribe(
         (response:Number) =>
@@ -34,10 +32,12 @@ export class CollaboratordialogComponent implements OnInit {
           console.log(response);
           if(response >= 0)
           {
-            this.notecrudservice.addCollaboratorNote(response,this.data.note.id).subscribe(
+            this.notecrudservice.addCollaboratorNote(response,this.data.notedetails.note.id).subscribe(
               response =>
               {
-                console.log(response);
+                this.matsnackbar.open(response.statusMessage,"",{
+                  duration:2000,})
+                  this.noteupdateService.changemessage2();
               }
             )
           }
@@ -45,4 +45,20 @@ export class CollaboratordialogComponent implements OnInit {
       )
     }
 
-}
+    removeCollab(email)
+    {
+      console.log(email);
+      console.log(this.data.notedetails.note.id);
+      this.notecrudservice.deleteCollaborator(this.data.notedetails.note.id,email).subscribe(
+        (response) =>{
+        console.log(response);
+        this.matsnackbar.open(response.statusMessage,"",{
+          duration:2000,})
+          this.noteupdateService.changemessage2();
+
+        }
+        )
+      }
+
+    }
+

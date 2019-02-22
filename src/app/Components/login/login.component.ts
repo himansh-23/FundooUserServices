@@ -46,7 +46,6 @@ export class LoginComponent implements OnInit {
            this.router.navigate(['/home']);
             
         }
-
         else{
           this.snackBar.open(response.statusMessage,"Invalid Credentials",{
             duration:2000,})

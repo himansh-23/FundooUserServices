@@ -1,0 +1,33 @@
+.image{
+    background-image:url('../../../assets/super.jpg');
+   
+    background-size: cover;
+    
+}
+
+.fontreduce{
+
+    font-size-adjust: .20;
+}
+
+.set{
+    /*src="" width="40px" height="40px" style="display:initial;"*/
+    background: url('../../../assets/user.svg');
+    background-size: 40px 40px;
+    opacity: .5;
+    background:no-repeat;
+}
+
+.x{
+    outline: none;
+    outline-style: none;
+    box-shadow: none;
+    border-color: transparent;
+    border: solid 2px transparent;
+    overflow-y: auto; 
+}
+
+.footer{
+    background-color: lawngreen;
+    
+}

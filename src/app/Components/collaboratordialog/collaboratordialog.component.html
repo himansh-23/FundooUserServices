@@ -1,9 +1,40 @@
-<mat-card >
+<h2> Collaborators</h2>
+<mat-card class="x" >
+    <mat-card-header>
+        <img mat-card-avatar src="../../../assets/super.jpg" 
+        style="vertical-align: middle; width: 40px;height: 40px;border-radius: 50%;">
+        <mat-card-title class="fontreduce">Himanshu Prajapati</mat-card-title>
+        <mat-card-subtitle><i>himanshu00096@gmail.com </i></mat-card-subtitle>
+      </mat-card-header>
 <mat-card-content>
-  <input matInput [(ngModel)]="email" type="text" name="email">
+    <!-- <span style="background-image :url('../../../assets/user.svg'); width: 40px; height: 40px;"> </span> -->
 
-  <button mat-icon-button (click)="addCollaborator()" >Add Button
-  </button>
+      <div fxLayout="column" *ngFor="let collab of data.notedetails.collabList" >
+      <div fxLayout="row" >
+          <img src="../../../assets/user.svg" 
+          style="vertical-align: middle; width: 40px;height: 40px;border-radius: 50%;">
+      <p style="margin-left:5%;">{{collab.email}}</p>
+      <button mat-button style="float:right;" (click)="removeCollab(collab.email)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      </div>
+    </div>
+
+    <div fxLayout="row "  fxLayoutGap="2%">
+        <img src="../../../assets/user.svg" 
+        style="vertical-align: middle; width: 40px;height: 40px;border-radius: 50%;">
+      <div fxLayoutAlign="start center">
+    <input matInput [(ngModel)]="email" type="text" name="email" placeholder="email To Share With"> 
+  </div>
+</div>
+
+<div fxLayout="row" fxLayoutGap="5%" fxLayoutAlign="end center">
+    <button mat-raised-button color="primary" (click)="addCollaborator()" >Collaborate
+      </button>
+      <button mat-raised-button color="primary" [mat-dialog-close]> Cancel
+      </button>
+</div>
 </mat-card-content>
+
 </mat-card>
-    
+  

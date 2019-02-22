@@ -42,13 +42,13 @@
             </mat-icon>
          </button>
          <button mat-icon-button (click)="addPerson()">
-            <mat-icon >
+            <mat-icon>
                   person
             </mat-icon>
          </button>
          <button mat-icon-button [matMenuTriggerFor]="menucolor">
             <!--*ngFor="let note of allnotes" -->
-            <mat-icon >
+            <mat-icon>
                palette
             </mat-icon>            
          </button>
@@ -64,7 +64,7 @@
             </mat-list>
          </mat-menu>
          <input #file type="file" (change)="addCardPhoto(file.files)" class="inputnotshow">
-         <!-- <button #upload (click)="file.click()">Upload file</button> -->
+       
          <button mat-icon-button #upload type="menu" (click)="file.click()">
             <mat-icon>
                add_photo_alternate
