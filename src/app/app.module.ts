@@ -42,6 +42,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import { CollaboratordialogComponent } from './Components/collaboratordialog/collaboratordialog.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { ProfilepicComponent } from './Components/profilepic/profilepic.component';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+
 
 const  routes:Routes = [
   {path : '' , redirectTo : '/login',pathMatch:'full' },
@@ -117,6 +119,8 @@ const  routes:Routes = [
     MatDialogModule,
     MatChipsModule,
     ImageCropperModule,
+    NgxMaterialTimepickerModule
+    
     
   ],
   providers: [UserserviceService,NotecrudService],

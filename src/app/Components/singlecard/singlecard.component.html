@@ -1,9 +1,9 @@
 <mat-card class="cardresize" [style.backgroundColor]="notedetails.note.color">
-   <div >
+   <div>
       <span *ngIf="notedetails.note.image !== null && notedetails.note.image !== ''">
-      <!-- <span *ngIf="imageget"> -->
-      <img src="http://localhost:8082/api/notes/imageget/{{notedetails.note.id}}" width="200px" height="150px"
-         mat-card-image class="hah">
+         <!-- <span *ngIf="imageget"> -->
+         <img src="http://localhost:8082/api/notes/imageget/{{notedetails.note.id}}" width="200px" height="150px"
+            mat-card-image class="hah">
       </span>
       <button style="position: absolute; right:0;" mat-icon-button (click)="unpinned()">
          <span *ngIf=notedetails.note.pinned>
@@ -22,81 +22,119 @@
       <pre class="wrap_word">{{notedetails.note.content}}</pre>
    </mat-card-subtitle>
    <mat-card-content>
-      <mat-chip-list *ngFor="let item of notedetails.note.labels"  >
-               <mat-basic-chip class="chipsize"> {{item.labelName}}</mat-basic-chip>
+      <mat-chip-list *ngFor="let item of notedetails.note.labels">
+         <mat-basic-chip class="chipsize"> {{item.labelName}}</mat-basic-chip>
       </mat-chip-list>
       <div fxLayout="row wrap" fxLayoutGap="4px grid">
          <mat-chip-list *ngFor="let users of notedetails.collabList" style="margin-left:2%;">
-            <mat-icon *ngIf="users.image==null" matTooltip={{users.email}} >
-                  account_circle
+            <mat-icon *ngIf="users.image==null" matTooltip={{users.email}}>
+               account_circle
             </mat-icon>
          </mat-chip-list>
       </div>
    </mat-card-content>
    <mat-card-footer class="marginremove">
       <div class="marginremove">
-      <div fxLayout="row">
-         <button mat-icon-button>
-            <mat-icon>
+         <div fxLayout="row">
+           
+            <!-- Notifiction Alert Menu start-->
+            <button mat-icon-button [matMenuTriggerFor]="notificationmenu">
+               
+               <mat-icon>
                   notifications
-            </mat-icon>
-         </button>
-         <button mat-icon-button (click)="addPerson()">
-            <mat-icon>
+               </mat-icon>
+            </button>
+
+            <mat-menu #notificationmenu="matMenu" class="custom" >
+               <span mat-menu-item>Remainder</span>
+
+               <button mat-menu-item>
+                  <div>
+                     <span style="float:left;">Later Today</span>
+
+                     <span style="float:right;"> 8:00 PM</span>
+                  </div>
+               </button>
+               <button mat-menu-item>
+                  <div>
+                     <span style="float:left;">Tomorrow</span>
+
+                     <span style="float:right;"> 8:00 PM</span>
+                  </div>
+               </button>
+               <button mat-menu-item>
+                  <div>
+                     <span style="float:left;">NextWeek</span>
+
+                     <span style="float:right;">Mon, 8:00 PM</span>
+                  </div>
+               </button>
+               <button mat-menu-item ><!--(click)="openid.click()"-->
+                  <div>
+                     <span style="float:left;">Pick data & Time</span>
+                  </div>
+               </button>
+
+            </mat-menu>
+            <!-- <input [ngxTimepicker]="picker" style="display: none;" #openid>
+            <ngx-material-timepicker #picker></ngx-material-timepicker> -->
+            <!-- Notifiction Alert Menu End-->
+            <button mat-icon-button (click)="addPerson()">
+               <mat-icon>
                   person
-            </mat-icon>
-         </button>
-         <button mat-icon-button [matMenuTriggerFor]="menucolor">
-            <!--*ngFor="let note of allnotes" -->
-            <mat-icon>
-               palette
-            </mat-icon>            
-         </button>
-         <mat-menu #menucolor="matMenu">
-            <mat-list>
-               <div *ngFor="let colorx of colors">
-                  <span *ngFor="let singlecolor of colorx">
-                     <button mat-icon-button (click)="colorchange(singlecolor)">
-                        <mat-icon [style.color]="singlecolor">fiber_manual_record</mat-icon>
-                     </button>
-                  </span>
-               </div>
-            </mat-list>
-         </mat-menu>
-         <input #file type="file" (change)="addCardPhoto(file.files)" class="inputnotshow">
-       
-         <button mat-icon-button #upload type="menu" (click)="file.click()">
-            <mat-icon>
-               add_photo_alternate
-            </mat-icon>
-         </button>
-         <button mat-icon-button (click)="archivenote()">
-            <mat-icon>
-               archive
-            </mat-icon>
-         </button>
-         <button mat-icon-button [matMenuTriggerFor]="menu1">
-            <mat-icon>
-               more_vert
-            </mat-icon>
-         </button>
-         <mat-menu #menu1="matMenu">
-            <button mat-menu-item (click)="noteDelete()">Delete Note</button>
-            <button mat-menu-item [matMenuTriggerFor]="menulabel">Add Label</button>
-            <mat-menu #menulabel="matMenu">
+               </mat-icon>
+            </button>
+            <button mat-icon-button [matMenuTriggerFor]="menucolor">
+               <!--*ngFor="let note of allnotes" -->
+               <mat-icon>
+                  palette
+               </mat-icon>
+            </button>
+            <mat-menu #menucolor="matMenu">
                <mat-list>
-                  <div *ngFor="let label of labelsall">
-                     {{label.labelName}} <button (click)="haveThisLabel(label,notedetails.note)">Add</button>
-                     <button (click)="removeThisLabel(label,notedetails.note)">Remove</button>
-                     <!-- <mat-checkboxb >Check me!</mat-checkbox> -->
-                     <!-- {{label.labelName}} <button mat-icon-button (click)="lncheck(label,notedetails)"></button> -->
+                  <div *ngFor="let colorx of colors">
+                     <span *ngFor="let singlecolor of colorx">
+                        <button mat-icon-button (click)="colorchange(singlecolor)">
+                           <mat-icon [style.color]="singlecolor">fiber_manual_record</mat-icon>
+                        </button>
+                     </span>
                   </div>
                </mat-list>
             </mat-menu>
-            <button mat-menu-item (click)="trashnote()">Move To trash</button>
-            <button mat-menu-item (click)="restore()">Restore</button>
-         </mat-menu>
-      </div>
+            <input #file type="file" (change)="addCardPhoto(file.files)" class="inputnotshow">
+
+            <button mat-icon-button #upload type="menu" (click)="file.click()">
+               <mat-icon>
+                  add_photo_alternate
+               </mat-icon>
+            </button>
+            <button mat-icon-button (click)="archivenote()">
+               <mat-icon>
+                  archive
+               </mat-icon>
+            </button>
+            <button mat-icon-button [matMenuTriggerFor]="menu1">
+               <mat-icon>
+                  more_vert
+               </mat-icon>
+            </button>
+            <mat-menu #menu1="matMenu">
+               <button mat-menu-item (click)="noteDelete()">Delete Note</button>
+               <button mat-menu-item [matMenuTriggerFor]="menulabel">Add Label</button>
+               <mat-menu #menulabel="matMenu">
+                  <mat-list>
+                     <div *ngFor="let label of labelsall">
+                        {{label.labelName}} <button (click)="haveThisLabel(label,notedetails.note)">Add</button>
+                        <button (click)="removeThisLabel(label,notedetails.note)">Remove</button>
+                        <!-- <mat-checkboxb >Check me!</mat-checkbox> -->
+                        <!-- {{label.labelName}} <button mat-icon-button (click)="lncheck(label,notedetails)"></button> -->
+                     </div>
+                  </mat-list>
+               </mat-menu>
+               <button mat-menu-item (click)="trashnote()">Move To trash</button>
+               <button mat-menu-item (click)="restore()">Restore</button>
+            </mat-menu>
+         </div>
       </div>
    </mat-card-footer>
 </mat-card>

@@ -8,6 +8,7 @@ import { CardsupdateService } from '../../service/cardsupdate.service';
 import { Label } from '../../Models/label.model';
 import { CollaboratordialogComponent } from '../collaboratordialog/collaboratordialog.component';
 import { ReceiveNote } from '../../Models/receivingnote.model';
+import { OwlDateTimeComponent, DateTimeAdapter, OWL_DATE_TIME_FORMATS, OWL_DATE_TIME_LOCALE } from 'ng-pick-datetime';
 
 @Component({
   selector: 'app-singlecard',
@@ -20,6 +21,7 @@ export class SinglecardComponent implements OnInit {
     "Peru", "pink", "brown"]];
   private imageget: boolean = true;
   private labelsall: Label[];
+  public dateTime: Date;
   constructor(private cardupdate: CardsupdateService, private notecrudservice: NotecrudService, private snackBar: MatSnackBar, private dialog: MatDialog) {
 
   }
@@ -228,5 +230,10 @@ export class SinglecardComponent implements OnInit {
         console.log(response);
       }
     );
+  }
+
+  method()
+  {
+    console.log("sdf");
   }
 }
