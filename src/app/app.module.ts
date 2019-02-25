@@ -120,7 +120,6 @@ const  routes:Routes = [
     ImageCropperModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule
-    
   ],
   providers: [UserserviceService,NotecrudService],
   bootstrap: [AppComponent]

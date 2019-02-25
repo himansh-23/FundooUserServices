@@ -8,7 +8,7 @@ import { CardsupdateService } from '../../service/cardsupdate.service';
 import { Label } from '../../Models/label.model';
 import { CollaboratordialogComponent } from '../collaboratordialog/collaboratordialog.component';
 import { ReceiveNote } from '../../Models/receivingnote.model';
-
+import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-singlecard',
   templateUrl: './singlecard.component.html',
@@ -20,11 +20,13 @@ export class SinglecardComponent implements OnInit {
     "Peru", "pink", "brown"]];
   private imageget: boolean = true;
   private labelsall: Label[];
+  public dateTime=new FormControl();
   constructor(private cardupdate: CardsupdateService, private notecrudservice: NotecrudService, private snackBar: MatSnackBar, private dialog: MatDialog) {
-
+   
   }
 
   @Input() notedetails: ReceiveNote;
+
 
   ngOnInit() {
 
@@ -38,6 +40,7 @@ export class SinglecardComponent implements OnInit {
 
     }
   }
+
 
   noteDelete() {
     console.log('notedeletecall');
@@ -228,5 +231,23 @@ export class SinglecardComponent implements OnInit {
         console.log(response);
       }
     );
+  }
+
+  SetRemainder(event)
+  {
+    console.log(event.value);
+    let date=new Date(event.value);
+    this.notedetails.note.remainder=date;
+    this.notecrudservice.updateNote(this.notedetails.note).subscribe(
+      response =>
+      {
+        console.log(response);
+      }
+    )
+
+  }
+  methods()
+  {
+    console.log('sdf');
   }
 }

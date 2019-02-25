@@ -11,7 +11,7 @@ export class CreateNoteModel{
     createStamp:Date;
     image:string;
     lastModifiedStamp:string;
-    remainder:string;
+    remainder:any;
     id:Number;
     labels:Label[];
 }

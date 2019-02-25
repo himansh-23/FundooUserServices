@@ -5,6 +5,7 @@ import { Label } from '../../Models/label.model';
 import { Router ,ActivatedRoute} from '@angular/router';
 import { ReceiveNote } from '../../Models/receivingnote.model';
 
+
 @Component({
   selector: 'app-labels',
   templateUrl: './labels.component.html',
@@ -17,7 +18,7 @@ export class LabelsComponent implements OnInit {
   labelvalue:string; 
   
   constructor(private cardupdate:CardsupdateService,private router:Router,private activeRoute: ActivatedRoute) { 
-
+    
   }
 
   ngOnInit() {

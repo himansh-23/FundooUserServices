@@ -83,12 +83,11 @@
     border-color: aliceblue;
     margin-bottom: 5%;  
 }
-.marginremove:hover{
-    
+
+::ng-deep .custom{
+    min-width: 300px;
+    background-color: beige;
 }
-
-
-
 
 
 

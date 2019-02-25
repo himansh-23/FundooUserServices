@@ -14,7 +14,7 @@
             <i>Pinned</i>
         </div>
 
-        <div *ngIf="currentView" fxLayout="row wrap" fxLayoutAlign="start stretch" fxLayoutGap="15px grid">
+        <div *ngIf="currentView" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="15px grid">
             <div *ngFor="let singlenote of allnotes">
                 <span *ngIf=singlenote.note.pinned>
                     <app-singlecard [notedetails]=singlenote></app-singlecard>
@@ -22,11 +22,11 @@
             </div>
         </div>
 
-        <div *ngIf="!currentView" fxLayout="column wrap" fxLayoutAlign="start stretch" fxLayoutGap="15px grid">
+        <div *ngIf="!currentView" fxLayout="column wrap" fxLayoutAlign="start start" fxLayoutGap="15px grid">
             <div *ngFor="let singlenote of allnotes">
 
                 <span *ngIf=singlenote.note.pinned>
-                    <app-singlecard [notedetails]=singlenote fxFlex="0 1 calc(33.3% - 32px)"></app-singlecard>
+                    <app-singlecard [notedetails]=singlenote ></app-singlecard>
                 </span>
             </div>
         </div>
@@ -37,9 +37,8 @@
             </i>
         </div>
 
-        <div *ngIf="currentView" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="15px grid" >
-            <!-- flexLayout="row wrap" fxLayoutGap="10px"> -->
-
+        <div *ngIf="currentView" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="15px grid" >
+        
             <div *ngFor="let singlenote of allnotes" >
                 <span *ngIf=!singlenote.note.pinned >
                     <app-singlecard [notedetails]=singlenote>
@@ -47,10 +46,9 @@
                     </app-singlecard>
                 </span>
             </div>
-
         </div>
 
-        <div *ngIf="!currentView" fxLayout="column wrap" fxLayoutAlign="start center" fxLayoutGap="15px grid">
+        <div *ngIf="!currentView" fxLayout="column wrap" fxLayoutAlign="start start" fxLayoutGap="15px grid" >
             <!-- flexLayout="row wrap" fxLayoutGap="10px"> -->
 
             <div *ngFor="let singlenote of allnotes">
