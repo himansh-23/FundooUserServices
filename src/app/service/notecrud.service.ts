@@ -97,4 +97,9 @@ export class NotecrudService {
     return this.http.delete(this.collabUrl + "?noteId=" + noteId + "&email=" + email, httpOptions2);
   }
 
+  public labelNotes(label:string):Observable<ReceiveNote[]>
+  {
+    return this.http.get<ReceiveNote[]>(this.noteUrl+"/labelnote?label="+label,httpOptions2);
+  }
+
 }

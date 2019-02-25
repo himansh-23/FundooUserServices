@@ -13,6 +13,8 @@ export class CardsupdateService implements OnInit {
   private archive = 'false';
   private trash = 'false';
 
+  private isLabelNotes:boolean=false;
+  private labelName:string;
   constructor(private notecrud: NotecrudService) {
 
     this.notecrud.getNotes(this.archive, this.trash).subscribe(
@@ -33,6 +35,7 @@ export class CardsupdateService implements OnInit {
   changemessage(archive: string, trash: string) {
     this.archive = archive;
     this.trash = trash;
+    this.isLabelNotes=false;
     this.notecrud.getNotes(archive, trash).subscribe(
       response => {
 
@@ -46,10 +49,42 @@ export class CardsupdateService implements OnInit {
   }
 
   changemessage2() {
+
+    if(this.isLabelNotes === false)
+    {
     this.notecrud.getNotes(this.archive, this.trash).subscribe(
       response => {
         console.log(response);
         this.allNotes2.next(response);
+      },
+      error => {
+        console.log(error);
+      }
+    )
+    }
+    else{
+      this.notecrud.labelNotes(this.labelName).subscribe(
+        response =>
+        {
+          this.allNotes2.next(response);
+        },
+        error => {
+          console.log(error);
+        }
+      )
+
+    }
+  }
+
+  labelNotes( label:string)
+  {
+    this.labelName=label;
+    this.isLabelNotes=true;
+    this.notecrud.labelNotes(label).subscribe(
+      response =>
+      {
+        this.allNotes2.next(response);
+        console.log(response);
       },
       error => {
         console.log(error);

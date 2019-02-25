@@ -18,6 +18,12 @@ export class NotesComponent implements OnInit {
   showUnpinned = false;
   constructor(private cardupdate: CardsupdateService, private viewChange: ViewchangeService) {
     this.cardupdate.changemessage('false', 'false');
+    this.cardupdate.currentnotes2.subscribe(udnotes => {
+      this.allnotes = udnotes;
+      this.showPinned = false;
+      this.showUnpinned = false;
+      this.content_filter();
+    });
   }
 
   ngOnInit() {
@@ -28,7 +34,6 @@ export class NotesComponent implements OnInit {
       this.showUnpinned = false;
       this.content_filter();
     });
-
 
     this.viewChange.currentView.subscribe(view => {
       this.currentView = view;

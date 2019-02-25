@@ -16,22 +16,32 @@ export class LabelsComponent implements OnInit {
   private  allnotes:ReceiveNote[];
   labelvalue:string; 
   
-  constructor(private cardupdate:CardsupdateService,private router:Router,private activeRoute: ActivatedRoute) {   
+  constructor(private cardupdate:CardsupdateService,private router:Router,private activeRoute: ActivatedRoute) { 
+
   }
 
   ngOnInit() {
     
     this.labelvalue=this.activeRoute.snapshot.params['labelvalue'];
-    this.cardupdate.currentnotes2.subscribe(udnotes=>{
-      this.allnotes=udnotes
-    });
-      
-      //This Is will Update filter (labelvalue ) over child route
-      this.router.events.subscribe((e: any) => {
-        //this.cardupdate.changemessage();
-        this.labelvalue=this.activeRoute.snapshot.params['labelvalue'];
-        
-      });
+
+    this.cardupdate.labelNotes(this.labelvalue);
+    
+      this.cardupdate.currentnotes2.subscribe(notes =>
+        {
+          this.allnotes=notes;
+        })
+
+      this.activeRoute.params.subscribe(
+        x=>
+        {
+          this.labelvalue=x.labelvalue;
+          this.cardupdate.labelNotes(this.labelvalue);
+          this.cardupdate.currentnotes2.subscribe(notes =>
+            {
+              this.allnotes=notes;
+            })
+        }
+      )
   }
 
   labelcheck(label:Label)

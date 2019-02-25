@@ -42,6 +42,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import { CollaboratordialogComponent } from './Components/collaboratordialog/collaboratordialog.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { ProfilepicComponent } from './Components/profilepic/profilepic.component';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 const  routes:Routes = [
   {path : '' , redirectTo : '/login',pathMatch:'full' },
@@ -57,7 +58,7 @@ const  routes:Routes = [
     {path:'archive',component:ArchiveComponent},
     {path:'trash',component:TrashComponent},
     {path:'notes',component:NotesComponent},
-    {path:'labels/:labelvalue',component:LabelsComponent , runGuardsAndResolvers: 'paramsChange'},
+    {path:'labels/:labelvalue',component:LabelsComponent , runGuardsAndResolvers: 'pathParamsChange'},
     
     // {path:'Remainders',component:remainders},
     // {path:'EditLabels',component:editLabels},
@@ -117,6 +118,8 @@ const  routes:Routes = [
     MatDialogModule,
     MatChipsModule,
     ImageCropperModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
     
   ],
   providers: [UserserviceService,NotecrudService],

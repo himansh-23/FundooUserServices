@@ -15,13 +15,11 @@
             <!-- flexLayout="row wrap" fxLayoutGap="10px"> -->
             
                 <div *ngFor="let note of allnotes" >
-                    <span *ngFor="let lb of note.labels">
-                      <span *ngIf="labelcheck(lb)">
+                   
                     <app-singlecard  [notedetails]=note>
 
                     </app-singlecard>
-                  </span>
-                    </span>
+                  
                 </div>
 
             </div>
