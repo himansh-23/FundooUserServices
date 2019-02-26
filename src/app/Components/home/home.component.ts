@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 import { ViewchangeService } from '../../service/viewchange.service';
 import { ProfilepicComponent } from '../profilepic/profilepic.component';
 import { UserserviceService } from '../../service/userservice.service';
+import { UserDTO } from '../../Models/register.model';
+import { UserInfo } from '../../Models/userinfo.model';
 
 @Component({
   selector: 'app-home',
@@ -20,6 +22,7 @@ export class HomeComponent implements OnInit  {
   private clickedEvent;
   private mySearch;
   private show:boolean;
+  private userinfo:UserInfo;
   label:Label=new Label();
   private profilePic:string=localStorage.getItem('jwtToken');
   labelsall:Label[];
@@ -36,6 +39,13 @@ export class HomeComponent implements OnInit  {
        this.show=response;
         }
       );
+      
+  this.userService.getUserInfo().subscribe(
+    (response:UserInfo) =>
+    {
+      this.userinfo=response;
+    }
+  )
 
   }
   constructor(private userService:UserserviceService,private notecrudservice:NotecrudService,private dialog: MatDialog,private cardUpdateService:CardsupdateService,private router:Router,private viewChange:ViewchangeService){

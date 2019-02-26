@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
 
       (response :any) =>{
         
-    //    console.log(response.HttpHeaders);
         if(response.body.statusCode ==166)
         {
           this.snackBar.open(response.body.statusMessage,"",{

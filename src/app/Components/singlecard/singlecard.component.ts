@@ -21,24 +21,27 @@ export class SinglecardComponent implements OnInit {
   private imageget: boolean = true;
   private labelsall: Label[];
   public dateTime=new FormControl();
+  
   constructor(private cardupdate: CardsupdateService, private notecrudservice: NotecrudService, private snackBar: MatSnackBar, private dialog: MatDialog) {
    
   }
 
   @Input() notedetails: ReceiveNote;
 
-
+  d:Date;
   ngOnInit() {
-
+    if(this.notedetails.note.remainder!==null)
+    {
+    this.d=new Date(this.notedetails.note.remainder);
+    }
     this.notecrudservice.getAllLabels().subscribe(
       response => {
         this.labelsall = response;
         this.imageget = false;
+        
       }
+     
     )
-    if (this.notedetails.note.image == null) {
-
-    }
   }
 
 
@@ -194,8 +197,10 @@ export class SinglecardComponent implements OnInit {
     );
   }
 
+
+
   removeThisLabel(label: Label, note: CreateNoteModel) {
-    console.log('ss');
+   
     this.notecrudservice.deletenotetolabel(label.id, note.id).subscribe(
       response => {
         this.cardupdate.changemessage2();
@@ -237,6 +242,7 @@ export class SinglecardComponent implements OnInit {
   {
     console.log(event.value);
     let date=new Date(event.value);
+    this.d=new Date(this.notedetails.note.remainder);
     this.notedetails.note.remainder=date;
     this.notecrudservice.updateNote(this.notedetails.note).subscribe(
       response =>
@@ -245,6 +251,17 @@ export class SinglecardComponent implements OnInit {
       }
     )
 
+  }
+
+  removeRemainder()
+  {
+    this.notedetails.note.remainder=null;
+    this.notecrudservice.updateNote(this.notedetails.note).subscribe(
+      response =>
+      {
+        console.log(response);
+      }
+    );
   }
   methods()
   {

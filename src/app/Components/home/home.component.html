@@ -32,8 +32,8 @@
                         <div mat-card-avatar class="profile" (click)="ProfileSelect()" >
                           <img mat-card-avatar class="profile" src="http://localhost:8080/api/user/imageget/{{profilePic}}"/>  
                         </div>
-                        <mat-card-title>Himanshu Prajapati</mat-card-title>
-                        <mat-card-subtitle>himanshu00096@gmail.com</mat-card-subtitle>
+                        <mat-card-title>{{userinfo.name}}</mat-card-title>
+                        <mat-card-subtitle>{{userinfo.email}}</mat-card-subtitle>
                     </mat-card-header>
                   <mat-card-content>
                     <button style="float:right" mat-raised-button (click)="signout()">SignOut</button>

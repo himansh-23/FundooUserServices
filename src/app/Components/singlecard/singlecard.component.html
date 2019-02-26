@@ -22,8 +22,19 @@
       <pre class="wrap_word">{{notedetails.note.content}}</pre>
    </mat-card-subtitle>
    <mat-card-content>
-      <mat-chip-list *ngFor="let item of notedetails.note.labels">
-         <mat-basic-chip class="chipsize"> {{item.labelName}}</mat-basic-chip>
+      <mat-chip-list >
+         <span *ngFor="let item of notedetails.note.labels | slice:0:2 ">
+            <mat-chip  class="chipsize"   (removed)="removeThisLabel(item,notedetails.note)"> {{item.labelName}}
+                  <mat-icon matChipRemove >cancel</mat-icon>
+            </mat-chip>
+         </span>
+      </mat-chip-list>
+      <mat-chip-list >
+            
+               <mat-chip  class="chipsize" *ngIf="notedetails.note.remainder!==null" (removed)="removeRemainder()"> {{d.toLocaleDateString()+" "+d.toLocaleTimeString()}}
+                     <mat-icon matChipRemove >cancel</mat-icon>
+               </mat-chip>
+            
       </mat-chip-list>
       <div fxLayout="row wrap" fxLayoutGap="4px grid">
          <mat-chip-list *ngFor="let users of notedetails.collabList" style="margin-left:2%;">

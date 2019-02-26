@@ -43,18 +43,17 @@ export class NotesComponent implements OnInit {
     );
 
     //var remainderChecker=interval(1000);
-
     // remainderChecker.subscribe(
     //     time =>
     //     {
-            this.allnotes.forEach(
-              singlenote =>
-              {
-             //   var y=new Date(singlenote.note.remainder);
-                var x=new Date();
-         //       console.log(x+"                     ");
-              }
-            )
+            // this.allnotes.forEach(
+            //   singlenote =>
+            //   {
+            //  //   var y=new Date(singlenote.note.remainder);
+            //     var x=new Date();
+        //  //       console.log(x+"                     ");
+        //       }
+        //     )
     //    }
       
     //)

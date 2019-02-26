@@ -72,16 +72,17 @@
 }
 
 .marginremove{
-    margin-top: -10%;
+    margin-top: -5%;
 }
 
-.chipsize{
-    /* size: 20%; */
-    background-color: aliceblue;
-    border-style: solid;
-    border-radius: 30%;
-    border-color: aliceblue;
-    margin-bottom: 5%;  
+::ng-deep .chipsize{
+    size: 5%;
+    /* background-color: aliceblue; */
+    /* border-style: solid; */
+    /* border-radius: 30%; */
+    /* border-color: aliceblue; */
+    margin-bottom: 5%; 
+    margin-left: 20%; 
 }
 
 ::ng-deep .custom{

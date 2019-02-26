@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpRequest, HttpParams } from '@angular/commo
 import { UserDTO } from '../../app/Models/register.model';
 import { Observable } from 'rxjs';
 import { LoginModel } from '../../app/Models/login.model';
+import { UserInfo } from '../Models/userinfo.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -75,6 +76,10 @@ export class UserserviceService {
   public getProfileImage():any
   {
     return this.http.get(this.userUrl+"imageget",httpOptions2);
+  }
+
+  public getUserInfo():Observable<UserInfo>{
+    return this.http.get<UserInfo>(this.userUrl+"getUserDetails",httpOptions2);
   }
 
 }
