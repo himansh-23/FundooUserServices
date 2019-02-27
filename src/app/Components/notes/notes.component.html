@@ -1,8 +1,6 @@
 <div fxLayout="row" fxFlexOffset="15%" fxLayoutGap="10px">
     <div>
-
     </div>
-
     <div fxLayout="column" fxLayoutGap="20px" style="overflow: hidden;">
 
         <div fxLayoutAlign="center start" style="margin-top:40px;">
@@ -22,7 +20,7 @@
             </div>
         </div>
 
-        <div *ngIf="!currentView" fxLayout="column wrap" fxLayoutAlign="start start" fxLayoutGap="15px grid">
+        <div *ngIf="!currentView" fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="15px grid">
             <div *ngFor="let singlenote of allnotes">
 
                 <span *ngIf=singlenote.note.pinned>

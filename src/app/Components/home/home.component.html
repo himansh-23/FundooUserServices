@@ -26,7 +26,7 @@
                       </mat-menu> 
              <button  mat-icon-button  [matMenuTriggerFor]="menu3"><mat-icon>account_circle</mat-icon></button>
              <mat-menu #menu3="matMenu" class="menuborder">
-                <ng-template matMenuContent>
+                <ng-template matMenuContent >
                 <mat-card class="example-card">
                     <mat-card-header >
                         <div mat-card-avatar class="profile" (click)="ProfileSelect()" >
@@ -47,7 +47,7 @@
     </mat-toolbar>
 </div>
 <div fxFlex="90%">
-  <mat-drawer-container style="margin-top: 5%;" class="example-container" >
+  <mat-drawer-container style="margin-top: 5%;" class="example-container">
     <mat-drawer #sidenav  class="example-sidenav" mode="side"  disableClose>
        <mat-action-list >
           <button class= "hoverhighlight" mat-list-item routerLink="notes" routerLinkActive="active"> <mat-icon>lightbulb_outline</mat-icon> <i style="margin: 5%;"></i> Notes </button>

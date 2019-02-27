@@ -1,16 +1,36 @@
 .example-card { 
-    background-image: url('../../../../home/administrator/Downloads/img3.jpeg'); 
+    /* background-image: url('../../../../home/administrator/Downloads/img3.jpeg');  */
+    background-size: cover;
+    min-width: 400px;
+    min-height: 300px; 
+  }
+  .example-card2 { 
+    /* background-image: url('../../../assets/keep-512.png');  */
+    background-size: 100%;
+    background-size: cover;
+    
+    min-width: 400px;
+    min-height: 300px;
+  }
+
+  .limiter {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .container-login100 {
+    width: 100%;  
+    min-height: 100vh;
+    background-image: url('../../../assets/bg-01.jpg');
+    overflow: hidden;
+    /* padding: 15px; */
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
   }
 
-  /*@media (max-width:600px)
-  {
-    .z{
-      display:none;
-      min-height: 100%;
-    }
-  }*/
-
+  .imagepic{
+    background-image: url('../../../../home/administrator/Downloads/img3.jpeg');
+  }
 
 
 

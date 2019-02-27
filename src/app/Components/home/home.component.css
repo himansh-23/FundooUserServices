@@ -2,7 +2,12 @@
     min-width: 1300px;
       min-height: 600px;
     border: 0px solid rgba(255, 255, 255);
+  overflow: hidden;
+  
   }
+  example-container:hover{
+    overflow:auto;
+  } 
 
   .example-sidenav{
     width:20%;
@@ -69,30 +74,20 @@
   width: 65%;
   height: 100%;
 }
-.example-card
-{
-  width:250px;
-  height: 100px;
-  
-}
+
 
 .profile{
   width: 70px;
   height: 70px;
 }
 .example-card{
-
-  border: none;
-  background-color: darkgrey;
-  overflow: none;
   overflow: hidden; 
-  overflow-x: hidden;
-  border: solid 2px transparent;
 }
 
 .menuborder{
   
-  overflow: hidden !important;
+  overflow: hidden;
+  background-color: aquamarine;
   border: none;
   max-width: none !important;
 

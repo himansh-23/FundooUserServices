@@ -9,6 +9,8 @@ import { Label } from '../../Models/label.model';
 import { CollaboratordialogComponent } from '../collaboratordialog/collaboratordialog.component';
 import { ReceiveNote } from '../../Models/receivingnote.model';
 import { FormControl } from '@angular/forms';
+import { ViewchangeService } from '../../service/viewchange.service';
+
 @Component({
   selector: 'app-singlecard',
   templateUrl: './singlecard.component.html',
@@ -21,8 +23,9 @@ export class SinglecardComponent implements OnInit {
   private imageget: boolean = true;
   private labelsall: Label[];
   public dateTime=new FormControl();
-  
-  constructor(private cardupdate: CardsupdateService, private notecrudservice: NotecrudService, private snackBar: MatSnackBar, private dialog: MatDialog) {
+  // private view:boolean;
+
+  constructor(private cardupdate: CardsupdateService, private notecrudservice: NotecrudService, private snackBar: MatSnackBar, private dialog: MatDialog,private viewChange: ViewchangeService) {
    
   }
 
@@ -40,8 +43,8 @@ export class SinglecardComponent implements OnInit {
         this.imageget = false;
         
       }
-     
     )
+
   }
 
 

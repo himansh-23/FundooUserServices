@@ -5,14 +5,14 @@
     margin-right: auto;
     margin-top: 150px;
     background-size: cover;
-    background-image: url('../../../../home/administrator/Downloads/img4.jpeg'); 
+    /* background-image: url('../../../../home/administrator/Downloads/img4.jpeg');  */
 }
 
 .example-full-width {
     width: 100%;
   }
 
-  .example-container {
+  .example-containers {
     display: flex;
     flex-direction :column; 
 
@@ -26,4 +26,25 @@
 
 .x{
     margin-left: 50px;
+  }
+  .limiter {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .container-login100 {
+    width: 100%;  
+    min-height: 100vh;
+    background-image: url('../../../assets/bg-01.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .example-card
+  {
+      /* background-image: url('../../../../home/administrator/Downloads/img3.jpeg');  */
+      background-size: cover;
+      min-width: 400px;
+      min-height: 300px; 
+    
   }

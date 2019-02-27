@@ -1,34 +1,39 @@
+<div class="limiter">
+   <div class="container-login100" fxLayout="row" fxLayoutAlign="center center">
+         <mat-card fxLayout="column" fxLayoutAlign="center center" class="example-card">
+            <mat-card-header>
+               <mat-card-title>
+                  <h2> Login </h2>
+               </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+               <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" fxLayout="column" fxLayout.xs="column"
+                  fxLayoutAlign="center start" flex-shrink>
+                  <mat-form-field>
+                     <input matInput placeholder="Email" type="text" name="email" [(ngModel)]="loginmodel.email"
+                        formControlName="email">
+                  </mat-form-field>
+                  <mat-form-field>
+                     <input matInput placeholder="Password" type="password" name="pass" [(ngModel)]="loginmodel.password"
+                        formControlName="password">
+                  </mat-form-field>
+                  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+                     <button mat-raised-button color="primary" (ngSubmit)="onLoginSubmit()">
+                        <mat-icon>input</mat-icon>
+                        Login
+                     </button>
+                     <button mat-raised-button color="primary" routerLink="/register">
+                        <mat-icon>account_circle</mat-icon>
+                        Register
+                     </button>
+                  </div>
+                  <br>
+                  <a routerLink="/forgot">Forgot Password?</a>
+               </form>
+            </mat-card-content>
 
-    <div fxLayout="column" fxLayoutAlign="center center" fxLayoutAlign.xs="center stretch"  class="z">
-      <mat-card fxLayout="column" fxLayoutAlign="center center"  class="example-card">
-         <mat-card-header>
-            <mat-card-title>
-               Login
-            </mat-card-title>
-         </mat-card-header>
-         <mat-card-content >
-            <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" fxLayout="column" fxLayout.xs="column" fxLayoutAlign="center start" flex-shrink>
-            <mat-form-field>
-               <input matInput placeholder="Email" type="text" name="email"
-               [(ngModel)]="loginmodel.email" formControlName="email">
-            </mat-form-field>
-            <mat-form-field>
-               <input matInput placeholder="Password" type="password" name="pass"
-               [(ngModel)]="loginmodel.password" formControlName="password">
-            </mat-form-field>
-            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
-               <button mat-raised-button color="primary" (ngSubmit)="onLoginSubmit()" >
-                  <mat-icon>input</mat-icon>
-                  Login
-               </button>
-               <button  mat-raised-button  color="primary" routerLink="/register">
-                  <mat-icon>account_circle</mat-icon>
-                  Register
-               </button>
-            </div>
-            <br>
-            <a routerLink="/forgot">Forgot Password?</a>
-            </form>
-         </mat-card-content>
-      </mat-card>
-   </div>
+         </mat-card>
+      </div>
+
+
+</div>
