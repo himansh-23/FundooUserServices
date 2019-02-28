@@ -59,11 +59,6 @@ const  routes:Routes = [
     {path:'trash',component:TrashComponent},
     {path:'notes',component:NotesComponent},
     {path:'labels/:labelvalue',component:LabelsComponent , runGuardsAndResolvers: 'pathParamsChange'},
-    
-    // {path:'Remainders',component:remainders},
-    // {path:'EditLabels',component:editLabels},
-    // {path:'Overview',component:archive},
-    // {path:'Trash',component:trash}
   ]
 }
 ]; 

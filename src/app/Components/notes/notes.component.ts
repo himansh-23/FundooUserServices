@@ -21,6 +21,7 @@ export class NotesComponent implements OnInit {
   constructor(private cardupdate: CardsupdateService, private viewChange: ViewchangeService) {
     this.cardupdate.changemessage('false', 'false');
     this.cardupdate.currentnotes2.subscribe(udnotes => {
+      console.log(udnotes);
       this.allnotes = udnotes;
       this.showPinned = false;
       this.showUnpinned = false;

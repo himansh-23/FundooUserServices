@@ -18,11 +18,11 @@ export class CardsupdateService implements OnInit {
   constructor(private notecrud: NotecrudService) {
 
     this.notecrud.getNotes(this.archive, this.trash).subscribe(
-      response => {
+      response => { 
         this.allNotes2.next(response);
       },
       error => {
-        console.log(error);
+       
       }
     );
 
